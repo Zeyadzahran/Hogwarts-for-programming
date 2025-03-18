@@ -4,7 +4,6 @@ require ("login.classes.php");
 
 class LoginContr extends Login {
     private $userinfo;
-
     private $password;
     
     public function __construct($userinfo, $password) {
