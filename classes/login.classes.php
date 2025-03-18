@@ -24,7 +24,7 @@ class Login extends Dbh {
         if($user["isAdmin"]){
             // header to admin page
         }else{
-            // header to 
+            // header to user page 
         }
     
         if ($user["password"] == $pwd) {
