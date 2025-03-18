@@ -31,11 +31,15 @@ class Login extends Dbh {
             session_start();
             $_SESSION["id"] = $user[0]["id"];
             $_SESSION["username"] = $user[0]["username"];
-            header("location: ../home.html");
-            exit();
+            if ($user["Role"] == "admin") {
+                // header to admin page
+            }else{
+                //header to student page 
+            }
+           
         } else {
             $stmt = null;
-            header("location: ../index.php?error=wrongpassword");
+            header("location: ../login.php?error=wrongpassword");
             exit();
         }
     }

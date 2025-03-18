@@ -1,26 +1,4 @@
-<?php
-if (isset($_GET['error'])) {
-    $error = $_GET['error'];
-    if ($error == 'emptyinput') {
-        echo "<p>Please fill in all fields.</p>";
-    } elseif ($error == 'usernameisnotvalid') {
-        echo "<p>Invalid username.</p>";
-    } elseif ($error == 'emailisnotvalid') {
-        echo "<p>Invalid email.</p>";
-    } elseif ($error == 'passwordsdonotmatch') {
-        echo "<p>Passwords do not match.</p>";
-    } elseif ($error == 'useralreadyexists') {
-        echo "<p>User already exists.</p>";
-    } elseif ($error == 'statementfailed') {
-        echo "<p>Something went wrong. Please try again.</p>";
-    }
-}
-if (isset($_GET['success'])) {
-    if ($_GET['success'] == 'registered') {
-        echo "<p>Registration successful! Please login.</p>";
-    }
-}
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">

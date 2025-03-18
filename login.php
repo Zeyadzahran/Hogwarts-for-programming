@@ -1,15 +1,4 @@
-<?php
-if (isset($_GET['error'])) {
-    $error = $_GET['error'];
-    if ($error == 'emptyinput') {
-        echo "<p>Please fill in all fields.</p>";
-    } elseif ($error == 'usernotfound') {
-        echo "<p>User not found.</p>";
-    } elseif ($error == 'wrongpassword') {
-        echo "<p>Wrong password.</p>";
-    }
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
