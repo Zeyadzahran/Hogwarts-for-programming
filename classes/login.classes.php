@@ -2,6 +2,9 @@
 require("dbh.classes.php");
 
 class Login extends Dbh {
+
+    protected $user;
+
     protected function getUser($username, $pwd) {
         $query = 'SELECT * FROM users WHERE username = ? OR email = ?;';
         
@@ -19,24 +22,21 @@ class Login extends Dbh {
             exit();
         }
 
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        $this->user = $stmt->fetch(PDO::FETCH_ASSOC);
+       
+        if ($this->user["password"] == $pwd) {
 
-        if($user["isAdmin"]){
-            // header to admin page
-        }else{
-            // header to user page 
-        }
-    
-        if ($user["password"] == $pwd) {
             session_start();
-            $_SESSION["id"] = $user[0]["id"];
-            $_SESSION["username"] = $user[0]["username"];
-            if ($user["Role"] == "admin") {
-                // header to admin page
-            }else{
-                //header to student page 
+            $_SESSION["user_id"] = $this->user["id"];
+            $_SESSION["username"] = $this->user["username"];
+            $_SESSION["role"] = $this->user["role"];
+            if ($this->user["role"] === "Admin") {
+                header("Location: ../admin/dashboard.php");
+                exit();
+            } else {
+                header("Location: ../user/index.php");
+                exit();
             }
-           
         } else {
             $stmt = null;
             header("location: ../login.php?error=wrongpassword");

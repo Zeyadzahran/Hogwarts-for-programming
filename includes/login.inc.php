@@ -14,7 +14,8 @@ if(isset($_POST["submit"]))
     $login = new LoginContr($username,$password);
 
     // validate & chaeck for errors 
-    $login->loginuser();
+    $login->loginUser();
+    
 
     
 }
