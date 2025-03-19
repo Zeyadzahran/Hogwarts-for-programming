@@ -1,29 +1,28 @@
-CREATE DATABASE Hogwarts;
-USE Hogwarts;
-
 CREATE TABLE Wand(
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     core VARCHAR(50) NOT NULL,
     wood VARCHAR(50) NOT NULL
 );
+
+CREATE TABLE House(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    points INT
+);
+
 CREATE TABLE User(
     id INT PRIMARY KEY AUTO_INCREMENT, 
     name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
     role VARCHAR(50) DEFAULT'Student' CHECK (role IN('Admin','Student')),
-    passward INT NOT NULL,
+    passward VARCHAR(50) NOT NULL,
     wand_id INT NOT NULL,
-    FOREIGN KEY (wand_id) REFERENCES wand(id) 
+    house_id INT NOT NULL,
+    FOREIGN KEY (wand_id) REFERENCES wand(id),
+    FOREIGN KEY (house_id) REFERENCES House(id)
 );
 
-CREATE TABLE House(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
-    points INT,
-    user_id INT, 
-    FOREIGN KEY (user_id) REFERENCES User(id)
-);
 
 CREATE TABLE Course(
     id INT PRIMARY KEY AUTO_INCREMENT,
