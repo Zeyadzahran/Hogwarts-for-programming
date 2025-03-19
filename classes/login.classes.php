@@ -21,11 +21,7 @@ class Login extends Dbh {
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if($user["isAdmin"]){
-            // header to admin page
-        }else{
-            // header to user page 
-        }
+       
     
         if ($user["password"] == $pwd) {
             session_start();
