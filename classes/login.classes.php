@@ -3,7 +3,7 @@ require("dbh.classes.php");
 
 class Login extends Dbh {
     protected function getUser($username, $pwd) {
-        $query = 'SELECT * FROM users WHERE username = ? OR email = ?;';
+        $query = 'SELECT * FROM user WHERE name = ? OR email = ?;';
         
         $stmt = $this->connect()->prepare($query);
         
@@ -25,12 +25,14 @@ class Login extends Dbh {
     
         if ($user["password"] == $pwd) {
             session_start();
-            $_SESSION["id"] = $user[0]["id"];
-            $_SESSION["username"] = $user[0]["username"];
-            if ($user["Role"] == "admin") {
-                // header to admin page
+            $_SESSION["id"] = $user["id"];
+            $_SESSION["role"] = $user["role"];
+            if ($user["role"] == "Admin") {
+                header("Location: ../admin/dashboard.php");
+                exit();
             }else{
-                //header to student page 
+                 header("Location: ../admin/dashboard.php");
+                exit();
             }
            
         } else {
