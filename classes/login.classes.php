@@ -27,7 +27,7 @@ class Login extends Dbh {
             session_start();
             $_SESSION["id"] = $user["id"];
             $_SESSION["Role"] = $user["role"];
-            if ($user["Role"] == "admin") {
+            if ($user["Role"] == "Admin") {
                 header("Location: ../admin/dashboard.php");
                 exit();
             }else{
