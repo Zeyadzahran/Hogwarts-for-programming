@@ -49,7 +49,7 @@ if (!$courses) {
                 <tbody>
                     <?php foreach ($courses as $course) : ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($course['coursename']); ?></td>
+                            <td><?php echo htmlspecialchars($course['course_name']); ?></td>
                             <td><?php echo htmlspecialchars($course['professor_name']); ?></td>
                             <td><?php echo htmlspecialchars($course['degree']); ?></td>
                         </tr>
