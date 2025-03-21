@@ -1,0 +1,52 @@
+body {
+    background: linear-gradient(rgba(11, 26, 53, 0.7), rgba(11, 26, 53, 0.7)), 
+                url('flag.jpg') no-repeat center center fixed;
+    background-size: contain; 
+    background-color: #0b1a35;
+    color: #c9b78b;
+    font-family: Fira Code;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+} 
+.dashboard-container {
+    background-color: rgba(11, 26, 53, 0.85); 
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+} 
+h1 {
+    font-size: 32px;
+    color: #c9b78b;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 5px;
+    
+}
+
+.animated-username {
+    display: inline-flex;
+    align-items: baseline;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: bold;
+    width: 0;
+    animation: typing 2s steps(var(--char-count), end) forwards;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: calc(var(--char-count) * 1ch);
+    }
+}

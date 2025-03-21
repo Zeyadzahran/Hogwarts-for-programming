@@ -46,7 +46,7 @@ class SignupContr extends Signup{
             header("location: ../index.php ? error = the user already Exists");
             exit();
         }
-         $this->setUser($this->username,$this->password,$this->email);
+         $this->setUser($this->username,$this->email,$this->password);
     }
 
     private function emptyInput()

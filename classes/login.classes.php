@@ -26,12 +26,13 @@ class Login extends Dbh {
         if ($user["password"] == $pwd) {
             session_start();
             $_SESSION["id"] = $user["id"];
+            $_SESSION["name"] = $user["name"];
             $_SESSION["role"] = $user["role"];
             if ($user["role"] == "Admin") {
                 header("Location: ../admin/dashboard.php");
                 exit();
             }else{
-                 header("Location: ../admin/dashboard.php");
+                 header("Location: ../user/dashboard.php");
                 exit();
             }
            
