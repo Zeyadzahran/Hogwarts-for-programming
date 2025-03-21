@@ -2,7 +2,7 @@ body {
     background: linear-gradient(rgba(11, 26, 53, 0.7), rgba(11, 26, 53, 0.7)), 
                 url('flag.jpg') no-repeat center center fixed;
     background-size: contain; 
-    background-color: #0b1a35; /* تكملة الخلفية بلون مناسب */
+    background-color: #0b1a35; 
     color: #c9b78b;
     font-family: Arial, sans-serif;
     display: flex;
