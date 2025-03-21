@@ -45,4 +45,17 @@ class user extends Dbh{
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function getHouses()
+    {
+        $query = "SELECT name,points FROM house ORDER BY points DESC ,name ASC;";
+        $stmt = $this->connect()->prepare($query);
+        
+        if (!$stmt->execute()) {
+            $stmt = null;
+            header("location: ../login.php?error=statementfailed");
+            exit();
+        }
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
 }
