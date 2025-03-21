@@ -11,7 +11,7 @@ class Data extends dbh{
 
 $data = new Data();
 $stmt = $data->getData()->query("SELECT name,points FROM house
-                                 ORDER BY points,name ASC;");
+                                 ORDER BY points DESC ,name ASC;");
 
 ?>
 

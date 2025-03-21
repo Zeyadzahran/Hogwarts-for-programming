@@ -34,3 +34,6 @@ INSERT INTO House (name, points) VALUES
 ('Slytherin', 0),
 ('Ravenclaw', 0),
 ('Hufflepuff', 0);
+
+INSERT INTO User(name,email,role,password,wand_id)
+VALUES ("Albus Dumbledore","Dumbledore@gmail.com","Admin","123456dd",1);

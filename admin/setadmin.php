@@ -20,10 +20,12 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         header("Location: manage users.php?success=1");
         exit();
     } else {
-        echo "Couldn't Update the User Try again!";
+        header("Location: manage users.php?errors=couldn't update user role");
+        exit();
     }
 } else {
-    echo "User Not Found!";
+    header("Location: manage users.php?errors=User Not Found!");
+        exit();
 }
 
 
