@@ -9,13 +9,12 @@ class Data extends dbh{
 }
 
 $data = new Data();
-$stmt = $data->getData()->query("SELECT 
-                                    User.id, 
-                                    User.name, 
-                                    User.email, 
-                                    Wand.name AS wand_name, 
-                                    House.name AS house_name
-                                FROM User
+$stmt = $data->getData()->query("SELECT  User.id, 
+                                User.name, 
+                                User.email, 
+                                Wand.name AS wand_name, 
+                                House.name AS house_name
+                            FROM User
                                 JOIN Wand ON User.wand_id = Wand.id
                                 LEFT JOIN House ON User.house_id = House.id
                                 WHERE User.role = 'Student';

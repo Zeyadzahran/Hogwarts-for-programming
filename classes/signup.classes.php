@@ -26,7 +26,7 @@ class Signup extends Dbh{
 
         $stmt = $this->connect()->prepare($query); 
         if(!$stmt->execute([$name,$email, $password,$house_id,$wand_id])){ // remmember to insert the house and wand data ;
-            header("location: ../index.php?error=statmentFailed");
+            header("location: ../login.php?error=statmentFailed");
             exit();   
         }
             

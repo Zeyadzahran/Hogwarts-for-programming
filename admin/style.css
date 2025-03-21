@@ -190,3 +190,34 @@ button {
     background-color: rgba(201, 183, 139, 1);
     transform: scale(1.05);
 }
+
+ h1 {
+     font-size: 32px;
+     color: #c9b78b;
+     text-align: center;
+     display: flex;
+     justify-content: center;
+     align-items: baseline;
+     gap: 5px;
+
+ }
+
+ .animated-username {
+     display: inline-flex;
+     align-items: baseline;
+     white-space: nowrap;
+     overflow: hidden;
+     font-weight: bold;
+     width: 0;
+     animation: typing 2s steps(var(--char-count), end) forwards;
+ }
+
+ @keyframes typing {
+     from {
+         width: 0;
+     }
+
+     to {
+         width: calc(var(--char-count) * 1ch);
+     }
+ }

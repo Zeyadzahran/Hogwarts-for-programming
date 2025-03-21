@@ -15,10 +15,10 @@ $obj = new user();
 $courses = $obj->getCourses($userId);
 
 
-if (!$courses) {
-    header("Location: ../login.php?error=UserNotFound");
-    exit();
-}
+//  if (!$courses) {
+//     header("Location: ../login.php?error=weDon'tCources");
+//     exit();
+// }
 ?>
 
 
