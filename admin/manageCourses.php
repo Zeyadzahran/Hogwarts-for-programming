@@ -1,39 +1,17 @@
 <?php
+require("adminClass.php");
 session_start();
-$userid = $_SESSION["id"];
-require("..\classes\dbh.classes.php");
-
-class Data extends dbh{
-    public function getData() {
-        $conn = $this->connect();
-        return $conn;
-    }
+if (!isset($_SESSION["id"])) {
+    header("Location: ../login.php?error=FailedInMangeCoursePage");
+    exit();
 }
 
-$data = new Data();
-if ($userid == 1) {
-    $stmt = $data->getData()->prepare("
-        SELECT 
-            Course.id AS id, 
-            Course.name AS name, 
-            User.name AS professor_name
-        FROM Course
-        JOIN User ON Course.professor_id = User.id
-    ");
-} else {
-    $stmt = $data->getData()->prepare("
-        SELECT 
-            Course.id AS id, 
-            Course.name AS name
-        FROM Course
-        WHERE Course.professor_id = ?
-    ");
-    $stmt->bindParam(1, $userid, PDO::PARAM_INT);
-}
+$userId = $_SESSION["id"];
 
-$stmt->execute();
+
+$obj = new admin();
+$courses = $obj->GetCourses($userId);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,26 +46,24 @@ $stmt->execute();
                 </tr>
             </thead>
             <tbody>
-
-
                 <?php
                     if ($userid == 1)
                     {
-                        while($row=$stmt->fetch(PDO::FETCH_ASSOC))
+                        foreach($courses as $course)
                         {
                             echo "<tr>
-                            <td>{$row['id']}</td>
-                            <td>{$row['name']}</td>
-                            <td>{$row['professor_name']}</td>
+                            <td>{$course['id']}</td>
+                            <td>{$course['name']}</td>
+                            <td>{$course['professor_name']}</td>
                             </tr>";
                         }
                     }
                     else 
                     {
-                        while($row=$stmt->fetch(PDO::FETCH_ASSOC)):
+                        foreach ($courses as $course):
                             echo "<tr>
-                            <td>{$row['id']}</td>
-                            <td>{$row['name']}</td>";
+                            <td>{$course['id']}</td>
+                            <td>{$course['name']}</td>";
                 ?>
                 <td>
                 <div text-align="center">
@@ -96,7 +72,7 @@ $stmt->execute();
                     </td>     
                 </tr>
                 <?php
-                        endwhile;
+                        endforeach;
                     }
                 ?>
             </tbody>
@@ -105,16 +81,7 @@ $stmt->execute();
 </div>
 
 
-<div class="sidebar">
-    <h2>Admin Panel</h2>
-    <ul>
-        <li><a href="admin dashboard.php">🏨 Dashboard</a></li>
-        <li><a href="manage users.php">👥 Manage Users</a></li>
-        <li><a href="manage courses.php">📚 Manage Courses</a></li>
-        <li><a href="houses.php" class="dashboard-item">🏠Houses Leaderboard</a></li>
-        <li><a href="logout.php" class="logout">🚪 Logout</a></li>
-    </ul>
-</div>
+<?php require "sidePanal.php";?>
 
 
 </body>

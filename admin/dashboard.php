@@ -1,7 +1,7 @@
 <?php
     session_start();
     if (!isset($_SESSION["id"])) {
-        header("Location: ../login.php?error=FailedOnUserDashboard");
+        header("Location: ../login.php?error=FailedOnAdminDashboard");
         exit();
     }
 
@@ -25,6 +25,7 @@
     <div class="dashboard-container">
         <h1>Welcome, <span class="animated-username" style="--char-count: <?php echo $charCount; ?>;"><?php echo $username; ?></span></h1>
     </div>
+    <?php require "sidePanal.php";?>
 
 </body>
 
