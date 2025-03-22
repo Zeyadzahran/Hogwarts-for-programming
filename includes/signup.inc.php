@@ -18,7 +18,7 @@ if (isset($_POST["submit"])) {
 
     $signup->validateUser();
 
-    header("Location: ../login.php");
+    header("Location: ../src/login.php");
     exit();
 
 

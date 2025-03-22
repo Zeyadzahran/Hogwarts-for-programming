@@ -1,8 +1,8 @@
 body {
-    background: linear-gradient(rgba(11, 26, 53, 0.7), rgba(11, 26, 53, 0.7)), 
-                url('../flag.jpg') no-repeat center center fixed;
-    background-size: contain; 
-    background-color: #0b1a35; 
+    background: linear-gradient(rgba(11, 26, 53, 0.7), rgba(11, 26, 53, 0.7)),
+        url('../Styles/flag.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #0b1a35;
     color: #c9b78b;
     font-family: Arial, sans-serif;
     display: flex;
@@ -11,15 +11,16 @@ body {
     height: 100vh;
     margin: 0;
     flex-direction: column;
-} 
+}
+
 .dashboard-container {
-    background-color: rgba(11, 26, 53, 0.85); 
+    background-color: rgba(11, 26, 53, 0.85);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     width: 80%;
     max-width: 600px;
-} 
+}
 
 .navbar .logo {
     font-size: 1.5rem;
@@ -28,10 +29,9 @@ body {
     text-align: center;
 }
 
-
 .dashboard-menu .dashboard-item {
     display: block;
-    background-color: rgba(201, 183, 139, 0.8); 
+    background-color: rgba(201, 183, 139, 0.8);
     color: #0b1a35;
     padding: 10px;
     margin: 5px;
@@ -47,15 +47,14 @@ body {
 }
 
 .sidebar {
-    width: 250px;
-    height: 100vh;
-    background: #0b1a35;
-    color: #c9b78b;
     position: fixed;
     left: 0;
     top: 0;
+    height: 100%;
+    width: 250px;
+    background: rgba(11, 26, 53, 0.9);
     padding-top: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .sidebar ul {
@@ -65,6 +64,7 @@ body {
 
 .sidebar ul li {
     padding: 15px;
+    text-align: center;
 }
 
 .sidebar ul li a {
@@ -76,8 +76,13 @@ body {
 }
 
 .sidebar ul li a:hover {
-    background: rgba(201, 183, 139, 0.2);
+    background: rgba(255, 255, 255, 0.1);
     padding-left: 10px;
+}
+
+.sidebar .logout {
+    color: red;
+    font-weight: bold;
 }
 
 .user-table {
@@ -89,9 +94,10 @@ body {
     overflow: hidden;
 }
 
-.user-table th, .user-table td {
+.user-table th,
+.user-table td {
     border: 1px solid #c9b78b;
-    padding: 15px; 
+    padding: 15px;
     text-align: center;
 }
 
@@ -109,26 +115,6 @@ body {
     background-color: rgba(201, 183, 139, 0.1);
 }
 
-.user-table th:nth-child(1),
-.user-table td:nth-child(1) {
-    width: 10%;  
-}
-
-.user-table th:nth-child(2),
-.user-table td:nth-child(2) {
-    width: 30%;  
-}
-
-.user-table th:nth-child(3),
-.user-table td:nth-child(3) {
-    width: 25%;  
-}
-
-.user-table th:nth-child(4),
-.user-table td:nth-child(4) {
-    width: 35%;  
-}
-
 button {
     padding: 10px 15px;
     border: none;
@@ -137,87 +123,102 @@ button {
     cursor: pointer;
     transition: 0.3s;
     font-size: 0.9rem;
-    margin: 5px; 
+    margin: 5px;
+}
+
+.delete,
+.setadmin,
+.AddQuiz {
+    display: block;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 .delete {
-    display: block;
     background-color: #b92020;
     color: black;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.delete:hover {
-    background-color: rgba(201, 183, 139, 1);
-    transform: scale(1.05);
 }
 
 .setadmin {
-    display: block;
     background-color: #0be192;
     color: black;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.setadmin:hover {
-    background-color: rgba(201, 183, 139, 1);
-    transform: scale(1.05);
 }
 
 .AddQuiz {
-    display: block;
     background-color: #4caf50;
     color: white;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
 }
 
+.delete:hover,
+.setadmin:hover,
 .AddQuiz:hover {
     background-color: rgba(201, 183, 139, 1);
     transform: scale(1.05);
 }
 
- h1 {
-     font-size: 32px;
-     color: #c9b78b;
-     text-align: center;
-     display: flex;
-     justify-content: center;
-     align-items: baseline;
-     gap: 5px;
+h1 {
+    font-size: 32px;
+    color: #c9b78b;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 5px;
+}
 
- }
+.animated-username {
+    display: inline-flex;
+    align-items: baseline;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: bold;
+    width: 0;
+    animation: typing 2s steps(var(--char-count), end) forwards;
+}
 
- .animated-username {
-     display: inline-flex;
-     align-items: baseline;
-     white-space: nowrap;
-     overflow: hidden;
-     font-weight: bold;
-     width: 0;
-     animation: typing 2s steps(var(--char-count), end) forwards;
- }
+@keyframes typing {
+    from {
+        width: 0;
+    }
 
- @keyframes typing {
-     from {
-         width: 0;
-     }
+    to {
+        width: calc(var(--char-count) * 1ch);
+    }
+}
 
-     to {
-         width: calc(var(--char-count) * 1ch);
-     }
- }
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.profile-card {
+    background: #c9b78b;
+    width: 350px;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-card:hover {
+    transform: scale(1.05);
+}
+
+.user-name {
+    font-size: 22px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.user-info p {
+    font-size: 14px;
+    color: #222;
+    margin: 5px 0;
+}
