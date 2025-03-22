@@ -5,7 +5,7 @@ require("adminClass.php");
 session_start();
 
 if (!isset($_SESSION["id"])) {
-    header("Location: ../login.php?error=FailedToDeleteUser");
+    header("Location: ../src/login.php?error=FailedToDeleteUser");
     exit();
 }
 $userId = $_SESSION["id"];

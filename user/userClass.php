@@ -19,7 +19,7 @@ class user extends Dbh{
 
         if (!$stmt->execute([$id])) {
             $stmt = null;
-            header("location: ../login.php?error=statementfailed");
+            header("location: ../src/login.php?error=statementfailed");
             exit();
         }
 
@@ -40,7 +40,7 @@ class user extends Dbh{
 
         if (!$stmt->execute([$id])) {
             $stmt = null;
-            header("location: ../login.php?error=statementfailed");
+            header("location: dashboard.php?error=statementfailed");
             exit();
         }
 
@@ -53,10 +53,21 @@ class user extends Dbh{
         
         if (!$stmt->execute()) {
             $stmt = null;
-            header("location: ../login.php?error=statementfailed");
+            header("location: dashboard.php?error=statementfailed");
             exit();
         }
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+    }
+    public function getPoints()
+    {
+        $query = "SELECT SUM(degree) AS total_degree FROM Enrollment WHERE student_id = ?;";
+        $stmt =$this->connect()->prepare($query);
+        if (!$stmt->execute()) {
+            $stmt = null;
+            header("location: ../src/login.php?error=statementfailed");
+            exit();
+        }
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

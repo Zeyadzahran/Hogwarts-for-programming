@@ -4,7 +4,7 @@ require "userClass.php";
 session_start();
 
 if (!isset($_SESSION["id"])) {
-    header("Location: ../login.php?error=FailedOnUserProfile");
+    header("Location: ../src/login.php?error=FailedOnUserProfile");
     exit();
 }
 
@@ -14,7 +14,7 @@ $getUser = new user();
 $userData = $getUser->getuser($userId);
 
 if (!$userData) {
-    header("Location: ../login.php?error=UserNotFound");
+    header("Location: ../src/login.php?error=UserNotFound");
     exit();
 }
 
@@ -28,7 +28,7 @@ if (!$userData) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleUser.css">
+    <link rel="stylesheet" href="../Styles/style.css">
     <title>Profile</title>
 </head>
 
