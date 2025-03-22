@@ -1,8 +1,8 @@
 <?php
 require "userClass.php";
- session_start();
- $obj = new user();
- $houses = $obj->getHouses();
+session_start();
+$obj = new user();
+$houses = $obj->getHouses();
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ require "userClass.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Houses</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Styles/style.css">
 </head>
 
 <body>

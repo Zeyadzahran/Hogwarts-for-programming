@@ -1,11 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title> Login</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../Styles/styleUser.css">
 </head>
+
 <body>
     <div class="container">
         <h2>Login</h2>
@@ -14,7 +15,8 @@
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit" name="submit">Login</button>
         </form>
-        <p>Don't have an account? <a href="index.php">Register here</a></p>
+        <p>Don't have an account? <a href="../src/index.php">Register here</a></p>
     </div>
 </body>
+
 </html>

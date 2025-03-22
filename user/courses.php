@@ -3,7 +3,7 @@ require "userClass.php";
 
 session_start();
 if (!isset($_SESSION["id"])) {
-    header("Location: ../login.php?error=FailedOnCources");
+    header("Location: ../src/login.php?error=FailedOnCources");
     exit();
 }
 
@@ -14,11 +14,6 @@ $obj = new user();
 
 $courses = $obj->getCourses($userId);
 
-
-//  if (!$courses) {
-//     header("Location: ../login.php?error=weDon'tCources");
-//     exit();
-// }
 ?>
 
 
@@ -29,7 +24,7 @@ $courses = $obj->getCourses($userId);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleUser.css">
+    <link rel="stylesheet" href="../Styles/styleUser.css">
     <title>Courses</title>
 </head>
 

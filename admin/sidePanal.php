@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../Styles/style.css">
 <div class="sidebar">
     <ul>
         <li><a href="dashboard.php">🏨 Dashboard</a></li>

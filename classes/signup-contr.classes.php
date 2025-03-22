@@ -27,23 +27,23 @@ class SignupContr extends Signup{
 
     public function validateUser(){
         if($this->emptyInput()){
-            header("location: ../index.php ? error = emptyinput");
+            header("location: ../src/index.php ? error = emptyinput");
             exit();
         }
         if(!$this->isValiedUsername()){
-            header("location: ../index.php ? error = username is not valied");
+            header("location: ../src/index.php ? error = username is not valied");
             exit();
         }
         if(!$this->isValiedEmail()){
-            header("location: ../index.php ? error = email is not valied");
+            header("location: ../src/index.php ? error = email is not valied");
             exit();
         }
         if(!$this->isSamePassword()){
-            header("location: ../index.php ? error = Plz write the same password");
+            header("location: ../src/index.php ? error = Plz write the same password");
             exit();
         }
         if($this->userExists()){
-            header("location: ../index.php ? error = the user already Exists");
+            header("location: ../src/index.php ? error = the user already Exists");
             exit();
         }
          $this->setUser($this->username,$this->email,$this->password);

@@ -12,7 +12,7 @@ class Signup extends Dbh{
         $stmt = $this->connect()->prepare($query);
         if(!$stmt->execute([$username,$email])){
             $stmt = null ;
-            header("location: ../index.php?error=statmentFailed");
+            header("location: ../src/index.php?error=statmentFailed");
             exit();
         }
         return $stmt->rowCount() > 0; // means  we have user :) ?
@@ -26,7 +26,7 @@ class Signup extends Dbh{
 
         $stmt = $this->connect()->prepare($query); 
         if(!$stmt->execute([$name,$email, $password,$house_id,$wand_id])){ // remmember to insert the house and wand data ;
-            header("location: ../login.php?error=statmentFailed");
+            header("location: ../src/login.php?error=statmentFailed");
             exit();   
         }
             
