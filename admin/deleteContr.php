@@ -2,13 +2,12 @@
 
 require("adminClass.php");
 
-session_start();
 
-if (!isset($_SESSION["id"])) {
+if (!isset($_GET["id"])) {
     header("Location: ../src/login.php?error=FailedToDeleteUser");
     exit();
 }
-$userId = $_SESSION["id"];
+$userId = $_GET["id"];
 $obj = new admin();
 
     if ($obj->deleteUser($userId)) {
