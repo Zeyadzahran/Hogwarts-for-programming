@@ -31,7 +31,7 @@ class Login extends Dbh {
             $_SESSION["wand_id"] = $user["wand_id"];
             $_SESSION["house_id"] = $user["house_id"];
             if ($user["role"] == "Admin") {
-                header("Location: ../admin/admin dashboard.php");
+                header("Location: ../admin/dashboard.php");
                 exit();
             }else{
                  header("Location: ../user/dashboard.php");

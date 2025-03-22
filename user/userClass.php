@@ -35,6 +35,7 @@ class user extends Dbh{
             join course on Enrollment.course_id = Course.id
             join User as Professor on Course.professor_id = Professor.id
             where Enrollment.student_id = ?;";
+            
             $stmt = $this->connect()->prepare($query);
 
         if (!$stmt->execute([$id])) {
