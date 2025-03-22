@@ -54,8 +54,8 @@ $users = $obj->GetUsers();
                     ?>
                         <td>
                             <div text-align="center">
-                                <a href="deleteContr.php" class="delete">Delete</a>
-                                <a href="adminContr.php" class="setadmin">Set Admin</a>
+                                <a href="deleteContr.php?id=<?php echo $user['id']; ?>" class="delete">Delete</a>
+                                <a href="adminContr.php?id=<?php echo $user['id']; ?>" class="setadmin">Set Admin</a>
                             </div>
                         </td>
                         </tr>

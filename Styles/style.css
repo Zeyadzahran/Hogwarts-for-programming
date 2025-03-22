@@ -1,60 +1,94 @@
 body {
-    background: linear-gradient(rgba(11, 26, 53, 0.7), rgba(11, 26, 53, 0.7)),
-        url('../Styles/flag.jpg') no-repeat center center fixed;
-    background-size: cover;
-    background-color: #0b1a35;
+    background: linear-gradient(rgba(11, 26, 53, 0.7), rgba(11, 26, 53, 0.7)), 
+                url('flag.jpg') no-repeat center center fixed;
+    background-size: contain; 
+    background-color: #0b1a35; 
     color: #c9b78b;
-    font-family: Arial, sans-serif;
+    font-family: "Fira Code", monospace;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    text-align: center;
     flex-direction: column;
 }
 
-.dashboard-container {
-    background-color: rgba(11, 26, 53, 0.85);
+
+.container {
+    background-color: rgba(255, 255, 255, 0.1); 
     padding: 20px;
     border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     text-align: center;
-    width: 80%;
-    max-width: 600px;
+    max-width: 400px;
+    width: 90%;
 }
 
-.navbar .logo {
-    font-size: 1.5rem;
+h1, p {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+label {
+    align-self: flex-start;
     font-weight: bold;
-    color: #c9b78b;
-    text-align: center;
 }
 
-.dashboard-menu .dashboard-item {
-    display: block;
-    background-color: rgba(201, 183, 139, 0.8);
-    color: #0b1a35;
+input {
+    width: 250px; 
     padding: 10px;
-    margin: 5px;
+    border: 1px solid #C4A484;
+    background-color: #E8D5B5;
+    color: #4A3F35;
     border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
 }
 
-.dashboard-menu .dashboard-item:hover {
-    background-color: rgba(201, 183, 139, 1);
-    transform: scale(1.05);
+button {
+    padding: 8px 15px;
+    background-color: #2174ae;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
 }
+
+button:hover {
+    background-color: #A67C52;
+}
+
+a {
+    color: #24aade;
+    text-decoration: none;
+}
+
+
+img {
+    width: 80%;
+    max-width: 300px;
+    border-radius: 10px;
+    margin: 15px auto;
+    display: block;
+}
+
 
 .sidebar {
+    width: 260px;
+    height: 100vh;
+    background: rgba(39, 51, 83, 0.9);
+    padding-top: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
     position: fixed;
     left: 0;
     top: 0;
-    height: 100%;
-    width: 250px;
-    background: rgba(11, 26, 53, 0.9);
-    padding-top: 20px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .sidebar ul {
@@ -64,25 +98,22 @@ body {
 
 .sidebar ul li {
     padding: 15px;
-    text-align: center;
+    text-align: left;
 }
 
 .sidebar ul li a {
-    color: #c9b78b;
+    color: #ded5c1;
     text-decoration: none;
     font-weight: bold;
     display: block;
     transition: 0.3s;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .sidebar ul li a:hover {
-    background: rgba(255, 255, 255, 0.1);
-    padding-left: 10px;
-}
-
-.sidebar .logout {
-    color: red;
-    font-weight: bold;
+    background: rgba(35, 46, 68, 0.9);
+    padding-left: 15px;
 }
 
 .user-table {
@@ -94,8 +125,7 @@ body {
     overflow: hidden;
 }
 
-.user-table th,
-.user-table td {
+.user-table th, .user-table td {
     border: 1px solid #c9b78b;
     padding: 15px;
     text-align: center;
@@ -107,29 +137,36 @@ body {
     font-size: 1.1rem;
 }
 
-.user-table td {
-    font-size: 1rem;
-}
-
 .user-table tr:nth-child(even) {
-    background-color: rgba(201, 183, 139, 0.1);
+    background-color: rgba(201, 183, 139, 0.2);
 }
 
-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 0.9rem;
-    margin: 5px;
+.profile-card {
+    background-color: #c9b78b;
+    width: 350px;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+
 }
 
-.delete,
-.setadmin,
-.AddQuiz {
+.profile-card:hover {
+    transform: scale(1.05);
+} 
+.profile-card .user-name {
+    color: #100e0e; 
+}
+
+.profile-card .user-info p {
+    color: #2e3640; 
+}
+
+.delete {
     display: block;
+    background-color: #b92020;
+    color: black;
     padding: 10px;
     margin: 5px;
     border-radius: 5px;
@@ -138,36 +175,44 @@ button {
     transition: 0.3s;
 }
 
-.delete {
-    background-color: #b92020;
-    color: black;
+.delete:hover {
+    background-color: rgb(207, 127, 127);
+    transform: scale(1.05);
 }
 
 .setadmin {
+    display: block;
     background-color: #0be192;
     color: black;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-.AddQuiz {
-    background-color: #4caf50;
-    color: white;
-}
-
-.delete:hover,
-.setadmin:hover,
-.AddQuiz:hover {
+.setadmin:hover {
     background-color: rgba(201, 183, 139, 1);
     transform: scale(1.05);
 }
 
-h1 {
-    font-size: 32px;
-    color: #c9b78b;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    gap: 5px;
+
+.AddQuiz {
+    display: block;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.AddQuiz:hover {
+    background-color: rgba(201, 183, 139, 1);
+    transform: scale(1.05);
 }
 
 .animated-username {
@@ -188,37 +233,4 @@ h1 {
     to {
         width: calc(var(--char-count) * 1ch);
     }
-}
-
-.profile-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
-.profile-card {
-    background: #c9b78b;
-    width: 350px;
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out;
-}
-
-.profile-card:hover {
-    transform: scale(1.05);
-}
-
-.user-name {
-    font-size: 22px;
-    margin: 10px 0;
-    color: #333;
-}
-
-.user-info p {
-    font-size: 14px;
-    color: #222;
-    margin: 5px 0;
 }

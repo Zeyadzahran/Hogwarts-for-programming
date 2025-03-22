@@ -9,13 +9,13 @@
 
 <body>
     <div class="container">
-        <h2>Login</h2>
-        <form action="includes/login.inc.php" method="post">
+        <form action="../includes/login.inc.php" method="post">
+            <h2>Login</h2>
             <input type="text" name="username" placeholder="Username/Email" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit" name="submit">Login</button>
+            <p>Don't have an account? <a href="../src/index.php">Register here</a></p>
         </form>
-        <p>Don't have an account? <a href="../src/index.php">Register here</a></p>
     </div>
 </body>
 
