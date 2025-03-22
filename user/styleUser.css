@@ -1,4 +1,4 @@
- body {
+ /* body {
      background: linear-gradient(rgba(11, 26, 53, 0.7), rgba(11, 26, 53, 0.7)),
          url('flag.jpg') no-repeat center center fixed;
      background-size: cover;
@@ -142,4 +142,4 @@
 .user-table th:nth-child(4),
 .user-table td:nth-child(4) {
     width: 35%;  
-}
+} */
