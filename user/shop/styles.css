@@ -1,0 +1,143 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background: url('../../Styles/signup.webp') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    background-color: #1e1e2e;
+    padding: 20px;
+    box-shadow: 3px 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+
+.sidebar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+
+.sidebar ul li a:hover {
+    color: #ffcc00;
+}
+
+
+.shop-container {
+    margin-left: 240px;
+    /* Push content to the right */
+    padding: 40px;
+    max-width: calc(100% - 240px);
+}
+
+
+.shop-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #f0f0f0;
+    text-align: center;
+}
+
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+
+.item {
+    background: linear-gradient(145deg, #1e1e2e, #151525);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.item:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.item:hover img {
+    transform: scale(1.1);
+}
+
+
+.item h3 {
+    font-size: 20px;
+    margin-top: 10px;
+    color: #ffcc00;
+}
+
+
+.item p {
+    font-size: 14px;
+    color: #b0b0b0;
+    margin-bottom: 15px;
+}
+
+.buy-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+
+.buy-button:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}

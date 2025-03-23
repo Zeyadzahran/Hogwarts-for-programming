@@ -70,4 +70,21 @@ class user extends Dbh{
         }
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public  function getUserItems($id)
+    {
+
+        $query = "SELECT i.name, i.description, i.path, o.item_count FROM owneditems o
+         JOIN item i ON o.item_id = i.id
+          WHERE o.student_id = ?;";
+
+        $stmt = $this->connect()->prepare($query);
+        if (!$stmt->execute([$id])) {
+            $stmt = null;
+            header("location: ../src/login.php?error=statementfailed");
+            exit();
+        }
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
 }
