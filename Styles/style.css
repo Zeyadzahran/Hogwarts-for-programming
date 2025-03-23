@@ -193,7 +193,7 @@ img {
 }
 
 .setadmin:hover {
-    background-color: rgba(201, 183, 139, 1);
+    background-color: #72b39b;
     transform: scale(1.05);
 }
 
@@ -211,7 +211,7 @@ img {
 }
 
 .AddQuiz:hover {
-    background-color: rgba(201, 183, 139, 1);
+    background-color: #72b39b;
     transform: scale(1.05);
 }
 
