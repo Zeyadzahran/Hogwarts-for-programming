@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,11 +15,16 @@
 
   <div class="message-container">
     <h1>You've Already Taken the Quiz!</h1>
-    <p>Sorry, you can't retake the quiz at the moment. Please check back later.</p>
+    <a href="../courses.php" class="setadmin">Back To My Courses</a>
   </div>
 <?php
-session_start();
-echo $_SESSION['counter'];
+
+require "../userClass.php" ;
+
+$obj = new user();
+$quizid = $obj->getQuizIdByCourse($_SESSION['course']);
+$points = $obj->getQuizPoints($quizid);
+echo $points / 12 * $_SESSION['counter'] ;
 ?>
 </body>
 </html>

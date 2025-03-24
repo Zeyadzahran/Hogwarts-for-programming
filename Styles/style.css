@@ -1,8 +1,11 @@
 body {
-    background: linear-gradient(rgba(11, 26, 53, 0.7), rgba(11, 26, 53, 0.7)), 
-                url('flag.jpg') no-repeat center center fixed;
-    background-size: contain; 
-    background-color: #0b1a35; 
+    background: linear-gradient(rgba(11, 26, 53, 0.7), rgba(11, 26, 53, 0.7)),
+        url('signup.webp') no-repeat center center fixed;
+        
+
+    background-size: cover;
+  
+    background-color: #0b1a35;
     color: #c9b78b;
     font-family: "Fira Code", monospace;
     display: flex;
@@ -16,7 +19,7 @@ body {
 
 
 .container {
-    background-color: rgba(255, 255, 255, 0.1); 
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -25,7 +28,8 @@ body {
     width: 90%;
 }
 
-h1, p {
+h1,
+p {
     text-align: center;
 }
 
@@ -42,7 +46,7 @@ label {
 }
 
 input {
-    width: 250px; 
+    width: 250px;
     padding: 10px;
     border: 1px solid #C4A484;
     background-color: #E8D5B5;
@@ -125,7 +129,8 @@ img {
     overflow: hidden;
 }
 
-.user-table th, .user-table td {
+.user-table th,
+.user-table td {
     border: 1px solid #c9b78b;
     padding: 15px;
     text-align: center;
@@ -154,13 +159,14 @@ img {
 
 .profile-card:hover {
     transform: scale(1.05);
-} 
+}
+
 .profile-card .user-name {
-    color: #100e0e; 
+    color: #100e0e;
 }
 
 .profile-card .user-info p {
-    color: #2e3640; 
+    color: #2e3640;
 }
 
 .delete {

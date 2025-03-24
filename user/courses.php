@@ -39,6 +39,7 @@ $courses = $obj->getCourses($userId);
                         <th>Course Name</th>
                         <th>Professor Name</th>
                         <th>Degree</th>
+                        <th>Have Quiz ?</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,6 +48,17 @@ $courses = $obj->getCourses($userId);
                             <td><?php echo htmlspecialchars($course['course_name']); ?></td>
                             <td><?php echo htmlspecialchars($course['professor_name']); ?></td>
                             <td><?php echo htmlspecialchars($course['degree']); ?></td>
+                            <td><?php 
+                            if($obj->havequiz($course['course_id'])):
+                                echo "You have a quiz" . "<br>";
+                            ?>
+                            <a href="quiz/quiz.php" class="setadmin">Enter</a>
+                            <?php
+                            else:
+                                echo "No Quizzes<br>" ;
+                            endif;
+                            ?>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

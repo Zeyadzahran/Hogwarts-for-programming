@@ -37,3 +37,20 @@ body {
     color: #f9f9f9;
   }
   
+
+.setadmin {
+    display: block;
+    background-color: #0be192;
+    color: black;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.setadmin:hover {
+    background-color: #72b39b;
+    transform: scale(1.05);
+}

@@ -62,7 +62,7 @@ $courses = $obj->GetCourses($userid);
                     ?>
                             <td>
                                 <div text-align="center">
-                                    <a href="addquiz.php" class="AddQuiz">Add Quiz</a>
+                                    <a href="addquiz.php?id=<?php echo $course['id']; ?>" class="AddQuiz">Add Quiz</a>
                                 </div>
                             </td>
                             </tr>

@@ -37,3 +37,73 @@ INSERT INTO House (name, points) VALUES
 
 INSERT INTO User(name,email,role,password,wand_id)
 VALUES ("Albus Dumbledore","Dumbledore@gmail.com","Admin","123456dd",1);
+
+
+INSERT INTO
+    item (name, description, path)
+VALUES (
+        'Astral Essence Vial',
+        'A mystical potion encased in a delicate glass bottle .',
+        'img/Astral_Essence_Vial.png'
+    ),
+    (
+        'Ring of the Arcane Tempest',
+        'A finely crafted ring of dark, ancient metal .',
+        'img/Ring_of_the_Arcane_Tempest.png'
+    ),
+    (
+        'Lunar Enchantment Pendant',
+        'This exquisite crescent moon pendant glows softly with an ethereal light.',
+        'img/Lunar_Enchantment_Pendant.png'
+    ),
+    (
+        'Arcane Mirror',
+        'An ancient mirror infused with glowing runes, capable of revealing hidden truths.',
+        'img/Arcane_Mirror.png'
+    ),
+    (
+        'Moonlit Scepter',
+        'A mystical scepter radiating celestial energy, wielded by high sorcerers.',
+        'img/Moonlit_Scepter.png'
+    ),
+    (
+        'Ethereal Timepiece',
+        'A pocket watch that bends time itself, opening glimpses into the past and future.',
+        'img/Ethereal_Timepiece.png'
+    ),
+    (
+        'Quill of Enchantment',
+        'A golden quill that writes by itself, transcribing forgotten spells and secrets.',
+        'img/Quill_of_Enchantment.png'
+    ),
+    (
+        'Flaming Poison Vial',
+        'A glass vial containing a swirling, fiery liquid marked as poison, emitting a faint smoke.',
+        'img/Flaming Poison Vial.png'
+    ),
+    (
+        'Enchanted Crystal Orb',
+        'A mystical blue crystal ball resting on an ornate golden base, swirling with ethereal energy.',
+        'img/Enchanted Crystal Orb.png'
+    ),
+    (
+        'Flaming Arcane Wand',
+        'A beautifully crafted magical wand covered in glowing runes, engulfed in arcane flames.',
+        'img/Flaming Arcane Wand.png'
+    ),
+    (
+        'Starlit Sorcerer’s Staff',
+        'A tall, elegant staff of darkwood with a floating crystal orb radiating cosmic energy.',
+        'img/Starlit_Sorcerers_Staff.png'
+    ),
+    (
+        'Shadowveil Cloak',
+        'A flowing black cloak infused with shadow magic, allowing the wearer to blend into darkness.',
+        'img/Shadowveil_Cloak.png'
+    ),
+    (
+        'Runebound Grimoire',
+        'An ancient tome filled with powerful incantations, its pages shimmer with arcane symbols.',
+        'img/Runebound_Grimoire.png'
+    );
+    

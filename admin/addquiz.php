@@ -1,3 +1,12 @@
+<?php
+
+if (isset($_GET['id']))
+{
+    $courseid = $_GET['id'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +18,7 @@
 <body>
     <div class="container">
         <h2>Add New Quiz</h2>
-        <form action="" method="POST">
+        <form action="savequiz.php?id=<?php echo $courseid ?>" method="POST">
             <label for="quiz_name">Quiz Name:</label>
             <input type="text" name="quiz_name" required>
             <label for="duration">Duration (minutes):</label>
