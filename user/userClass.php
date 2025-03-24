@@ -129,20 +129,6 @@ class user extends Dbh{
 
         return true; 
     }
-    // ==============> we don't need this function 
-    public function havequiz($courseid){
-
-        $query = "SELECT havequiz FROM Course WHERE id = :courseid";
-        $stmt = $this->connect()->prepare($query);
-        $stmt->bindParam(':courseid', $courseid, PDO::PARAM_INT);
-
-        if (!$stmt->execute()) {
-            $stmt = null;
-            header("location: ../admin/manageCourses.php?error=failedToGetCourses");
-            exit();
-        }
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
 
     public function getQuizIdByCourse($course_id)
     {
