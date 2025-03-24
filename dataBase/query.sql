@@ -107,3 +107,11 @@ VALUES (
         'img/Runebound_Grimoire.png'
     
     );
+
+INSERT INTO Course (name, professor_id, havequiz) 
+VALUES 
+    ('Database Systems', 2,FALSE),
+    ('Algorithms', 2,FALSE),
+    ('Operating Systems', 2,FALSE);
+
+

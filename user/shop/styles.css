@@ -7,7 +7,8 @@
 
 
 body {
-    background: url('../../Styles/signup.webp') no-repeat center center fixed;
+    background: linear-gradient(rgba(11, 26, 53,0.3), rgba(11, 26, 53, 0.3)),
+        url('../../Styles/signup.webp') no-repeat center center fixed;
     background-size: cover;
     color: #ffffff;
     font-family: 'Fira Code', sans-serif;
@@ -48,9 +49,10 @@ body {
 }
 
 .sidebar ul li a:hover {
-    background: rgba(35, 46, 68, 0.9);
+    background: rgba(192, 198, 211, 0.9);
     padding-left: 15px;
 }
+
 
 
 .shop-container {

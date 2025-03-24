@@ -1,3 +1,4 @@
+-- Active: 1739625100301@@127.0.0.1@3306@hogwarts
 DROP DATABASE hogwarts;
 
 CREATE DATABASE hogwarts;

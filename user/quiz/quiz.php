@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $quizid = $obj->getQuizIdByCourse($_SESSION['course_id']);
     $points = $obj->getQuizPoints($quizid);
     $degree = $points / 12 * $_SESSION['counter'];
-    $obj->addQuizPoints($_SESSION['id'],$degree);
+    $obj->addQuizPoints($_SESSION['id'],$degree,$_SESSION['course_id']);
     $obj->addHousePoints($_SESSION['house_id'],$degree);
 
     $obj->setDone($_SESSION['id'],$_SESSION['course_id']);

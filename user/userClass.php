@@ -170,11 +170,12 @@ class user extends Dbh{
         }
     }
 
-    public function addQuizPoints($student_id,$points)
+    public function addQuizPoints($student_id,$points,$course_id)
     {
-        $query = "UPDATE Enrollment SET Marks = Marks + ? WHERE student_id = ? ;";
+        $points=(int)$points;
+        $query = "UPDATE Enrollment SET Marks = Marks + ? WHERE student_id = ? AND course_id = ? ;";
         $stmt = $this->connect()->prepare($query);
-        if(!$stmt->execute([$points,$student_id]))
+        if(!$stmt->execute([$points,$student_id,$course_id]))
         {
             header("location: ../coursee.php?error=statementfailed");
             exit();
