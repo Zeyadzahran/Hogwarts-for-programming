@@ -55,8 +55,8 @@ Before running the project, ensure you have the following installed:
 2. **Clone the Repository** 🧳
 
 ```
-git clone <repository_url>
-cd <project_directory>
+git clone [<repository_url>](https://github.com/Zeyadzahran/Hogwarts-for-programming.git)
+cd Hogwarts-for-programming
 ```
 
 3. **Import the Database** 🗄️
