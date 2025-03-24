@@ -56,7 +56,9 @@ class SignupContr extends Signup{
     
     private function isValiedUsername(){
 
-        return (preg_match("/^[a-zA-Z0-9]*$/",$this->username)); 
+        // return (preg_match("/^[a-zA-Z0-9]*$/",$this->username)); I change this to accept spaces in user name 
+        return (preg_match("/^[a-zA-Z0-9\s]*$/", $this->username));
+
     }
 
     private function isValiedEmail(){
