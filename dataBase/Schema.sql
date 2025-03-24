@@ -1,10 +1,11 @@
+DROP DATABASE hogwarts;
 
 CREATE DATABASE hogwarts;
 
 use hogwarts;
 
 CREATE TABLE Wand (
-id INT PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     core VARCHAR(50) NOT NULL,
     wood VARCHAR(50) NOT NULL
@@ -40,7 +41,8 @@ CREATE TABLE Enrollment (
     id INT PRIMARY KEY AUTO_INCREMENT,
     student_id INT NOT NULL,
     course_id INT NOT NULL,
-    degree INT,
+    Quizdone BOOLEAN DEFAULT False,
+    Marks INT,
     FOREIGN KEY (student_id) REFERENCES User (id),
     FOREIGN KEY (course_id) REFERENCES Course (id)
 );
