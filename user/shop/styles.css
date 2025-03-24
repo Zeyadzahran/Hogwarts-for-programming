@@ -11,11 +11,24 @@ body {
         url('../../Styles/signup.webp') no-repeat center center fixed;
     background-size: cover;
     color: #ffffff;
-    font-family: 'Fira Code', sans-serif;
+    font-family: 'Fira Code', sans-monospace;
+    height: 100vh;
     margin: 0;
-    padding: 0;
+    text-align: center;
+    flex-direction: column;;
 }
 
+
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background: rgba(39, 51, 83, 0.9);
+    padding-top: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+}
 
 .sidebar {
     width: 260px;
@@ -42,6 +55,7 @@ body {
     color: #ded5c1;
     text-decoration: none;
     font-weight: bold;
+    font-size: large;
     display: block;
     transition: 0.3s;
     border-radius: 5px;
