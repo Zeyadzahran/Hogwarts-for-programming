@@ -18,6 +18,9 @@ if (!$userData) {
     exit();
 }
 
+$points = $getUser->getStudentPoints($userId);
+
+
 ?>
 
 
@@ -42,6 +45,7 @@ if (!$userData) {
                     <p><strong>Email:</strong> <?php echo htmlspecialchars($userData['email']); ?></p>
                     <p><strong>House:</strong> <?php echo htmlspecialchars($userData['house_name'] ?? "Not Assigned"); ?></p>
                     <p><strong>Wand:</strong> <?php echo htmlspecialchars($userData['wand_name'] ?? "Not Assigned"); ?></p>
+                    <p><strong>Total Points:</strong> <?php echo htmlspecialchars($points['totalMark'] ?? 0); ?></p>
                 </div>
             </div>
         </div>

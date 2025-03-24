@@ -69,12 +69,12 @@ class user extends Dbh{
     {
         $query = "SELECT SUM(Marks) AS totalMark FROM Enrollment WHERE student_id = ?;";
         $stmt =$this->connect()->prepare($query);
-        if (!$stmt->execute()) {
+        if (!$stmt->execute([$id])) {
             $stmt = null;
             header("location: ../src/login.php?error=statementfailed");
             exit();
         }
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public  function getUserItems($id)
@@ -129,6 +129,7 @@ class user extends Dbh{
 
         return true; 
     }
+
 
     public function getQuizIdByCourse($course_id)
     {
