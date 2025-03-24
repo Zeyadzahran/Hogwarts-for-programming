@@ -92,7 +92,26 @@ class admin extends Dbh{
         }
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function addquiz($quizname,$courseid,$points)
+    {
+        $query1 = "UPDATE Course SET havequiz = TRUE WHERE id= :courseid";
+        $query2 = "INSERT INTO Quiz(name,course_id,points) VALUES(:quizname,:courseid,:points)";
+        $stmt1 = $this->connect()->prepare($query1);
+        $stmt1->bindParam(':courseid', $courseid, PDO::PARAM_INT);
+        $stmt2 = $this->connect()->prepare($query2);
+        $stmt2->bindParam(':quizname', $quizname, PDO::PARAM_STR);
+        $stmt2->bindParam(':courseid', $courseid, PDO::PARAM_INT);
+        $stmt2->bindParam(':points', $points, PDO::PARAM_INT);
         
+        if (!($stmt1->execute() && $stmt2->execute())) {
+            $stmt = null;
+            header("location: ../admin/manageCourses.php?error=FailedToAddQuiz");
+            exit();
+        }
+        return $stmt1->fetchAll(PDO::FETCH_ASSOC) && $stmt2->fetchAll(PDO::FETCH_ASSOC) ;
+    }
+    
 }
 
 ?>

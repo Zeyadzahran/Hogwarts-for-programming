@@ -1,6 +1,8 @@
 <?php
 
-require "../classes/dbh.classes.php";
+
+require(__DIR__ . "/../classes/dbh.classes.php");
+
 
 class user extends Dbh{
 
@@ -28,6 +30,7 @@ class user extends Dbh{
     public function getCourses($id)
     {
         $query = "select 
+            course_id,
             course.name AS course_name, 
             Enrollment.degree, 
             Professor.name as professor_name
@@ -73,7 +76,6 @@ class user extends Dbh{
 
     public  function getUserItems($id)
     {
-
         $query = "SELECT i.name, i.description, i.path, o.item_count FROM owneditems o
          JOIN item i ON o.item_id = i.id
           WHERE o.student_id = ?;";
@@ -87,4 +89,81 @@ class user extends Dbh{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
+
+    public function getAllCourse($id)
+    {
+
+        $query ="SELECT 
+        Course.name AS course_name,  
+        Course.id AS course_id,  
+                Professor.name AS professor_name
+            FROM Course
+                JOIN User AS Professor ON Course.professor_id = Professor.id
+                    WHERE Course.id NOT IN (
+                                    SELECT course_id 
+                                    FROM Enrollment 
+                                    WHERE student_id = ?);";
+        $stmt = $this->connect()->prepare($query);
+
+         if (!$stmt->execute([$id])) {
+            $stmt = null;
+            header("location: dashboard.php?error=statementfailed");
+            exit();
+        }
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function addNewCourse($studentId, $courseId)
+    {
+        $query = "INSERT INTO Enrollment (student_id, course_id, degree) VALUES (?, ?, ?);";
+        $stmt = $this->connect()->prepare($query);
+
+        if (!$stmt->execute([$studentId, $courseId, 0])) {
+            $stmt = null;
+            header("location: dashboard.php?error=statementfailed");
+            exit();
+        }
+
+        return true; 
+    }
+
+    public function havequiz($courseid){
+
+        $query = "SELECT havequiz FROM Course WHERE id = :courseid";
+        $stmt = $this->connect()->prepare($query);
+        $stmt->bindParam(':courseid', $courseid, PDO::PARAM_INT);
+
+        if (!$stmt->execute()) {
+            $stmt = null;
+            header("location: ../admin/manageCourses.php?error=failedToGetCourses");
+            exit();
+        }
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getQuizIdByCourse($course_id)
+    {
+        $query = "SELECT id FROM Quiz WHERE course_id = :course_id";
+        $stmt = $this->connect()->prepare($query);
+        $stmt->bindParam(':course_id', $course_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    }
+
+    public function getQuizPoints($quiz_id)
+{
+    try {
+        $query = "SELECT points FROM Quiz WHERE id = :quiz_id";
+        $stmt = $this->connect()->prepare($query);
+        $stmt->bindParam(':quiz_id', $quiz_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ? $result['points'] : 0;
+    } catch (PDOException $e) {
+        die("Error: " . $e->getMessage());
+    }
+}
 }

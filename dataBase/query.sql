@@ -105,4 +105,5 @@ VALUES (
         'Runebound Grimoire',
         'An ancient tome filled with powerful incantations, its pages shimmer with arcane symbols.',
         'img/Runebound_Grimoire.png'
+    
     );
