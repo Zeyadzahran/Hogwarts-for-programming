@@ -1,4 +1,9 @@
-id INT PRIMARY KEY AUTO_INCREMENT,
+CREATE DATABASE hogwarts;
+
+USE hogwarts;
+
+CREATE TABLE Wand (
+    id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     core VARCHAR(50) NOT NULL,
     wood VARCHAR(50) NOT NULL
@@ -18,7 +23,7 @@ CREATE TABLE User (
     password VARCHAR(50) NOT NULL,
     wand_id INT NOT NULL,
     house_id INT,
-    FOREIGN KEY (wand_id) REFERENCES wand (id),
+    FOREIGN KEY (wand_id) REFERENCES Wand (id),
     FOREIGN KEY (house_id) REFERENCES House (id)
 );
 
@@ -57,6 +62,7 @@ CREATE TABLE Item (
 CREATE TABLE OwnedItems (
     student_id INT NOT NULL,
     item_id INT NOT NULL,
+    item_count INT DEFAULT 0,
     purchase_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (student_id) REFERENCES User (id),
     FOREIGN KEY (item_id) REFERENCES Item (id)
