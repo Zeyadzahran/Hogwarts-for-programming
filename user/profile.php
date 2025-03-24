@@ -33,6 +33,7 @@ if (!$userData) {
 </head>
 
 <body>
+    <div class ="userbk">
     <div class="dashboard-container">
         <h2>My Profile</h2>
         <div class="profile-container">
@@ -45,6 +46,7 @@ if (!$userData) {
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <?php require "sidePanal.php" ?>
 </body>

@@ -21,13 +21,16 @@ $charCount = strlen($username);
 </head>
 
 <body>
-    <div class="dashboard-container">
-        <h1>Welcome, <span class="animated-username" style="--char-count: <?php echo $charCount; ?>;"><?php echo $username; ?></span></h1>
 
+    <div class="userbk">
+        <div class="dashboard-container">
+            <h1>Welcome,<span class="animated-username" style="--char-count: <?php echo $charCount; ?>;"><?php echo $username; ?></span></h1>
+
+        </div>
     </div>
     <?php require "sidePanal.php" ?>
-    
+
 </body>
-    
-    
+
+
 </html>

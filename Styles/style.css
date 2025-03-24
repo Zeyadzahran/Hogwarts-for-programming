@@ -1,10 +1,10 @@
 body {
     background: linear-gradient(rgba(11, 26, 53, 0.7), rgba(11, 26, 53, 0.7)),
         url('signup.webp') no-repeat center center fixed;
-        
+
 
     background-size: cover;
-  
+
     background-color: #0b1a35;
     color: #c9b78b;
     font-family: "Fira Code", monospace;
@@ -15,6 +15,18 @@ body {
     margin: 0;
     text-align: center;
     flex-direction: column;
+}
+
+.reg {
+    background: linear-gradient(rgba(11, 26, 53, 0.7), rgba(11, 26, 53, 0.7)),
+        url('reg.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.userbk {
+    background: linear-gradient(rgba(11, 26, 53, 0.7), rgba(11, 26, 53, 0.7)),
+        url('user.webp') no-repeat center center fixed;
+    background-size: cover;
 }
 
 

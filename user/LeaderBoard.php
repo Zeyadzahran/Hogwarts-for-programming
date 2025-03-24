@@ -16,32 +16,34 @@ $houses = $obj->getHouses();
 </head>
 
 <body>
-    <div class="dashboard-container">
-        <h2>Houses Leaderboard</h2>
-        <div class="dashboard-menu">
+    <div class="userbk">
+        <div class="dashboard-container">
+            <h2>Houses Leaderboard</h2>
+            <div class="dashboard-menu">
 
-            <table class="user-table">
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Name</th>
-                        <th>Points</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $i = 1;
-                    foreach ($houses as $house) {
-                        echo "<tr>
+                <table class="user-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $i = 1;
+                        foreach ($houses as $house) {
+                            echo "<tr>
                             <td> $i </td>
                             <td>{$house['name']}</td>
                             <td>{$house['points']}</td>
                             </tr>";
-                        $i++;
-                    }
-                    ?>
-                </tbody>
-            </table>
+                            $i++;
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <?php require "sidePanal.php"; ?>
