@@ -11,11 +11,12 @@ $userId = $_SESSION["id"];
 
 $obj = new user();
 
-
 $courses = $obj->getCourses($userId);
 
-?>
+  
+  
 
+?>
 
 
 <!DOCTYPE html>
@@ -24,7 +25,7 @@ $courses = $obj->getCourses($userId);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Styles/styleUser.css">
+    <link rel="stylesheet" href="../Styles/style.css">
     <title>Courses</title>
 </head>
 
@@ -39,7 +40,7 @@ $courses = $obj->getCourses($userId);
                         <th>Course Name</th>
                         <th>Professor Name</th>
                         <th>Degree</th>
-                        <th>Have Quiz ?</th>
+                        <th>Quiz</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,17 +48,22 @@ $courses = $obj->getCourses($userId);
                         <tr>
                             <td><?php echo htmlspecialchars($course['course_name']); ?></td>
                             <td><?php echo htmlspecialchars($course['professor_name']); ?></td>
-                            <td><?php echo htmlspecialchars($course['degree']); ?></td>
-                            <td><?php 
-                            if($obj->havequiz($course['course_id'])):
-                                echo "You have a quiz" . "<br>";
-                            ?>
-                            <a href="quiz/quiz.php" class="setadmin">Enter</a>
-                            <?php
-                            else:
-                                echo "No Quizzes<br>" ;
-                            endif;
-                            ?>
+                            <td><?php echo htmlspecialchars($course['Marks']); ?></td>
+                            <td> 
+                                <?php
+                                $res = $obj->getEnrollment($userId, $course['course_id']);
+                                if ($course['havequiz']) :
+                                    $_SESSION['course_id'] = $course['course_id'];
+
+                                    if (!$res['QuizDone']) { ?>
+                                        <a href="quiz/quiz.php" class="setadmin">Enter</a>
+                                    <?php } else { ?>
+                                        <a href="quiz/done.php" class="setadmin">Enter</a>
+                                    <?php } ?>
+
+                                <?php else : ?>
+                                    <button class="delete">No Quiz</button>
+                                <?php endif; ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -66,8 +72,7 @@ $courses = $obj->getCourses($userId);
         </div>
     </div>
 
-
-    <?php require "sidePanal.php" ?>
+    <?php require "sidePanal.php"; ?>
 
 </body>
 
