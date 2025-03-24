@@ -1,11 +1,10 @@
+
 CREATE DATABASE hogwarts;
 
 use hogwarts;
 
-DROP DATABASE hogwarts;
-
 CREATE TABLE Wand (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     core VARCHAR(50) NOT NULL,
     wood VARCHAR(50) NOT NULL
@@ -33,6 +32,7 @@ CREATE TABLE Course (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     professor_id INT NOT NULL,
+    havequiz BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (professor_id) REFERENCES User (id)
 );
 
@@ -47,6 +47,7 @@ CREATE TABLE Enrollment (
 
 CREATE TABLE Quiz (
     id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
     course_id INT NOT NULL,
     points INT,
     FOREIGN KEY (course_id) REFERENCES Course (id)
@@ -60,9 +61,9 @@ CREATE TABLE Item (
 );
 
 CREATE TABLE OwnedItems (
-    student_id INT,
-    item_id INT,
-    item_count INT DEFAULT 0,
+    student_id INT NOT NULL,
+    item_id INT NOT NULL,
+    item_count INT,
     FOREIGN KEY (student_id) REFERENCES User (id),
     FOREIGN KEY (item_id) REFERENCES Item (id)
 );

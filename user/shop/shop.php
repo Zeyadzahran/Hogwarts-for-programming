@@ -23,12 +23,12 @@ $items = $obj->getItems();
 
 <body>
 
-   
+
     <div class="sidebar">
         <ul>
             <li><a href="../Profile.php">👤 My Profile</a></li>
             <li><a href="../courses.php">📚 My Courses</a></li>
-            <li><a href="../quiz.php">َ📊 Quiz</a></li>
+            <li><a href="../ManageCourses.php">📚 Assign Courses</a></li>
             <li><a href="../shop/shop.php">🛒 Shop</a></li>
             <li><a href="../inventory.php">🎒 Inventory</a></li>
             <li><a href="../LeaderBoard.php">🏠 Houses Leaderboard</a></li>
@@ -36,7 +36,7 @@ $items = $obj->getItems();
         </ul>
     </div>
 
-   
+
     <div class="shop-container">
         <h1 class="shop-title">Welcome to the Ravenclaw Shop</h1>
         <div class="items-grid">

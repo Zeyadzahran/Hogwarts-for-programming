@@ -10,48 +10,46 @@ body {
     background: url('../../Styles/signup.webp') no-repeat center center fixed;
     background-size: cover;
     color: #ffffff;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Fira Code', sans-serif;
     margin: 0;
     padding: 0;
 }
 
 
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 220px;
+    width: 260px;
     height: 100vh;
-    background-color: #1e1e2e;
-    padding: 20px;
-    box-shadow: 3px 0 5px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
+    background: rgba(39, 51, 83, 0.9);
+    padding-top: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    left: 0;
+    top: 0;
 }
 
-
 .sidebar ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
 }
 
-
 .sidebar ul li {
-    margin: 20px 0;
+    padding: 15px;
+    text-align: left;
 }
-
 
 .sidebar ul li a {
-    color: #ffffff;
+    color: #ded5c1;
     text-decoration: none;
-    font-size: 16px;
-    transition: color 0.2s ease-in-out;
-    display: flex;
-    align-items: center;
+    font-weight: bold;
+    display: block;
+    transition: 0.3s;
+    border-radius: 5px;
+    padding: 10px;
 }
 
-
 .sidebar ul li a:hover {
-    color: #ffcc00;
+    background: rgba(35, 46, 68, 0.9);
+    padding-left: 15px;
 }
 
 

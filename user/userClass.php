@@ -31,8 +31,9 @@ class user extends Dbh{
     {
         $query = "select 
             course_id,
+            havequiz,
             course.name AS course_name, 
-            Enrollment.degree, 
+            Enrollment.Marks, 
             Professor.name as professor_name
             FROM Enrollment
             join course on Enrollment.course_id = Course.id
@@ -62,9 +63,11 @@ class user extends Dbh{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
-    public function getPoints()
+
+    // getUserPoints
+    public function getStudentPoints($id)
     {
-        $query = "SELECT SUM(degree) AS total_degree FROM Enrollment WHERE student_id = ?;";
+        $query = "SELECT SUM(Marks) AS totalMark FROM Enrollment WHERE student_id = ?;";
         $stmt =$this->connect()->prepare($query);
         if (!$stmt->execute()) {
             $stmt = null;
@@ -115,7 +118,7 @@ class user extends Dbh{
 
     public function addNewCourse($studentId, $courseId)
     {
-        $query = "INSERT INTO Enrollment (student_id, course_id, degree) VALUES (?, ?, ?);";
+        $query = "INSERT INTO Enrollment (student_id, course_id, Marks) VALUES (?, ?, ?);";
         $stmt = $this->connect()->prepare($query);
 
         if (!$stmt->execute([$studentId, $courseId, 0])) {
@@ -126,7 +129,7 @@ class user extends Dbh{
 
         return true; 
     }
-
+    // ==============> we don't need this function 
     public function havequiz($courseid){
 
         $query = "SELECT havequiz FROM Course WHERE id = :courseid";
@@ -151,9 +154,9 @@ class user extends Dbh{
         return $stmt->fetch(PDO::FETCH_ASSOC);
     
     }
-
+    
     public function getQuizPoints($quiz_id)
-{
+    {
     try {
         $query = "SELECT points FROM Quiz WHERE id = :quiz_id";
         $stmt = $this->connect()->prepare($query);
@@ -164,6 +167,53 @@ class user extends Dbh{
         return $result ? $result['points'] : 0;
     } catch (PDOException $e) {
         die("Error: " . $e->getMessage());
+        }
     }
-}
+
+    public function addQuizPoints($student_id,$points)
+    {
+        $query = "UPDATE Enrollment SET Marks = Marks + ? WHERE student_id = ? ;";
+        $stmt = $this->connect()->prepare($query);
+        if(!$stmt->execute([$points,$student_id]))
+        {
+            header("location: ../coursee.php?error=statementfailed");
+            exit();
+        }
+
+        return true;
+    }
+    public function addHousePoints($houseId,$points)
+    {
+        $query = "UPDATE house SET points = points + ? WHERE id = ? ;";
+        $stmt = $this->connect()->prepare($query);
+        if (!$stmt->execute([$points, $houseId])) {
+            header("location: ../coursee.php?error=statementfailed");
+            exit();
+        }
+        return true;
+    }
+
+    public function getEnrollment($student_id,$course_id)
+    {
+        $query = "select QuizDone,Marks from Enrollment where student_id = ? and course_id = ?";
+        $stmt = $this->connect()->prepare($query);
+
+        if(!$stmt->execute([$student_id,$course_id])){
+            header("location: ../coursee.php?error=statementfailed");
+            exit();
+        }
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+
+    }
+    public function setDone($student_id, $course_id)
+    {
+        $query = "UPDATE Enrollment SET QuizDone = true WHERE student_id = ? AND course_id = ?";
+        $stmt = $this->connect()->prepare($query);
+
+        if (!$stmt->execute([$student_id, $course_id])) {
+            header("location: ../coursee.php?error=statementfailed");
+            exit();
+        }
+        return true;
+    }
 }
