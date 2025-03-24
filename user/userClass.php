@@ -90,6 +90,43 @@ class user extends Dbh{
 
     }
 
+    public function getAllCourse($id)
+    {
+
+        $query ="SELECT 
+        Course.name AS course_name,  
+        Course.id AS course_id,  
+                Professor.name AS professor_name
+            FROM Course
+                JOIN User AS Professor ON Course.professor_id = Professor.id
+                    WHERE Course.id NOT IN (
+                                    SELECT course_id 
+                                    FROM Enrollment 
+                                    WHERE student_id = ?);";
+        $stmt = $this->connect()->prepare($query);
+
+         if (!$stmt->execute([$id])) {
+            $stmt = null;
+            header("location: dashboard.php?error=statementfailed");
+            exit();
+        }
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function addNewCourse($studentId, $courseId)
+    {
+        $query = "INSERT INTO Enrollment (student_id, course_id, degree) VALUES (?, ?, ?);";
+        $stmt = $this->connect()->prepare($query);
+
+        if (!$stmt->execute([$studentId, $courseId, 0])) {
+            $stmt = null;
+            header("location: dashboard.php?error=statementfailed");
+            exit();
+        }
+
+        return true; 
+    }
+
     public function havequiz($courseid){
 
         $query = "SELECT havequiz FROM Course WHERE id = :courseid";
