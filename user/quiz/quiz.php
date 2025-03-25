@@ -33,9 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // implment the logic for adding the points to db 
     require "../userClass.php";
     $obj = new user();
-    // echo "<pre>";
-    // print_r($_SESSION);
-    // echo "</pre>";
+    
     $quizid = $obj->getQuizIdByCourse($_SESSION['course_id']);
     $points = $obj->getQuizPoints($quizid);
     $degree = $points / 12 * $_SESSION['counter'];

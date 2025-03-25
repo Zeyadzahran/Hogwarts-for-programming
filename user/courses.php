@@ -58,8 +58,8 @@ $courses = $obj->getCourses($userId);
                                     if (!$res['QuizDone']) { ?>
                                         <a href="quiz/quiz.php" class="setadmin">Enter</a>
                                     <?php } else { ?>
-                                        <a href="quiz/done.php" class="setadmin">Enter</a>
-                                    <?php } ?>
+                                        <button class="delete">No Quiz</button>
+                                        <?php } ?>
 
                                 <?php else : ?>
                                     <button class="delete">No Quiz</button>

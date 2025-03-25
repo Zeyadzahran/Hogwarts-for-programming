@@ -1,3 +1,4 @@
+-- Active: 1739625100301@@127.0.0.1@3306@hogwarts
 -- Insert Wands
 INSERT INTO
     Wand (name, core, wood)
@@ -287,18 +288,9 @@ VALUES ('Potions', 2),
     ('Magical Plants', 5),
     ('Alchemy', 6),
     ('Advanced Potions', 6),
-    ('Dark Arts', 7),
-    (
-        'Werewolves & Their Behaviors',
-        7
-    ),
-    ('Magical Creatures', 8),
-    ('Self-Defense Spells', 8),
-    ('Data Structures', 9),
-    ('Algorithms', 9),
-    ('Database Systems', 10),
-    ('Web Development', 10),
-    ('Operating Systems', 11),
-    ('Computer Networks', 11),
-    ('Artificial Intelligence', 12),
-    ('Machine Learning', 12);
+    ('Dark Arts', 7);
+   
+    
+
+
+
