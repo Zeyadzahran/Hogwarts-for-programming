@@ -4,10 +4,13 @@ class admin extends Dbh{
 
     public function updateRole($id)
     {
-        $query = "UPDATE User SET role ='Admin' WHERE id = ? ;";
-        $stmt = $this->connect()->prepare($query);
-        if (!$stmt->execute([$id])) {
-            $stmt = null ;
+        $query1 = "UPDATE User SET role ='Admin' WHERE id = ? ;";
+        $query2 = "UPDATE User SET house_id = NULL WHERE id = ? ;";
+        $stmt1 = $this->connect()->prepare($query1);
+        $stmt2 = $this->connect()->prepare($query2);
+        if (!($stmt1->execute([$id]) && $stmt2->execute([$id]))) {
+            $stmt1 = null ;
+            $stmt2 = null;
             header("location: ../admin/manageUser.php?error=failedToUpdateRole");
             exit();
         }
@@ -15,10 +18,13 @@ class admin extends Dbh{
 
     public function deleteUser($id)
     {
-        $query = "DELETE FROM User WHERE id = ?";
-        $stmt = $this->connect()->prepare($query);
-        if (!$stmt->execute([$id])) {
-            $stmt = null;
+        $query1 = "DELETE FROM Enrollment WHERE student_id = ?";
+        $query2 = "DELETE FROM User WHERE id = ?";
+        $stmt1 = $this->connect()->prepare($query1);
+        $stmt2 = $this->connect()->prepare($query2);
+        if (!($stmt1->execute([$id]) && $stmt2->execute([$id]))) {
+            $stmt1 = null;
+            $stmt2 = null;
             header("location: ../admin/mangeUsers.php?error=failedToDeleteUser");
             exit();
         }

@@ -146,7 +146,7 @@ VALUES (
         'Admin',
         '123',
         1,
-        1
+        NULL
     ),
     (
         'Severus Snape',
@@ -154,7 +154,7 @@ VALUES (
         'Admin',
         '123',
         2,
-        2
+        NULL
     ),
     (
         'Minerva McGonagall',
@@ -162,7 +162,7 @@ VALUES (
         'Admin',
         '123',
         3,
-        1
+        NULL
     ),
     (
         'Filius Flitwick',
@@ -170,7 +170,7 @@ VALUES (
         'Admin',
         '123',
         4,
-        3
+        NULL
     ),
     (
         'Pomona Sprout',
@@ -178,7 +178,7 @@ VALUES (
         'Admin',
         '123',
         5,
-        4
+        NULL
     ),
     (
         'Horace Slughorn',
@@ -186,7 +186,7 @@ VALUES (
         'Admin',
         '123',
         6,
-        2
+        NULL
     ),
     (
         'Remus Lupin',
@@ -194,7 +194,7 @@ VALUES (
         'Admin',
         '123',
         7,
-        3
+        NULL
     ),
     (
         'Gilderoy Lockhart',
@@ -202,7 +202,7 @@ VALUES (
         'Admin',
         '123',
         8,
-        4
+        NULL
     ),
     (
         'Zeyad',
@@ -268,7 +268,7 @@ VALUES (
     (
         'Flaming Poison Vial',
         'A glass vial containing a swirling, fiery liquid marked as poison, emitting a faint smoke.',
-        'img/Flaming_Poison_Vial.png'
+        'img/Flaming Poison Vial.png'
     );
 
 -- Insert Courses

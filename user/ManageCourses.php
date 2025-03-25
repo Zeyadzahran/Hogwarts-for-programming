@@ -71,7 +71,7 @@ $courses = $obj->getAllCourse($userId);
         }
 
         .Assigne:hover {
-            background-color: #A67C52;
+            background-color:rgb(75, 116, 146);
             transform: scale(1.1);
         }
 
