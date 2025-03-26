@@ -25,7 +25,7 @@ $items = $obj->getItems();
     <?php require "navPar.php"; ?>
     <div class="main-content"> <!-- Add this wrapper -->
         <div class="shop-container">
-            <h1 class="shop-title">Welcome to the Ravenclaw Shop</h1>
+            <h1 class="inventory-title">Welcome to the Ravenclaw Shop</h1>
             <div class="items-grid">
                 <?php foreach ($items as $item): ?>
                     <div class="item">

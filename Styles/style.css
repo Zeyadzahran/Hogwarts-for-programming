@@ -508,7 +508,7 @@ img {
 }
 
 
-.user-table {
+/* .user-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
@@ -532,7 +532,7 @@ img {
 
 .user-table tr:nth-child(even) {
     background-color: rgba(201, 183, 139, 0.2);
-}
+} */
 
 
 /* Profile Page Styles */
