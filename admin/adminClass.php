@@ -19,16 +19,20 @@ class admin extends Dbh{
     public function deleteUser($id)
     {
         $query1 = "DELETE FROM Enrollment WHERE student_id = ?";
-        $query2 = "DELETE FROM User WHERE id = ?";
+        $query2 = "DELETE FROM OwnedItems WHERE student_id = ?";
+        $query3 = "DELETE FROM User WHERE id = ?";
         $stmt1 = $this->connect()->prepare($query1);
         $stmt2 = $this->connect()->prepare($query2);
-        if (!($stmt1->execute([$id]) && $stmt2->execute([$id]))) {
+        $stmt3 = $this->connect()->prepare($query3);
+        if (!($stmt1->execute([$id]) && $stmt2->execute([$id]) && $stmt3->execute([$id]))) {
             $stmt1 = null;
             $stmt2 = null;
+            $stmt = null;
             header("location: ../admin/mangeUsers.php?error=failedToDeleteUser");
             exit();
         }
     }
+
 
     public function GetUsers()
     {
