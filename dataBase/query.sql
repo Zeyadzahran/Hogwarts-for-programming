@@ -1,4 +1,4 @@
--- Active: 1739625100301@@127.0.0.1@3306@hogwarts
+
 -- Insert Wands
 INSERT INTO
     Wand (name, core, wood)
@@ -243,12 +243,12 @@ INSERT INTO
     item (name, description, path)
 VALUES (
         'Astral Essence Vial',
-        'A mystical potion encased in a delicate glass bottle.',
+        'A mystical potion encased in a delicate glass bottle .',
         'img/Astral_Essence_Vial.png'
     ),
     (
         'Ring of the Arcane Tempest',
-        'A finely crafted ring of dark, ancient metal.',
+        'A finely crafted ring of dark, ancient metal .',
         'img/Ring_of_the_Arcane_Tempest.png'
     ),
     (
@@ -267,28 +267,97 @@ VALUES (
         'img/Moonlit_Scepter.png'
     ),
     (
+        'Ethereal Timepiece',
+        'A pocket watch that bends time itself, opening glimpses into the past and future.',
+        'img/Ethereal_Timepiece.png'
+    ),
+    (
+        'Quill of Enchantment',
+        'A golden quill that writes by itself, transcribing forgotten spells and secrets.',
+        'img/Quill_of_Enchantment.png'
+    ),
+    (
         'Flaming Poison Vial',
         'A glass vial containing a swirling, fiery liquid marked as poison, emitting a faint smoke.',
         'img/Flaming Poison Vial.png'
+    ),
+    (
+        'Enchanted Crystal Orb',
+        'A mystical blue crystal ball resting on an ornate golden base, swirling with ethereal energy.',
+        'img/Enchanted Crystal Orb.png'
+    ),
+    (
+        'Flaming Arcane Wand',
+        'A beautifully crafted magical wand covered in glowing runes, engulfed in arcane flames.',
+        'img/Flaming Arcane Wand.png'
+    ),
+    (
+        'Starlit Sorcerer’s Staff',
+        'A tall, elegant staff of darkwood with a floating crystal orb radiating cosmic energy.',
+        'img/Starlit_Sorcerers_Staff.png'
+    ),
+    (
+        'Shadowveil Cloak',
+        'A flowing black cloak infused with shadow magic, allowing the wearer to blend into darkness.',
+        'img/Shadowveil_Cloak.png'
+    ),
+    (
+        'Runebound Grimoire',
+        'An ancient tome filled with powerful incantations, its pages shimmer with arcane symbols.',
+        'img/Runebound_Grimoire.png'
     );
 
 -- Insert Courses
 INSERT INTO
     Course (name, professor_id)
-VALUES ('Potions', 2),
+VALUES ('Dark Arts Encryption', 2),
+    ('Potion Machine Learning', 2),
     (
-        'Defense Against the Dark Arts',
-        2
+        'Transfiguration Algorithms',
+        3
     ),
-    ('Transfiguration', 3),
-    ('Advanced Transfiguration', 3),
-    ('Charms', 4),
-    ('Enchantments', 4),
-    ('Herbology', 5),
-    ('Magical Plants', 5),
-    ('Alchemy', 6),
-    ('Advanced Potions', 6),
-    ('Dark Arts', 7);
+    ('Computational Animagi', 3),
+    ('Charms Compiler Design', 4),
+    ('Voice-Activated Coding', 4),
+    (
+        'Magical Creatures Database',
+        5
+    ),
+    ('Care of Magical Servers', 5),
+    (
+        'Herbology Neural Networks',
+        6
+    ),
+    ('Plant-based AI', 6),
+    (
+        'Memory Optimization Potions',
+        7
+    ),
+    (
+        'Elixir of Code Refactoring',
+        7
+    ),
+    ('Defensive Cybersecurity', 8),
+    ('Werewolf Cryptography', 8),
+    ('Self-Replicating Code', 9),
+    ('Memory Charm Programming', 9),
+    ('Quantum Spell Computing', 10),
+    ('Magical AI Ethics', 10),
+    ('Divination Data Science', 11),
+    (
+        'Predictive Spell Analytics',
+        11
+    ),
+    (
+        'Cloud Broomstick Architecture',
+        12
+    ),
+    (
+        'Flying Server Maintenance',
+        12
+    ),
+    ('Blockchain Potions', 13),
+    ('Smart Contract Charms', 13);
    
     
 

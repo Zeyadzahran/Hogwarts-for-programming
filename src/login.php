@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title> Login</title>
+    <title>Login</title>
     <link rel="stylesheet" href="../Styles/style.css">
 </head>
 
-<body>
-    <div class="container">
+<body class="auth-container">
+    <div class="auth-form">
         <form action="../includes/login.inc.php" method="post">
             <h2>Login</h2>
             <input type="text" name="username" placeholder="Username/Email" required>

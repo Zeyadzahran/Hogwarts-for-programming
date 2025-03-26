@@ -3,15 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <title> Login/Register</title>
+    <title>Register</title>
     <link rel="stylesheet" href="../Styles/style.css">
 </head>
 
-<body>
-    <div class="container">
-        
+<body class="auth-container">
+    <div class="auth-form">
         <form action="../includes/signup.inc.php" method="post">
-            <h2> Register </h2>
+            <h2>Register</h2>
             <input type="text" name="username" placeholder="Username" required>
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
@@ -19,7 +18,6 @@
             <button type="submit" name="submit">Register</button>
             <p>Already have an account? <a href="../src/login.php">Login here</a></p>
         </form>
-        
     </div>
 </body>
 
