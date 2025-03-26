@@ -10,7 +10,8 @@ class user extends Dbh{
     {
         $query = "select 
                     u.id, u.name, u.email,  
-                    h.name as house_name, 
+                    h.name as house_name,
+                    h.id as house_id, 
                     w.name as wand_name
                   from user u
                   left join House h on u.house_id = h.id
@@ -203,5 +204,17 @@ class user extends Dbh{
             exit();
         }
         return true;
+    }
+
+    public function getHousePoints($id)
+    {
+        $query = "select points from house where id = ? ";
+        $stmt = $this->connect()->prepare($query);
+
+        if (!$stmt->execute([$id])) {
+            header("location: ../coursee.php?error=statementfailed");
+            exit();
+        }
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
