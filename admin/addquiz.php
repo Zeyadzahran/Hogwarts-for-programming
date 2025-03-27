@@ -16,7 +16,7 @@ if (isset($_GET['id'])) {
         body {
             font-family: "Fira Code", monospace;
             background: linear-gradient(rgba(11, 26, 53, 0.7), rgba(11, 26, 53, 0.7)),
-                url('../Styles/signup.png') no-repeat center center fixed;
+                url('../Styles/signup2.jpg') no-repeat center center fixed;
             background-size: cover;
             background-color: #0b1a35;
             color: #c9b78b;
