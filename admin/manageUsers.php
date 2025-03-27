@@ -14,7 +14,6 @@ $obj = new admin();
 $users = $obj->GetUsers();
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,50 +25,43 @@ $users = $obj->GetUsers();
 </head>
 
 <body>
+    <?php require "navPar.php"; ?>
 
     <div class="dashboard-container">
-        <h2>Users Data!</h2>
-        <div class="dashboard-menu">
-
-            <table class="user-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Wand</th>
-                        <th>House</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    foreach ($users as $user):
-                        echo "<tr>
-            <td>" . htmlspecialchars($user['id']) . "</td>
-            <td>" . htmlspecialchars($user['name']) . "</td>
-            <td>" . htmlspecialchars($user['email']) . "</td>
-            <td>" . htmlspecialchars($user['wand_name']) . "</td>
-            <td>" . htmlspecialchars($user['house_name']) . "</td>";
-                    ?>
-                        <td>
-                            <div text-align="center">
-                                <a href="deleteContr.php?id=<?php echo $user['id']; ?>" class="delete">Delete</a>
-                                <a href="adminContr.php?id=<?php echo $user['id']; ?>" class="setadmin">Set Admin</a>
-                            </div>
-                        </td>
-                        </tr>
-                    <?php
-                    endforeach;
-                    ?>
-                </tbody>
-
-            </table>
+        <h2>Users Data</h2>
+        <div class="user-rows-container">
+            <?php foreach ($users as $user): ?>
+                <div class="user-row">
+                    <div class="user-info">
+                        <div class="user-info-item">
+                            <span class="user-info-label">ID</span>
+                            <span class="user-info-value"><?php echo htmlspecialchars($user['id']); ?></span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="user-info-label">Name</span>
+                            <span class="user-info-value"><?php echo htmlspecialchars($user['name']); ?></span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="user-info-label">Email</span>
+                            <span class="user-info-value"><?php echo htmlspecialchars($user['email']); ?></span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="user-info-label">Wand</span>
+                            <span class="user-info-value"><?php echo htmlspecialchars($user['wand_name']); ?></span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="user-info-label">House</span>
+                            <span class="user-info-value"><?php echo htmlspecialchars($user['house_name']); ?></span>
+                        </div>
+                    </div>
+                    <div class="user-actions">
+                        <a href="deleteContr.php?id=<?php echo $user['id']; ?>" class="delete">Delete</a>
+                        <a href="adminContr.php?id=<?php echo $user['id']; ?>" class="setadmin">Set Admin</a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
     </div>
-
-    <?php require "sidePanal.php"; ?>
-
 </body>
 
 </html>
