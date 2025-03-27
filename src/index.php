@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>Register</title>
     <link rel="stylesheet" href="../Styles/style.css">
+
+
 </head>
 
 <body class="auth-container">

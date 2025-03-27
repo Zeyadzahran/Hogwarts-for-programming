@@ -33,6 +33,26 @@ class admin extends Dbh{
         }
     }
 
+    public function getuser($id)
+    {
+        $query = "select 
+                    u.id, u.name, u.email,  
+                    w.name as wand_name
+                  from user u
+                  left join Wand w on u.wand_id = w.id
+                  where u.id = ?";
+
+        $stmt = $this->connect()->prepare($query);
+
+        if (!$stmt->execute([$id])) {
+            $stmt = null;
+            header("location: ../src/login.php?error=statementfailed");
+            exit();
+        }
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
 
     public function GetUsers()
     {

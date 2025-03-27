@@ -11,6 +11,9 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+
+
 /* Login/Register Specific Styles */
 .auth-container {
     display: flex;
@@ -18,17 +21,19 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+   
 }
 
 .auth-form {
     background: rgba(39, 51, 83, 0.9);
-    padding: 40px;
+    padding: 30px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     width: 100%;
-    max-width: 450px;
+    max-width: 380px;
     border: 1px solid rgba(201, 183, 139, 0.3);
     animation: fadeIn 0.5s ease-out;
+    
 }
 
 @keyframes fadeIn {
@@ -46,15 +51,15 @@ body {
 .auth-form h2 {
     color: #ffcc00;
     text-align: center;
-    margin-bottom: 30px;
-    font-size: 2rem;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
     text-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
 }
 
 .auth-form input {
     width: 100%;
-    padding: 15px;
-    margin-bottom: 20px;
+    padding: 12px;
+    margin-bottom: 15px;
     border: none;
     border-radius: 8px;
     background: rgba(11, 26, 53, 0.7);
@@ -77,12 +82,12 @@ body {
 
 .auth-form button {
     width: 100%;
-    padding: 15px;
+    padding: 12px;
     background: linear-gradient(135deg, #2174ae, #24aade);
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
