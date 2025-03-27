@@ -13,6 +13,8 @@ $userId = $_SESSION["id"];
 $getUser = new user();
 $userData = $getUser->getuser($userId);
 
+$wand = $getUser->getWand($userData["wand_id"]);
+
 if (!$userData) {
     header("Location: ../src/login.php?error=UserNotFound");
     exit();
@@ -93,9 +95,8 @@ $pointsPercentage = min(100, ($totalUserPoints / 100) * 100);
                 <h3>Wand Details</h3>
                 <div class="wand-visual">
                     <?php
-                    $wandParts = explode(' - ', $userData['wand_name'] ?? 'Unknown - Unknown');
-                    $wandWood = $wandParts[0] ?? 'Unknown';
-                    $wandCore = $wandParts[1] ?? 'Unknown';
+                    $wandWood = $wand['wood'] ?? 'Unknown';
+                    $wandCore = $wand['core'] ?? 'Unknown';
                     ?>
                     <div class="wand-wood"><?php echo htmlspecialchars($wandWood); ?></div>
                     <div class="wand-core"><?php echo htmlspecialchars($wandCore); ?></div>

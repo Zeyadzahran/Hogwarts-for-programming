@@ -1,5 +1,5 @@
 <?php
-require "../classes/dbh.classes.php";
+require_once "../classes/dbh.classes.php";
 class admin extends Dbh{
 
     public function updateRole($id)

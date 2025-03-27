@@ -1,7 +1,7 @@
 <?php
 
 
-require(__DIR__ . "/../classes/dbh.classes.php");
+require_once(__DIR__ . "/../classes/dbh.classes.php");
 
 
 class user extends Dbh{
@@ -9,7 +9,7 @@ class user extends Dbh{
     public function getuser($id)
     {
         $query = "select 
-                    u.id, u.name, u.email,  
+                    u.id, u.name, u.email,u.wand_id,  
                     h.name as house_name,
                     h.id as house_id, 
                     w.name as wand_name
@@ -217,4 +217,17 @@ class user extends Dbh{
         }
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function getWand($id)
+    {
+        $query = "select wood,core from wand  where id = ? ";
+        $stmt = $this->connect()->prepare($query);
+
+        if (!$stmt->execute([$id])) {
+            header("location: ../coursee.php?error=statementfailed");
+            exit();
+        }
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
 }
