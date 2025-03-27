@@ -48,7 +48,7 @@ Users have access to:
 │   ├── manageCourses.php
 │   ├── manageUsers.php
 │   ├── savequiz.php
-│   ├── sidePanel.php
+│   ├── navPar.php
 │
 │── 📚 classes/
 │   ├── dbh.classes.php
@@ -74,7 +74,7 @@ Users have access to:
 │
 │── 🌟 Styles/
 │   ├── flag.jpg
-│   ├── signup.webp
+│   ├── signup2.jpg
 │   ├── style.css
 │
 │── 👨‍🎓 user/
@@ -90,7 +90,6 @@ Users have access to:
 │   │   ├── BuyItem.php
 │   │   ├── shop.php
 │   │   ├── shopCntr.php
-│   │   ├── styles.css
 │   ├── assignCourse.php
 │   ├── courses.php
 │   ├── dashboard.php
@@ -98,7 +97,7 @@ Users have access to:
 │   ├── LeaderBoard.php
 │   ├── ManageCourses.php
 │   ├── profile.php
-│   ├── sidePanel.php
+│   ├── navPar.php
 │   ├── userClass.php
 │
 │── index.php
@@ -144,6 +143,5 @@ Embark on your wizarding journey and let the spells begin! 🧙‍♂️🫶🌟
 ## ERD
 
 
-![ERD](dataBase/erd.jpg)
 
 
