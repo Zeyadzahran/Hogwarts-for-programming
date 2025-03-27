@@ -1,5 +1,6 @@
 <?php
 require "adminClass.php";
+require "../user/userClass.php";
 
 session_start();
 
@@ -9,6 +10,10 @@ if (!isset($_SESSION["id"])) {
 }
 
 $userId = $_SESSION["id"];
+
+$getUser = new user();
+$userData = $getUser->getuser($userId);
+$wand = $getUser->getWand($userData["wand_id"]);
 
 $getadmin = new admin();
 $adminData =$getadmin->getuser($userId);
@@ -65,9 +70,8 @@ if (!$adminData) {
                 <h3>Wand Details</h3>
                 <div class="wand-visual">
                     <?php
-                    $wandParts = explode(' - ', $adminData['wand_name'] ?? 'Unknown - Unknown');
-                    $wandWood = $wandParts[0] ?? 'Unknown';
-                    $wandCore = $wandParts[1] ?? 'Unknown';
+                        $wandWood = $wand['wood'] ?? 'Unknown';
+                        $wandCore = $wand['core'] ?? 'Unknown';
                     ?>
                     <div class="wand-wood"><?php echo htmlspecialchars($wandWood); ?></div>
                     <div class="wand-core"><?php echo htmlspecialchars($wandCore); ?></div>
