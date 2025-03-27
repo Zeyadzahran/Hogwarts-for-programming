@@ -1,129 +1,126 @@
-
--- Insert Wands
 INSERT INTO
     Wand (name, core, wood)
 VALUES (
-        'Holly - Phoenix Feather',
+        'Phoenix’s Blessing',
         'Phoenix Feather',
         'Holly'
     ),
     (
-        'Holly - Dragon Heartstring',
+        'Inferno’s Embrace',
         'Dragon Heartstring',
         'Holly'
     ),
     (
-        'Holly - Unicorn Hair',
+        'Celestial Whisper',
         'Unicorn Hair',
         'Holly'
     ),
     (
-        'Holly - Thestral Tail Hair',
+        'Veil of Shadows',
         'Thestral Tail Hair',
         'Holly'
     ),
     (
-        'Yew - Phoenix Feather',
+        'Eclipse of the Phoenix',
         'Phoenix Feather',
         'Yew'
     ),
     (
-        'Yew - Dragon Heartstring',
+        'Drake’s Wrath',
         'Dragon Heartstring',
         'Yew'
     ),
     (
-        'Yew - Unicorn Hair',
+        'Moonlit Harmony',
         'Unicorn Hair',
         'Yew'
     ),
     (
-        'Yew - Thestral Tail Hair',
+        'Dark Vein',
         'Thestral Tail Hair',
         'Yew'
     ),
     (
-        'Elder - Phoenix Feather',
+        'Elder’s Requiem',
         'Phoenix Feather',
         'Elder'
     ),
     (
-        'Elder - Dragon Heartstring',
+        'Dragon’s Legacy',
         'Dragon Heartstring',
         'Elder'
     ),
     (
-        'Elder - Unicorn Hair',
+        'Aurora’s Gift',
         'Unicorn Hair',
         'Elder'
     ),
     (
-        'Elder - Thestral Tail Hair',
+        'Phantom’s Grasp',
         'Thestral Tail Hair',
         'Elder'
     ),
     (
-        'Willow - Phoenix Feather',
+        'Willow’s Fireheart',
         'Phoenix Feather',
         'Willow'
     ),
     (
-        'Willow - Dragon Heartstring',
+        'Stormbinder',
         'Dragon Heartstring',
         'Willow'
     ),
     (
-        'Willow - Unicorn Hair',
+        'Serenity’s Light',
         'Unicorn Hair',
         'Willow'
     ),
     (
-        'Willow - Thestral Tail Hair',
+        'Duskrender',
         'Thestral Tail Hair',
         'Willow'
     ),
     (
-        'Hawthorn - Phoenix Feather',
+        'Hawthorn’s Rising Ember',
         'Phoenix Feather',
         'Hawthorn'
     ),
     (
-        'Hawthorn - Dragon Heartstring',
+        'Wyvern’s Fang',
         'Dragon Heartstring',
         'Hawthorn'
     ),
     (
-        'Hawthorn - Unicorn Hair',
+        'Ethereal Bond',
         'Unicorn Hair',
         'Hawthorn'
     ),
     (
-        'Hawthorn - Thestral Tail Hair',
+        'Nightshade’s Lament',
         'Thestral Tail Hair',
         'Hawthorn'
     ),
     (
-        'Oak - Phoenix Feather',
+        'Oak’s Phoenix Brand',
         'Phoenix Feather',
         'Oak'
     ),
     (
-        'Oak - Dragon Heartstring',
+        'Titan’s Roar',
         'Dragon Heartstring',
         'Oak'
     ),
     (
-        'Oak - Unicorn Hair',
+        'Silverbrook’s Touch',
         'Unicorn Hair',
         'Oak'
     ),
     (
-        'Oak - Thestral Tail Hair',
+        'Midnight Fang',
         'Thestral Tail Hair',
         'Oak'
     );
 
--- Insert Houses
 INSERT INTO
     House (name, points)
 VALUES ('Gryffindor', 0),
@@ -131,114 +128,8 @@ VALUES ('Gryffindor', 0),
     ('Ravenclaw', 0),
     ('Hufflepuff', 0);
 
--- Insert Users 
-INSERT INTO
-    User (
-        name,
-        email,
-        role,
-        password,
-        wand_id,
-        house_id
-    )
-VALUES (
-        'Albus Dumbledore',
-        'dumbledore@hogwarts.edu',
-        'Admin',
-        '123',
-        1,
-        NULL
-    ),
-    (
-        'Severus Snape',
-        'snape@hogwarts.edu',
-        'Admin',
-        '123',
-        2,
-        NULL
-    ),
-    (
-        'Minerva McGonagall',
-        'mcgonagall@hogwarts.edu',
-        'Admin',
-        '123',
-        3,
-        NULL
-    ),
-    (
-        'Filius Flitwick',
-        'flitwick@hogwarts.edu',
-        'Admin',
-        '123',
-        4,
-        NULL
-    ),
-    (
-        'Pomona Sprout',
-        'sprout@hogwarts.edu',
-        'Admin',
-        '123',
-        5,
-        NULL
-    ),
-    (
-        'Horace Slughorn',
-        'slughorn@hogwarts.edu',
-        'Admin',
-        '123',
-        6,
-        NULL
-    ),
-    (
-        'Remus Lupin',
-        'lupin@hogwarts.edu',
-        'Admin',
-        '123',
-        7,
-        NULL
-    ),
-    (
-        'Gilderoy Lockhart',
-        'lockhart@hogwarts.edu',
-        'Admin',
-        '123',
-        8,
-        NULL
-    ),
-    (
-        'Zeyad',
-        'zeyad@hogwarts.edu',
-        'Admin',
-        '123',
-        9,
-        NULL
-    ),
-    (
-        'Tahany',
-        'tahany@hogwarts.edu',
-        'Admin',
-        '123',
-        10,
-        NULL
-    ),
-    (
-        'Shams',
-        'shams@hogwarts.edu',
-        'Admin',
-        '123',
-        11,
-        NULL
-    ),
-    (
-        'Mohamed',
-        'mohamed@hogwarts.edu',
-        'Admin',
-        '123',
-        12,
-        NULL
-    );
 
--- Insert Items
+
 INSERT INTO
     item (name, description, path)
 VALUES (
@@ -292,74 +183,235 @@ VALUES (
         'img/Flaming Arcane Wand.png'
     ),
     (
-        'Starlit Sorcerer’s Staff',
-        'A tall, elegant staff of darkwood with a floating crystal orb radiating cosmic energy.',
-        'img/Starlit_Sorcerers_Staff.png'
+    'Starlit Sorcerer’s Staff',
+    'A tall, elegant staff of darkwood with a floating crystal orb radiating cosmic energy.',
+    'img/Starlit_Sorcerers_Staff.png'
+    ),(
+    'Shadowveil Cloak',
+    'A flowing black cloak infused with shadow magic, allowing the wearer to blend into darkness.',
+    'img/Shadowveil_Cloak.png'
     ),
     (
-        'Shadowveil Cloak',
-        'A flowing black cloak infused with shadow magic, allowing the wearer to blend into darkness.',
-        'img/Shadowveil_Cloak.png'
-    ),
-    (
-        'Runebound Grimoire',
-        'An ancient tome filled with powerful incantations, its pages shimmer with arcane symbols.',
-        'img/Runebound_Grimoire.png'
+    'Runebound Grimoire',
+    'An ancient tome filled with powerful incantations, its pages shimmer with arcane symbols.',
+    'img/Runebound_Grimoire.png'
     );
 
--- Insert Courses
-INSERT INTO
-    Course (name, professor_id)
-VALUES ('Dark Arts Encryption', 2),
-    ('Potion Machine Learning', 2),
+
+
+  
+    INSERT INTO
+    User (
+        name,
+        email,
+        role,
+        password,
+        wand_id,
+        house_id
+    )
+VALUES (
+        'Albus Dumbledore',
+        'dumbledore@hogwarts.edu',
+        'Admin',
+        '123',
+        1,
+        1
+    ),
     (
-        'Transfiguration Algorithms',
+        'Severus Snape',
+        'snape@hogwarts.edu',
+        'Admin',
+        '123',
+        2,
+        2
+    ),
+    (
+        'Minerva McGonagall',
+        'mcgonagall@hogwarts.edu',
+        'Admin',
+        '123',
+        3,
+        1
+    ),
+    (
+        'Filius Flitwick',
+        'flitwick@hogwarts.edu',
+        'Admin',
+        '123',
+        4,
         3
     ),
-    ('Computational Animagi', 3),
-    ('Charms Compiler Design', 4),
-    ('Voice-Activated Coding', 4),
     (
-        'Magical Creatures Database',
+        'Pomona Sprout',
+        'sprout@hogwarts.edu',
+        'Admin',
+        '123',
+        5,
+        4
+    ),
+    (
+        'Horace Slughorn',
+        'slughorn@hogwarts.edu',
+        'Admin',
+        '123',
+        6,
+        2
+    ),
+    (
+        'Remus Lupin',
+        'lupin@hogwarts.edu',
+        'Admin',
+        '123',
+        7,
+        3
+    ),
+    (
+        'Gilderoy Lockhart',
+        'lockhart@hogwarts.edu',
+        'Admin',
+        '123',
+        8,
+        4
+    ),
+    (
+        'Zeyad',
+        'zeyad@hogwarts.edu',
+        'Admin',
+        '123',
+        9,
+        NULL
+    ),
+    (
+        'Tahany',
+        'tahany@hogwarts.edu',
+        'Admin',
+        '123',
+        10,
+        NULL
+    ),
+    (
+        'Shams',
+        'shams@hogwarts.edu',
+        'Admin',
+        '123',
+        11,
+        NULL
+    ),
+    (
+        'Mohamed',
+        'mohamed@hogwarts.edu',
+        'Admin',
+        '123',
+        12,
+        NULL
+    );
+   INSERT INTO
+    Course (name, professor_id)
+VALUES ('Advanced Potion Making', 2),
+    (
+        'Dark Arts and Cybersecurity',
+        2
+    ),
+    (
+        'Ethical Hacking with Dark Magic',
+        2
+    ),
+    ('Transfiguration', 3),
+    (
+        'Object-Oriented Spellcasting',
+        3
+    ),
+    ('Data Structures in Magic', 3),
+    ('Charms', 4),
+    (
+        'Algorithms and Enchantments',
+        4
+    ),
+    ('AI and Spell Automation', 4),
+    ('Herbology', 5),
+    (
+        'Potion Ingredients and Their Algorithms',
         5
     ),
-    ('Care of Magical Servers', 5),
     (
-        'Herbology Neural Networks',
+        'Green Computing and Magical Sustainability',
+        5
+    ),
+    ('Advanced Potion Brewing', 6),
+    (
+        'Database Alchemy: SQL & Potions',
         6
     ),
-    ('Plant-based AI', 6),
     (
-        'Memory Optimization Potions',
+        'System Security and Magical Defenses',
+        6
+    ),
+    (
+        'Defense Against the Dark Arts',
         7
     ),
     (
-        'Elixir of Code Refactoring',
+        'Cyber Defense Against Black Hat Wizards',
         7
     ),
-    ('Defensive Cybersecurity', 8),
-    ('Werewolf Cryptography', 8),
-    ('Self-Replicating Code', 9),
-    ('Memory Charm Programming', 9),
-    ('Quantum Spell Computing', 10),
-    ('Magical AI Ethics', 10),
-    ('Divination Data Science', 11),
     (
-        'Predictive Spell Analytics',
+        'Penetration Testing with Magic',
+        7
+    ),
+    ('Magical Public Speaking', 8),
+    (
+        'Frontend Enchantments: UI/UX Magic',
+        8
+    ),
+    (
+        'Introduction to Wizarding Journalism',
+        8
+    ),
+    (
+        'Cryptography and Ancient Runes',
+        9
+    ),
+    (
+        'Machine Learning for Spell Prediction',
+        9
+    ),
+    (
+        'Game Development with Magic',
+        9
+    ),
+    (
+        'Network Security and Protective Spells',
+        10
+    ),
+    (
+        'Full Stack Magic: Web Development',
+        10
+    ),
+    (
+        'Defensive Coding and Magical Debugging',
+        10
+    ),
+    (
+        'Cybersecurity for Wizards',
         11
     ),
     (
-        'Cloud Broomstick Architecture',
+        'Deep Learning for Magical AI',
+        11
+    ),
+    (
+        'Hacking Spells and Countermeasures',
+        11
+    ),
+    (
+        'Blockchain and Magical Smart Contracts',
         12
     ),
     (
-        'Flying Server Maintenance',
+        'Operating Systems in the Wizarding World',
         12
     ),
-    ('Blockchain Potions', 13),
-    ('Smart Contract Charms', 13);
-   
-    
-
-
-
+    (
+        'Cloud Computing and Floating Data Charms',
+        12
+    );
