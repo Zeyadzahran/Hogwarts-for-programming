@@ -1,11 +1,11 @@
 <?php
 
-require("adminClass.php");
+require("../adminClass.php");
 
 
 session_start();
 if (!isset($_SESSION["id"])) {
-    header("Location: ../src/login.php?error=Can'tManegeUser!");
+    header("Location: ../../src/login.php?error=Can'tManegeUser!");
     exit();
 }
 $userId = $_SESSION["id"]; // we will not use it here but i think we must keep it if we will use it in other pages  
@@ -21,11 +21,11 @@ $users = $obj->GetUsers($userId);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Users</title>
-    <link rel="stylesheet" href="../Styles/style.css">
+    <link rel="stylesheet" href="../../Styles/style.css">
 </head>
 
 <body>
-    <?php require "navPar.php"; ?>
+    <?php require "../navPar.php"; ?>
 
     <div class="dashboard-container">
         <h2>Users Data</h2>
@@ -60,16 +60,16 @@ $users = $obj->GetUsers($userId);
                         
                     </div>
                     <div class="user-actions">
-                    <a href="deleteContr.php?id=<?php echo $user['id']; ?>" class="delete">Delete</a>
+                    <a href="../users-controllers/deleteContr.php?id=<?php echo $user['id']; ?>" class="delete">Delete</a>
                     <?php if ($userId == 1) { ?> 
                         <?php if ($user['role'] === "Student") { ?>
-                            <a href="adminContr.php?id=<?php echo $user['id']; ?>" class="setadmin">Set Admin</a>
+                            <a href="../users-controllers/adminContr.php?id=<?php echo $user['id']; ?>" class="setadmin">Set Admin</a>
                         <?php } else if ($user['role'] === "Admin") { ?>
-                            <a href="addcourse.php?id=<?php echo $user['id']; ?>" class="setadmin">Add Course</a>
+                            <a href="../users-controllers/add Course/addcourse.php?id=<?php echo $user['id']; ?>" class="setadmin">Add Course</a>
                         <?php } ?>
 
                     <?php } else if ($userRole === "Admin" && $user['role'] === "Student") { ?> 
-                        <a href="adminContr.php?id=<?php echo $user['id']; ?>" class="setadmin">Set Admin</a>
+                        <a href="../users-controllers/adminContr.php?id=<?php echo $user['id']; ?>" class="setadmin">Set Admin</a>
                        <?php } ?>
                     </div>
                 </div>

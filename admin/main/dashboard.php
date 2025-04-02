@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["id"])) {
-    header("Location: ../src/login.php?error=FailedOnAdminDashboard");
+    header("Location: ../../src/login.php?error=FailedOnAdminDashboard");
     exit();
 }
 
@@ -16,7 +16,7 @@ $charCount = strlen($username);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Styles/style.css">
+    <link rel="stylesheet" href="../../Styles/style.css">
     <title>Dashboard</title>
     <style>
         /* Add these styles to your existing CSS */
@@ -40,7 +40,7 @@ $charCount = strlen($username);
 </head>
 
 <body>
-    <?php require "navPar.php"; ?>
+    <?php require "../navPar.php"; ?>
     <div class="dashboard-container centered-dashboard">
         <h1 class="welcome-message">
             <span class="animated-username" style="--char-count: <?php echo $charCount+8; ?>;">

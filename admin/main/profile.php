@@ -1,11 +1,11 @@
 <?php
-require "adminClass.php";
-require "../user/userClass.php";
+require "../adminClass.php";
+require "../../user/userClass.php";
 
 session_start();
 
 if (!isset($_SESSION["id"])) {
-    header("Location: ../src/login.php?error=FailedOnUserProfile");
+    header("Location: ../../src/login.php?error=FailedOnUserProfile");
     exit();
 }
 
@@ -31,12 +31,12 @@ if (!$adminData) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Styles/style.css">
+    <link rel="stylesheet" href="../../Styles/style.css">
     <title>Profile</title>
 </head>
 
 <body>
-    <?php require "navPar.php"; ?>
+    <?php require "../navPar.php"; ?>
     <div class="profile-dashboard">
         <div class="profile-header">
             <div class="profile-avatar-container">

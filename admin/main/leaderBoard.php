@@ -1,6 +1,6 @@
 <?php
 
-require("adminClass.php");
+require("../adminClass.php");
 
 
 $obj = new admin();
@@ -14,11 +14,11 @@ $houses = $obj->getHouses();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Houses Leaderboard</title>
-    <link rel="stylesheet" href="../Styles/style.css">
+    <link rel="stylesheet" href="../../Styles/style.css">
 </head>
 
 <body>
-    <?php require "navPar.php"; ?>
+    <?php require "../navPar.php"; ?>
     <div class="main-content">
         <div class="leaderboard-container">
             <h1 class="leaderboard-title">Houses Leaderboard</h1>

@@ -1,10 +1,9 @@
 <?php
-require "adminClass.php";
-session_start();
+require "../../adminClass.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!isset($_POST['course_name']) || empty($_POST['course_name'])) {
-        header("Location: manageCourses.php?error=missingCourseName");
+        header("Location: ../../main/manageCourses.php?error=missingCourseName");
         exit();
     }
 
@@ -15,14 +14,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $result = $obj->addnewcourse($coursename, $professorname);
 
     if (!$result) {
-        header("Location: manageCourses.php?success=courseAdded");
+        header("Location: ../../main/manageCourses.php?success=courseAdded");
         exit();
     } else {
-        header("Location: manageCourses.php?error=failedToAddCourse");
+        header("Location: ../../main/manageCourses.php?error=failedToAddCourse");
         exit();
     }
 } else {
-    header("Location: manageCourses.php");
+    header("Location: ../../main/manageCourses.php");
     exit();
 }
 ?>

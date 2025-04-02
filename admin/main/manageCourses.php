@@ -1,8 +1,8 @@
 <?php
-require("adminClass.php");
+require("../adminClass.php");
 session_start();
 if (!isset($_SESSION["id"])) {
-    header("Location: ../src/login.php?error=FailedInMangeCoursePage");
+    header("Location: ../../src/login.php?error=FailedInMangeCoursePage");
     exit();
 }
 
@@ -18,7 +18,7 @@ $courses = $obj->GetCourses($userid);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Styles/style.css">
+    <link rel="stylesheet" href="../../Styles/style.css">
     <title>Courses</title>
     <style>
         .courses-container {
@@ -190,16 +190,19 @@ $courses = $obj->GetCourses($userid);
 </head>
 
 <body>
-    <?php require "navPar.php"; ?>
+    <?php require "../navPar.php"; ?>
     <div class="courses-container">
         <h1 class="courses-title">All Courses</h1>
         <div class="courses-grid">
+            <?php 
+            if ($userid == 1): ?>
             <div  class="course-card">
                   <div class="course-header">
                         <div class="course-icon">📚</div>
                         <h3 class="course-name"> <a href="newcourse.php">Add New Course</a> </h3>
                    </div>
-             </div>       
+             </div>  
+             <?php endif; ?>     
             <?php foreach ($courses as $course) : ?>
                 <div class="course-card">
                     <div class="course-header">

@@ -1,6 +1,6 @@
 <?php
 
-require "adminClass.php";
+require "../../adminClass.php";
 
 $userId = $_GET['id'];
 
@@ -16,11 +16,25 @@ $courses = $obj->getfreeCourse($userId);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses</title>
-    <link rel="stylesheet" href="../Styles/style.css">
+    <link rel="stylesheet" href="../../../Styles/style.css">
 </head>
 
 <body>
-    <?php require "navPar.php"; ?>
+<nav class="navbar">
+    <div class="nav-left">
+        <img src="../../../Styles/logo.png" alt="Logo" class="nav-logo">
+        <ul>
+            <li><a href="../../main/dashboard.php" class="<?= ($current_page == 'dashboard.php') ? 'active' : '' ?>">🏨 dashboard</a></li>
+            <li><a href="../../main/manageUsers.php" class="<?= ($current_page == 'manageUsers.php') ? 'active' : '' ?>">👥 Manage users</a></li>
+            <li><a href="../../main/manageCourses.php" class="<?= ($current_page == 'manageCourses.php') ? 'active' : '' ?>">📚 manageCourses</a></li>
+            <li><a href="../../main/LeaderBoard.php" class="<?= ($current_page == 'LeaderBoard.php') ? 'active' : '' ?>">🏠 Leaderboard</a></li>
+        </ul>
+    </div>
+    <div class="nav-right">
+        <a href="profile.php" class="<?= ($current_page == 'profile.php') ? 'active' : '' ?>">👤 Profile</a>
+        <a href="../../src/logout.php" class="logout <?= ($current_page == 'logout.php') ? 'active' : '' ?>">🚪 Logout</a>
+    </div>
+</nav>
     <div class="main-content">
         <div class="courses-container">
             <h1 class="courses-title">Not Assigned Courses</h1>
