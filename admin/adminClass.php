@@ -99,7 +99,14 @@ class admin extends Dbh{
             }
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }else{
-        $query = "SELECT  Course.id AS id, Course.name AS name FROM Course WHERE Course.professor_id = ?;";
+            $query = "SELECT 
+            Course.id AS id, 
+            Course.name AS name, 
+            User.name AS professor_name 
+          FROM Course
+          JOIN User ON Course.professor_id = User.id
+          WHERE Course.professor_id = ?;";
+
 
             $stmt = $this->connect()->prepare($query);
 
@@ -111,6 +118,7 @@ class admin extends Dbh{
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
     }
+
 
 
     public function getHouses()
