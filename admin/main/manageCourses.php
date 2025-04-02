@@ -203,7 +203,7 @@ $courses = $obj->GetCourses($userid);
                    </div>
              </div>  
              <?php endif; ?>     
-            <?php foreach ($courses as $course) : ?>
+             <?php foreach ($courses as $course) : ?>
                 <div class="course-card">
                     <div class="course-header">
                         <div class="course-icon">📚</div>
@@ -216,6 +216,11 @@ $courses = $obj->GetCourses($userid);
                         </div>
                         
                     </div>
+                    <?php if($userid != 1) : ?>
+                        <div class="course-actions">
+                            <a href="addquiz.php?id=<?php echo $course['id']; ?>" class="assign-btn">Add Quiz</a>
+                        </div>
+                    <?php endif ; ?>    
                 </div>
             <?php endforeach; ?>
         </div>
