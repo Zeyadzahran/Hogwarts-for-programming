@@ -45,7 +45,7 @@ class admin extends Dbh{
     }
 
     public function GetUsers($id)
-    {
+{
         if($id==1){
             $query="SELECT  User.id, 
                         User.name, 
@@ -214,6 +214,7 @@ class admin extends Dbh{
 
     }
     
+
 }
 
 ?>
