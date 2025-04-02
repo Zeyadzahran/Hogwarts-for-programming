@@ -194,16 +194,15 @@ $courses = $obj->GetCourses($userid);
     <div class="courses-container">
         <h1 class="courses-title">All Courses</h1>
         <div class="courses-grid">
-            <?php 
-            if ($userid == 1): ?>
+        <?php if($userid==1):?>
             <div  class="course-card">
                   <div class="course-header">
                         <div class="course-icon">📚</div>
                         <h3 class="course-name"> <a href="newcourse.php">Add New Course</a> </h3>
                    </div>
-             </div>  
-             <?php endif; ?>     
-             <?php foreach ($courses as $course) : ?>
+             </div>       
+             <?php endif; ?> 
+            <?php foreach ($courses as $course) : ?>
                 <div class="course-card">
                     <div class="course-header">
                         <div class="course-icon">📚</div>

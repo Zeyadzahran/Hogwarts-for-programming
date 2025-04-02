@@ -46,7 +46,7 @@ class admin extends Dbh{
     }
 
     public function GetUsers($id)
-    {
+{
         if($id==1){
             $query="SELECT  User.id, 
                         User.name, 
@@ -119,6 +119,7 @@ class admin extends Dbh{
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
     }
+
 
 
     public function getHouses()
@@ -222,6 +223,7 @@ class admin extends Dbh{
 
     }
     
+
 }
 
 ?>
