@@ -1,9 +1,9 @@
--- Active: 1739625100301@@127.0.0.1@3306@hogwarts
-DROP DATABASE hogwarts;
-
 CREATE DATABASE hogwarts;
 
 use hogwarts;
+
+-- Active: 1739625100301@@127.0.0.1@3306@hogwarts
+DROP DATABASE hogwarts;
 
 CREATE TABLE Wand (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -36,6 +36,7 @@ CREATE TABLE Course (
     professor_id INT,
     havequiz BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (professor_id) REFERENCES User (id) ON DELETE SET NULL
+    
 );
 
 CREATE TABLE Enrollment (
@@ -44,8 +45,9 @@ CREATE TABLE Enrollment (
     course_id INT NOT NULL,
     Quizdone BOOLEAN DEFAULT False,
     Marks INT,
-    FOREIGN KEY (student_id) REFERENCES User (id),
+    FOREIGN KEY (student_id) REFERENCES User (id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (course_id) REFERENCES Course (id)
+    
 );
 
 CREATE TABLE Quiz (
@@ -67,6 +69,7 @@ CREATE TABLE OwnedItems (
     student_id INT NOT NULL,
     item_id INT NOT NULL,
     item_count INT,
-    FOREIGN KEY (student_id) REFERENCES User (id),
+    FOREIGN KEY (student_id) REFERENCES User (id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (item_id) REFERENCES Item (id)
 );
+

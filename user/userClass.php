@@ -8,15 +8,15 @@ class user extends Dbh{
 
     public function getuser($id)
     {
-        $query = "select 
+        $query = "SELECT 
                     u.id, u.name, u.email,u.wand_id,  
                     h.name as house_name,
                     h.id as house_id, 
                     w.name as wand_name
-                  from user u
-                  left join House h on u.house_id = h.id
-                  left join Wand w on u.wand_id = w.id
-                  where u.id = ?";
+                  FROM user u
+                  LEFT JOIN House h on u.house_id = h.id
+                  LEFT JOIN Wand w on u.wand_id = w.id
+                  WHERE u.id = ?";
 
         $stmt = $this->connect()->prepare($query);
 
@@ -193,7 +193,7 @@ class user extends Dbh{
         }
         return $stmt->fetch(PDO::FETCH_ASSOC);
 
-    }
+    } 
     public function setDone($student_id, $course_id)
     {
         $query = "UPDATE Enrollment SET QuizDone = true WHERE student_id = ? AND course_id = ?";

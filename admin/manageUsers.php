@@ -46,10 +46,7 @@ $users = $obj->GetUsers($userId);
                             <span class="user-info-label">Email</span>
                             <span class="user-info-value"><?php echo htmlspecialchars($user['email']); ?></span>
                         </div>
-                        <div class="user-info-item">
-                            <span class="user-info-label">Role</span>
-                            <span class="user-info-value"><?php echo htmlspecialchars($user['role']); ?></span>
-                        </div>
+                       
                         <div class="user-info-item">
                             <span class="user-info-label">Wand</span>
                             <span class="user-info-value"><?php echo htmlspecialchars($user['wand_name']); ?></span>

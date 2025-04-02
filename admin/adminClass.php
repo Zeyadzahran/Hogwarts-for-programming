@@ -4,13 +4,10 @@ class admin extends Dbh{
 
     public function updateRole($id)
     {
-        $query1 = "UPDATE User SET role ='Admin' WHERE id = ? ;";
-        $query2 = "UPDATE User SET house_id = NULL WHERE id = ? ;";
-        $stmt1 = $this->connect()->prepare($query1);
-        $stmt2 = $this->connect()->prepare($query2);
-        if (!($stmt1->execute([$id]) && $stmt2->execute([$id]))) {
-            $stmt1 = null ;
-            $stmt2 = null;
+        $query = "UPDATE User SET role ='Admin' , house_id = NULL WHERE id = ? ;";
+        $stmt = $this->connect()->prepare($query);
+        if (!$stmt->execute([$id])) {
+            $stmt = null ;
             header("location: ../admin/manageUser.php?error=failedToUpdateRole");
             exit();
         }
@@ -18,15 +15,9 @@ class admin extends Dbh{
 
     public function deleteUser($id)
     {
-        $query1 = "DELETE FROM Enrollment WHERE student_id = ?";
-        $query2 = "DELETE FROM OwnedItems WHERE student_id = ?";
-        $query3 = "DELETE FROM User WHERE id = ?";
-        $stmt1 = $this->connect()->prepare($query1);
-        $stmt2 = $this->connect()->prepare($query2);
-        $stmt3 = $this->connect()->prepare($query3);
-        if (!($stmt1->execute([$id]) && $stmt2->execute([$id]) && $stmt3->execute([$id]))) {
-            $stmt1 = null;
-            $stmt2 = null;
+        $query= "DELETE FROM User WHERE id = ?";
+        $stmt = $this->connect()->prepare($query);
+        if (!$stmt->execute([$id])) {
             $stmt = null;
             header("location: ../admin/mangeUsers.php?error=failedToDeleteUser");
             exit();
@@ -35,12 +26,12 @@ class admin extends Dbh{
 
     public function getuser($id)
     {
-        $query = "select 
-                    u.id, u.name, u.email,  
+        $query = "SELECT 
+                    u.id, u.name, u.email, u.role ,
                     w.name as wand_name
-                  from user u
-                  left join Wand w on u.wand_id = w.id
-                  where u.id = ?";
+                  FROM user u
+                  LEFT JOIN Wand w on u.wand_id = w.id
+                  WHERE u.id = ?";
 
         $stmt = $this->connect()->prepare($query);
 
@@ -52,7 +43,6 @@ class admin extends Dbh{
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-
 
     public function GetUsers($id)
     {
@@ -139,27 +129,17 @@ class admin extends Dbh{
 
     public function addquiz($quizname,$courseid,$points)
     {
-        $query1 = "UPDATE Course SET havequiz = TRUE WHERE id= :courseid";
-        $query2 = "INSERT INTO Quiz(name,course_id,points) VALUES(:quizname,:courseid,:points)";
+        $query1 = "UPDATE Course SET havequiz = TRUE WHERE id= ?";
+        $query2 = "INSERT INTO Quiz(name,course_id,points) VALUES(?,?,?)";
         $stmt1 = $this->connect()->prepare($query1);
-        $stmt1->bindParam(':courseid', $courseid, PDO::PARAM_INT);
         $stmt2 = $this->connect()->prepare($query2);
-        $stmt2->bindParam(':quizname', $quizname, PDO::PARAM_STR);
-        $stmt2->bindParam(':courseid', $courseid, PDO::PARAM_INT);
-        $stmt2->bindParam(':points', $points, PDO::PARAM_INT);
         
-        if (!($stmt1->execute() && $stmt2->execute())) {
+        if (!($stmt1->execute([$courseid]) && $stmt2->execute([$quizname,$courseid,$points]))) {
             $stmt = null;
             header("location: ../admin/manageCourses.php?error=FailedToAddQuiz");
             exit();
         }
         return $stmt1->fetchAll(PDO::FETCH_ASSOC) && $stmt2->fetchAll(PDO::FETCH_ASSOC) ;
-    }
-
-    public function updateprofile($name,$email,$password)
-    {
-        
-
     }
 
     
@@ -181,18 +161,58 @@ class admin extends Dbh{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function addcousre($userId,$courseId){
+    public function addcourse($userId,$courseId){
         $query = "UPDATE Course SET professor_id = ? WHERE id = ? AND professor_id IS NULL";
-        $stmt = this->connect()->prepare($query);
 
-        if (!stmt->execute()){
+        $stmt = $this->connect()->prepare($query);
+
+        if (!$stmt->execute([$userId,$courseId])){
             $stmt=NULL;
-            header("location : dashboard.php?error=failed");
+            header("location: dashboard.php?error=failed");
             exit();
         }
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+
+    public function addnewcourse($coursename,$professorname){
+        
+        $query1 = "INSERT INTO Course (name) VALUES (?);";
+        $query2 = "INSERT INTO Course (name,professor_id) VALUES(?,?);";
+        $query3 = "SELECT id FROM User WHERE name = ?";      
+
+        if(empty($professorname)){
+            $stmt = $this->connect()->prepare($query1);
+            if (!$stmt->execute([$coursename])){
+                $stmt=NULL;
+                header("location: manageCourses.php?error=failed");
+                exit();
+            }
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+
+        }else{
+            $stmt1 = $this->connect()->prepare($query3);
+            if (!$stmt1->execute([$professorname])){
+                $stmt1=NULL;
+                header("location: manageCourses.php?error=failed");
+                exit();
+            }
+        $professor_id=$stmt1->fetch(PDO::FETCH_ASSOC)["id"];
+
+           if($stmt1->rowCount()>0){
+               $stmt2 = $this->connect()->prepare($query2);
+                if (!$stmt2->execute([$coursename, $professor_id])){
+                    $stmt2=NULL;
+                    header("location: manageCourses.php?error=failed");
+                    exit();
+                }
+            }
+            return $stmt2->fetchAll(PDO::FETCH_ASSOC);
+
+           
+        }
+
+
+    }
     
 }
 

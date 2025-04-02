@@ -1,9 +1,8 @@
 <?php
 
 require "adminClass.php";
-session_start();
 
-$userId = $_SESSION['id'];
+$userId = $_GET['id'];
 
 $obj = new admin();
 $courses = $obj->getfreeCourse($userId);
@@ -61,8 +60,8 @@ $courses = $obj->getfreeCourse($userId);
                         </div>
 
                         <div class="course-details">
-                            <a href="admin/addcoursecontr.php?course_id=<?= $course['course_id'] ?>"
-                                class="assign-btn">
+                        <a href="addcoursecontr.php?course_id=<?= $course['course_id'] ?>&userId=<?= $userId ?>" 
+                           class="assign-btn">
                                 Assign Course
                             </a>
                         </div>

@@ -3,20 +3,20 @@
 require "adminClass.php";
 
 session_start();
-if (!isset($_SESSION["id"]) or !isset($_GET['course_id'])) {
-    header("Location: ManageCourses.php?error=can'tManageCourses");
+if (!isset($_GET["userId"]) or !isset($_GET['course_id'])) {
+    header("Location: manageUsers.php?error=can'tManageCourses");
     exit();
 }
-$userId = $_SESSION['id'];
+$userId = $_GET['userId'];
 $courseId = $_GET['course_id'];
 
 $obj = new admin();
 
-$result = $obj->addcousre($userId,$courseId);
+$result = $obj->addcourse($userId,$courseId);
 if ($result) {
-    header("Location: ManageCourses.php?success=courseAssigned");
+    header("Location: manageUsers.php?success=courseAssigned");
     exit();
 } else {
-    header("Location: ManageCourses.php?error=assignmentFailed");
+    header("Location: manageUsers.php?error=assignmentFailed");
     exit();
 }
