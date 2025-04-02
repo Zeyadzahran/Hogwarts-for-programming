@@ -1,4 +1,4 @@
--- Active: 1742393829846@@127.0.0.1@3306@hogwarts
+-- Active: 1739625100301@@127.0.0.1@3306@hogwarts
 DROP DATABASE hogwarts;
 
 CREATE DATABASE hogwarts;
@@ -33,9 +33,9 @@ CREATE TABLE User (
 CREATE TABLE Course (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
-    professor_id INT NOT NULL,
+    professor_id INT,
     havequiz BOOLEAN DEFAULT FALSE,
-    FOREIGN KEY (professor_id) REFERENCES User (id)
+    FOREIGN KEY (professor_id) REFERENCES User (id) ON DELETE SET NULL
 );
 
 CREATE TABLE Enrollment (

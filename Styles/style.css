@@ -513,32 +513,6 @@ img {
 }
 
 
-/* .user-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    background-color: rgba(201, 183, 139, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.user-table th,
-.user-table td {
-    border: 1px solid #c9b78b;
-    padding: 15px;
-    text-align: center;
-}
-
-.user-table th {
-    background-color: #162b58;
-    color: #c9b78b;
-    font-size: 1.1rem;
-}
-
-.user-table tr:nth-child(even) {
-    background-color: rgba(201, 183, 139, 0.2);
-} */
-
 
 /* Profile Page Styles */
 .profile-dashboard {
@@ -694,6 +668,8 @@ img {
     display: inline-block;
 }
 
+
+
 .profile-title h1::after {
     content: '';
     position: absolute;
@@ -703,6 +679,8 @@ img {
     height: 2px;
     background: linear-gradient(90deg, #24aade, transparent);
 }
+
+
 
 .house-badge {
     display: inline-block;
@@ -1360,7 +1338,7 @@ img {
 
 .user-info {
     display: flex;
-    gap: 30px;
+    gap: 20px;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -1370,6 +1348,8 @@ img {
     flex-direction: column;
     min-width: 120px;
 }
+
+
 
 .user-info-label {
     color: #c9b78b;
@@ -1389,6 +1369,8 @@ img {
     gap: 10px;
     margin-left: auto;
 }
+
+
 
 .delete,
 .setadmin {
@@ -1624,6 +1606,9 @@ img {
         width: 100%;
     }
 }
+
+
+
 
 
 

@@ -11,7 +11,7 @@ header("Pragma: no-cache");
 
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $_SESSION['done'] = true;
+    $_SESSION['done'][$_SESSION['course_id']] = true;
     $_SESSION['counter'] = 0;
     $quiz = [
         "answer1" => "False",
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     header("Location: done.php");
     exit;
-} else if(isset($_SESSION['done']) && $_SESSION['done'] === true){
+} else if(isset($_SESSION['done'][$_SESSION['course_id']]) && $_SESSION['done'][$_SESSION['course_id']] === true){
     header("Location: done.php");
     exit;
 }

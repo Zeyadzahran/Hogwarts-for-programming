@@ -48,6 +48,7 @@ if (!$adminData) {
             </div>
             <div class="profile-title">
                 <h1><?php echo htmlspecialchars($adminData['name']); ?></h1>
+                <br> <a href="editprofile.php" class="setadmin">Edit Profile</a> 
             </div>
         </div>
 

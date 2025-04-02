@@ -1,68 +1,68 @@
 body {
-    background: linear-gradient(rgba(11, 26, 53, 0.8), rgba(11, 26, 53, 0.8)), 
-                url('flag.jpg') no-repeat center center fixed;
-    background-size: cover;
-    background-color: #0b1a35;
-    color: #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-  
-  .message-container {
+  background: linear-gradient(rgba(11, 26, 53, 0.8), rgba(11, 26, 53, 0.8)), 
+              url('flag.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-color: #0b1a35;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.message-container {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 700px;
+  width: 80%;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.message-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #f5c542;
+}
+
+.message-container p {
+  font-size: 1.2rem;
+  color: #f9f9f9;
+}
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffcc00;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.05);
-    padding: 40px;
-    border-radius: 20px;
-    max-width: 700px;
-    width: 80%;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 20px;
   }
-  
-  .message-container h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #f5c542;
-  }
-  
-  .message-container p {
-    font-size: 1.2rem;
-    color: #f9f9f9;
-  }
-    h3 {
-      font-size: 24px;
-      font-weight: bold;
-      color: #ffcc00;
-      text-align: center;
-      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
-      background: rgba(0, 0, 0, 0.5);
-      padding: 15px 20px;
-      border-radius: 10px;
-      display: inline-block;
-      margin-top: 20px;
-    }
 
 
 .setadmin {
-    display: block;
-    background-color: #0be192;
-    color: black;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
+  display: block;
+  background-color: #0be192;
+  color: black;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
 .setadmin:hover {
-    background-color: #72b39b;
-    transform: scale(1.05);
+  background-color: #72b39b;
+  transform: scale(1.05);
 }

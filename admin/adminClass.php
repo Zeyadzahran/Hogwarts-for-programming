@@ -54,17 +54,30 @@ class admin extends Dbh{
     }
 
 
-    public function GetUsers()
+    public function GetUsers($id)
     {
-        $query = "SELECT  User.id, 
+        if($id==1){
+            $query="SELECT  User.id, 
                         User.name, 
                         User.email, 
-                        Wand.name AS wand_name, 
-                        House.name AS house_name
+                        user.role,
+                        Wand.name AS wand_name
                             FROM User
                         JOIN Wand ON User.wand_id = Wand.id
-                        LEFT JOIN House ON User.house_id = House.id
-                        WHERE User.role = 'Student';";
+                        LEFT JOIN House ON User.house_id = House.id ;";
+        }else{
+            $query = "SELECT  User.id, 
+            User.name, 
+            User.email, 
+            user.role,
+            Wand.name AS wand_name, 
+            House.name AS house_name
+                FROM User
+            JOIN Wand ON User.wand_id = Wand.id
+            LEFT JOIN House ON User.house_id = House.id
+            WHERE User.role = 'Student';";
+        }
+      
         
         $stmt = $this->connect()->prepare($query);
         
@@ -123,6 +136,7 @@ class admin extends Dbh{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+
     public function addquiz($quizname,$courseid,$points)
     {
         $query1 = "UPDATE Course SET havequiz = TRUE WHERE id= :courseid";
@@ -141,6 +155,44 @@ class admin extends Dbh{
         }
         return $stmt1->fetchAll(PDO::FETCH_ASSOC) && $stmt2->fetchAll(PDO::FETCH_ASSOC) ;
     }
+
+    public function updateprofile($name,$email,$password)
+    {
+        
+
+    }
+
+    
+    public function getfreeCourse() {
+        $query = "SELECT 
+                    Course.name AS course_name,  
+                    Course.id AS course_id
+                  FROM Course
+                  WHERE Course.professor_id IS NULL;";
+        
+        $stmt = $this->connect()->prepare($query);
+    
+        if (!$stmt->execute()) {
+            $stmt = null;
+            header("location: dashboard.php?error=statementfailed");
+            exit();
+        }
+    
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function addcousre($userId,$courseId){
+        $query = "UPDATE Course SET professor_id = ? WHERE id = ? AND professor_id IS NULL";
+        $stmt = this->connect()->prepare($query);
+
+        if (!stmt->execute()){
+            $stmt=NULL;
+            header("location : dashboard.php?error=failed");
+            exit();
+        }
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
     
 }
 
