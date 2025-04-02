@@ -690,6 +690,8 @@ img {
     display: inline-block;
 }
 
+
+
 .profile-title h1::after {
     content: '';
     position: absolute;
@@ -699,6 +701,8 @@ img {
     height: 2px;
     background: linear-gradient(90deg, #24aade, transparent);
 }
+
+
 
 .house-badge {
     display: inline-block;
@@ -1356,7 +1360,7 @@ img {
 
 .user-info {
     display: flex;
-    gap: 30px;
+    gap: 20px;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -1366,6 +1370,8 @@ img {
     flex-direction: column;
     min-width: 120px;
 }
+
+
 
 .user-info-label {
     color: #c9b78b;
@@ -1619,6 +1625,9 @@ img {
         width: 100%;
     }
 }
+
+
+
 
 
 

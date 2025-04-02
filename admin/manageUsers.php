@@ -9,9 +9,9 @@ if (!isset($_SESSION["id"])) {
     exit();
 }
 $userId = $_SESSION["id"]; // we will not use it here but i think we must keep it if we will use it in other pages  
-
+$userRole = $_SESSION["role"];
 $obj = new admin();
-$users = $obj->GetUsers();
+$users = $obj->GetUsers($userId);
 
 ?>
 <!DOCTYPE html>
@@ -33,6 +33,7 @@ $users = $obj->GetUsers();
             <?php foreach ($users as $user): ?>
                 <div class="user-row">
                     <div class="user-info">
+                        
                         <div class="user-info-item">
                             <span class="user-info-label">ID</span>
                             <span class="user-info-value"><?php echo htmlspecialchars($user['id']); ?></span>
@@ -45,18 +46,31 @@ $users = $obj->GetUsers();
                             <span class="user-info-label">Email</span>
                             <span class="user-info-value"><?php echo htmlspecialchars($user['email']); ?></span>
                         </div>
+                       
                         <div class="user-info-item">
                             <span class="user-info-label">Wand</span>
                             <span class="user-info-value"><?php echo htmlspecialchars($user['wand_name']); ?></span>
                         </div>
-                        <div class="user-info-item">
-                            <span class="user-info-label">House</span>
-                            <span class="user-info-value"><?php echo htmlspecialchars($user['house_name']); ?></span>
-                        </div>
+                        <?php if($userId !== 1){?>
+                                <div class="user-info-item">
+                                <span class="user-info-label">House</span>
+                                <span class="user-info-value"><?php echo htmlspecialchars($user['house_name']); ?></span>
+                            </div>
+                        <?php }  ?>
+                        
                     </div>
                     <div class="user-actions">
-                        <a href="deleteContr.php?id=<?php echo $user['id']; ?>" class="delete">Delete</a>
+                    <a href="deleteContr.php?id=<?php echo $user['id']; ?>" class="delete">Delete</a>
+                    <?php if ($userId == 1) { ?> 
+                        <?php if ($user['role'] === "Student") { ?>
+                            <a href="adminContr.php?id=<?php echo $user['id']; ?>" class="setadmin">Set Admin</a>
+                        <?php } else if ($user['role'] === "Admin") { ?>
+                            <a href="addcourse.php?id=<?php echo $user['id']; ?>" class="setadmin">Add Course</a>
+                        <?php } ?>
+
+                    <?php } else if ($userRole === "Admin" && $user['role'] === "Student") { ?> 
                         <a href="adminContr.php?id=<?php echo $user['id']; ?>" class="setadmin">Set Admin</a>
+                       <?php } ?>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -65,3 +79,4 @@ $users = $obj->GetUsers();
 </body>
 
 </html>
+

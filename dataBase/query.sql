@@ -1,3 +1,4 @@
+-- Active: 1739625100301@@127.0.0.1@3306@hogwarts
 INSERT INTO
     Wand (name, core, wood)
 VALUES (
@@ -415,3 +416,10 @@ VALUES ('Advanced Potion Making', 2),
         'Cloud Computing and Floating Data Charms',
         12
     );
+
+
+INSERT INTO Course (name)
+VALUES 
+    ('Math'),
+    ('Algorithm'),
+    ('Operating System');
