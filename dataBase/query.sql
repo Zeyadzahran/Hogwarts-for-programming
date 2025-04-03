@@ -1,4 +1,4 @@
--- Active: 1739625100301@@127.0.0.1@3306@hogwarts
+-- Active: 1742393829846@@127.0.0.1@3306@hogwarts
 INSERT INTO
     Wand (name, core, wood)
 VALUES (
@@ -207,15 +207,13 @@ VALUES (
         email,
         role,
         password,
-        wand_id,
-        house_id
+        wand_id
     )
 VALUES (
         'Albus Dumbledore',
         'dumbledore@hogwarts.edu',
         'Admin',
         '123',
-        1,
         1
     ),
     (
@@ -223,7 +221,6 @@ VALUES (
         'snape@hogwarts.edu',
         'Admin',
         '123',
-        2,
         2
     ),
     (
@@ -231,80 +228,70 @@ VALUES (
         'mcgonagall@hogwarts.edu',
         'Admin',
         '123',
-        3,
-        1
+        3
     ),
     (
         'Filius Flitwick',
         'flitwick@hogwarts.edu',
         'Admin',
         '123',
-        4,
-        3
+        4
     ),
     (
         'Pomona Sprout',
         'sprout@hogwarts.edu',
         'Admin',
         '123',
-        5,
-        4
+        5
     ),
     (
         'Horace Slughorn',
         'slughorn@hogwarts.edu',
         'Admin',
         '123',
-        6,
-        2
+        6
     ),
     (
         'Remus Lupin',
         'lupin@hogwarts.edu',
         'Admin',
         '123',
-        7,
-        3
+        7
     ),
     (
         'Gilderoy Lockhart',
         'lockhart@hogwarts.edu',
         'Admin',
         '123',
-        8,
-        4
+        8
     ),
     (
         'Zeyad',
         'zeyad@hogwarts.edu',
         'Admin',
         '123',
-        9,
-        NULL
+        9
     ),
     (
         'Tahany',
         'tahany@hogwarts.edu',
         'Admin',
         '123',
-        10,
-        NULL
+        10
     ),
     (
         'Shams',
         'shams@hogwarts.edu',
         'Admin',
         '123',
-        11,
-        NULL
+        11
     ),
     (
         'Mohamed',
         'mohamed@hogwarts.edu',
         'Admin',
         '123',
-        12,
-        NULL
+        12
     );
    INSERT INTO
     Course (name, professor_id)
