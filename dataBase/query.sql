@@ -1,4 +1,4 @@
--- Active: 1739625100301@@127.0.0.1@3306@hogwarts
+-- Active: 1742393829846@@127.0.0.1@3306@hogwarts
 INSERT INTO
     Wand (name, core, wood)
 VALUES (

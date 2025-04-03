@@ -35,9 +35,9 @@
             <button type="submit" name="submit">Save</button>
             <a href="
             <?php if($userData["role"] === "Admin") 
-                        echo "../admin/profile.php";
+                        echo "../admin/main/profile.php";
                   else
-                        echo "../user/profile.php";
+                        echo "../user/main/profile.php";
             ?>" class="cancel">Cancel</a>
         </form>
     </div>

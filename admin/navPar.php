@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="../Styles/style.css">
 <nav class="navbar">
     <div class="nav-left">
-        <img src="../Styles/logo.png" alt="Logo" class="nav-logo">
+        <img src="../../Styles/logo.png" alt="Logo" class="nav-logo">
         <ul>
             <li><a href="dashboard.php" class="<?= ($current_page == 'dashboard.php') ? 'active' : '' ?>">🏨 dashboard</a></li>
             <li><a href="manageUsers.php" class="<?= ($current_page == 'manageUsers.php') ? 'active' : '' ?>">👥 Manage users</a></li>
@@ -12,8 +12,8 @@
         </ul>
     </div>
     <div class="nav-right">
-        <a href="Profile.php" class="<?= ($current_page == 'Profile.php') ? 'active' : '' ?>">👤 Profile</a>
-        <a href="../src/logout.php" class="logout <?= ($current_page == 'logout.php') ? 'active' : '' ?>">🚪 Logout</a>
+        <a href="profile.php" class="<?= ($current_page == 'profile.php') ? 'active' : '' ?>">👤 Profile</a>
+        <a href="../../src/logout.php" class="logout <?= ($current_page == 'logout.php') ? 'active' : '' ?>">🚪 Logout</a>
     </div>
 </nav>
 

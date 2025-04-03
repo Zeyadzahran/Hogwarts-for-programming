@@ -27,12 +27,12 @@ if (isset($_POST["submit"])) {
     $edit->validateUser();
     $user = $edit->getuser($id);
     if ($user["role"] === "Admin"){
-        header("Location: ../admin/profile.php");
+        header("Location: ../admin/main/profile.php");
         exit();
     }
     else 
     {
-        header("Location: ../user/profile.php");
+        header("Location: ../user/main/profile.php");
         exit();
     }
 }

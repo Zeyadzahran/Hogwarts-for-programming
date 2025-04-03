@@ -30,16 +30,16 @@ class user extends Dbh{
     }
     public function getCourses($id)
     {
-        $query = "select 
-            course_id,
-            havequiz,
-            course.name AS course_name, 
-            Enrollment.Marks, 
-            Professor.name as professor_name
-            FROM Enrollment
-            join course on Enrollment.course_id = Course.id
-            join User as Professor on Course.professor_id = Professor.id
-            where Enrollment.student_id = ?;";
+        $query = "SELECT 
+                    course_id,
+                    havequiz,
+                    course.name AS course_name,
+                    Enrollment.marks,
+                    Professor.name as professor_name
+                    FROM Enrollment
+                    JOIN Course ON Enrollment.course_id = Course.id
+                    JOIN User AS Professor ON Course.professor_id = Professor.id
+                    WHERE Enrollment.student_id = ?;";
             
             $stmt = $this->connect()->prepare($query);
 
@@ -48,7 +48,7 @@ class user extends Dbh{
             header("location: dashboard.php?error=statementfailed");
             exit();
         }
-
+        
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     public function getHouses()

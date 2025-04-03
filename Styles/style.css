@@ -1026,10 +1026,12 @@ img {
     text-decoration: none;
     font-weight: bold;
     transition: 0.3s;
+    justify-content: center;
 }
 
 .setadmin:hover {
     background-color: #72b39b;
+    justify-content: center;
     transform: scale(1.05);
 }
 
@@ -1411,8 +1413,8 @@ img {
     transform: translateY(-2px);
     box-shadow: 0 3px 10px rgba(179, 34, 34, 0.4);
 }
-/* 
-.setadmin {
+
+/* .setadmin {
     background-color: #0be192;
     color: #111;
 }
@@ -1420,8 +1422,9 @@ img {
 .setadmin:hover {
     background-color: #0cf;
     transform: translateY(-2px);
+    justify-content: center;
     box-shadow: 0 3px 10px rgba(0, 204, 255, 0.4);
-} */
+}  */
 
 /* Responsive adjustments */
 @media (max-width: 992px) {
