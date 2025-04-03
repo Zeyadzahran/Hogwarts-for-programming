@@ -14,9 +14,9 @@ $obj = new user();
 
 $result = $obj->addNewCourse($userId,$courseId);
 if ($result) {
-    header("Location: ManageCourses.php?success=courseAssigned");
+    header("Location: main/ManageCourses.php?success=courseAssigned");
     exit();
 } else {
-    header("Location: ManageCourses.php?error=assignmentFailed");
+    header("Location: main/ManageCourses.php?error=assignmentFailed");
     exit();
 }

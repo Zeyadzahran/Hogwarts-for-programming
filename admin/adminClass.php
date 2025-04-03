@@ -14,8 +14,34 @@ class admin extends Dbh{
         }
     }
 
+    public function addHousePoints($houseId,$points)
+    {
+        $query = "UPDATE house SET points = points + ? WHERE id = ? ;";
+        $stmt = $this->connect()->prepare($query);
+        if (!$stmt->execute([$points, $houseId])) {
+            header("location: ../coursee.php?error=statementfailed");
+            exit();
+        }
+        return true;
+    }
+
+    public function getStudentPoints($id)
+    {
+        $query = "SELECT SUM(Marks) AS totalMark FROM Enrollment WHERE student_id = ?;";
+        $stmt =$this->connect()->prepare($query);
+        if (!$stmt->execute([$id])) {
+            $stmt = null;
+            header("location: ../src/login.php?error=statementfailed");
+            exit();
+        }
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function deleteUser($id)
     {
+        $user = $this->getuser($id);
+        $points = (-1 * ($this->getStudentPoints($id)["totalMark"])) - 1;
+        $this->addHousePoints($user["house_id"],$points);
         $query= "DELETE FROM User WHERE id = ?";
         $stmt = $this->connect()->prepare($query);
         if (!$stmt->execute([$id])) {
@@ -28,7 +54,7 @@ class admin extends Dbh{
     public function getuser($id)
     {
         $query = "SELECT 
-                    u.id, u.name, u.email, u.role ,
+                    u.id, u.name, u.email, u.role, u.house_id,
                     w.name as wand_name
                   FROM user u
                   LEFT JOIN Wand w on u.wand_id = w.id

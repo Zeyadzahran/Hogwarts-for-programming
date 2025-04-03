@@ -1,3 +1,3 @@
 <?php
-    header("structureQuiz.php");
+    header("location: structureQuiz.php");
     exit();
