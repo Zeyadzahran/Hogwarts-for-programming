@@ -1,9 +1,13 @@
 <?php
-require "shopCntr.php";
-session_start();
+$rootDir = dirname(dirname(dirname(__DIR__)));
+require_once $rootDir . "/user/main/shop/shopCntr.php";
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 if (!isset($_SESSION['id'])) {
-    header("location: ../../../src/login.php?error=notLoggedIn");
+    header("Location: /login?error=notloggedin");
     exit();
 }
 
@@ -22,17 +26,18 @@ $items = $obj->getItems();
 </head>
 
 <body>
-    <?php require "navPar.php"; ?>
-    <div class="main-content"> <!-- Add this wrapper -->
+    <?php require_once $rootDir . "/user/navPar.php"; ?>
+    <div class="main-content">
         <div class="shop-container">
             <h1 class="inventory-title">Welcome to the Ravenclaw Shop</h1>
             <div class="items-grid">
                 <?php foreach ($items as $item): ?>
                     <div class="item">
                         <h3><?= htmlspecialchars($item['name']) ?></h3>
-                        <img src="<?= htmlspecialchars($item['path']) ?>" alt="<?= htmlspecialchars($item['name']) ?>">
+                        <img src="/user/main/shop/<?= htmlspecialchars($item['path']) ?>" alt="<?= htmlspecialchars($item['name']) ?>">
+
                         <p><?= htmlspecialchars($item['description']) ?></p>
-                        <a href="../shop/BuyItem.php?item_id=<?= urlencode($item['id']) ?>" class="buy-button">Buy</a>
+                        <a href="/shop/buy?item_id=<?= urlencode($item['id']) ?>" class="buy-button">Buy</a>
                     </div>
                 <?php endforeach; ?>
             </div>

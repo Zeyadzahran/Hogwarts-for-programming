@@ -1,3 +1,3 @@
 <?php
-    header("location: shop.php");
+    header("location: /shop");
     exit();

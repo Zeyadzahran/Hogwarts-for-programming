@@ -1,6 +1,6 @@
 <?php
-
-require("../adminClass.php");
+$rootDir = dirname(dirname(__DIR__));
+require_once $rootDir . "/admin/adminClass.php";
 
 
 $obj = new admin();
@@ -18,7 +18,7 @@ $houses = $obj->getHouses();
 </head>
 
 <body>
-    <?php require "../navPar.php"; ?>
+    <?php require_once $rootDir . "/admin/navPar.php"; ?>
     <div class="main-content">
         <div class="leaderboard-container">
             <h1 class="leaderboard-title">Houses Leaderboard</h1>

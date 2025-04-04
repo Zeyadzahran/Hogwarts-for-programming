@@ -1,11 +1,17 @@
 <?php
 
-require("../adminClass.php");
+// Get the project root directory
+$rootDir = dirname(dirname(__DIR__));
 
+require_once $rootDir . "/admin/adminClass.php";
 
-session_start();
+// Start session if not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 if (!isset($_SESSION["id"])) {
-    header("Location: ../../src/login.php?error=Can'tManegeUser!");
+    header("Location: /login?error=cantmanageuser");
     exit();
 }
 $userId = $_SESSION["id"]; // we will not use it here but i think we must keep it if we will use it in other pages  
@@ -25,7 +31,7 @@ $users = $obj->GetUsers($userId);
 </head>
 
 <body>
-    <?php require "../navPar.php"; ?>
+    <?php require_once $rootDir . "/admin/navPar.php"; ?>
 
     <div class="dashboard-container">
         <h2>Users Data</h2>
@@ -33,7 +39,6 @@ $users = $obj->GetUsers($userId);
             <?php foreach ($users as $user): ?>
                 <div class="user-row">
                     <div class="user-info">
-                        
                         <div class="user-info-item">
                             <span class="user-info-label">ID</span>
                             <span class="user-info-value"><?php echo htmlspecialchars($user['id']); ?></span>
@@ -46,31 +51,28 @@ $users = $obj->GetUsers($userId);
                             <span class="user-info-label">Email</span>
                             <span class="user-info-value"><?php echo htmlspecialchars($user['email']); ?></span>
                         </div>
-                       
                         <div class="user-info-item">
                             <span class="user-info-label">Wand</span>
                             <span class="user-info-value"><?php echo htmlspecialchars($user['wand_name']); ?></span>
                         </div>
-                        <?php if($userId !== 1){?>
-                                <div class="user-info-item">
+                        <?php if ($userId !== 1): ?>
+                            <div class="user-info-item">
                                 <span class="user-info-label">House</span>
                                 <span class="user-info-value"><?php echo htmlspecialchars($user['house_name']); ?></span>
                             </div>
-                        <?php }  ?>
-                        
+                        <?php endif; ?>
                     </div>
                     <div class="user-actions">
-                    <a href="../users-controllers/deleteContr.php?id=<?php echo $user['id']; ?>" class="delete">Delete</a>
-                    <?php if ($userId == 1) { ?> 
-                        <?php if ($user['role'] === "Student") { ?>
-                            <a href="../users-controllers/adminContr.php?id=<?php echo $user['id']; ?>" class="setadmin">Set Admin</a>
-                        <?php } else if ($user['role'] === "Admin") { ?>
-                            <a href="../users-controllers/add Course/addcourse.php?id=<?php echo $user['id']; ?>" class="setadmin">Add Course</a>
-                        <?php } ?>
-
-                    <?php } else if ($userRole === "Admin" && $user['role'] === "Student") { ?> 
-                        <a href="../users-controllers/adminContr.php?id=<?php echo $user['id']; ?>" class="setadmin">Set Admin</a>
-                       <?php } ?>
+                        <a href="/admin/users-controllers/delete?id=<?php echo $user['id']; ?>" class="delete">Delete</a>
+                        <?php if ($userId == 1): ?>
+                            <?php if ($user['role'] === "Student"): ?>
+                                <a href="/admin/users-controllers/setadmin?id=<?php echo $user['id']; ?>" class="setadmin">Set Admin</a>
+                            <?php elseif ($user['role'] === "Admin"): ?>
+                                <a href="/admin/users-controllers/addcourse?id=<?php echo $user['id']; ?>" class="setadmin">Add Course</a>
+                            <?php endif; ?>
+                        <?php elseif ($userRole === "Admin" && $user['role'] === "Student"): ?>
+                            <a href="/admin/users-controllers/setadmin?id=<?php echo $user['id']; ?>" class="setadmin">Set Admin</a>
+                        <?php endif; ?>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -79,4 +81,3 @@ $users = $obj->GetUsers($userId);
 </body>
 
 </html>
-

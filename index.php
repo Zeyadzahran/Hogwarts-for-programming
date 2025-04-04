@@ -1,5 +1,4 @@
 <?php
- 
-header("location: src");
-exit();
-?>
+
+
+require_once "router.php";

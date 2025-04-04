@@ -1,6 +1,10 @@
 <?php
-require("../adminClass.php");
-session_start();
+require(__DIR__ . '/../adminClass.php');
+$rootDir = dirname(dirname(__DIR__));
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 if (!isset($_SESSION["id"])) {
     header("Location: ../../src/login.php?error=FailedInMangeCoursePage");
     exit();
@@ -190,18 +194,18 @@ $courses = $obj->GetCourses($userid);
 </head>
 
 <body>
-    <?php require "../navPar.php"; ?>
+    <?php require_once $rootDir . "/admin/navPar.php"; ?>
     <div class="courses-container">
         <h1 class="courses-title">All Courses</h1>
         <div class="courses-grid">
-        <?php if($userid==1):?>
-            <div  class="course-card">
-                  <div class="course-header">
+            <?php if ($userid == 1): ?>
+                <div class="course-card">
+                    <div class="course-header">
                         <div class="course-icon">📚</div>
                         <h3 class="course-name"> <a href="../courses-controllers/Add Course/newcourse.php">Add New Course</a> </h3>
-                   </div>
-             </div>       
-             <?php endif; ?> 
+                    </div>
+                </div>
+            <?php endif; ?>
             <?php foreach ($courses as $course) : ?>
                 <div class="course-card">
                     <div class="course-header">
@@ -213,13 +217,13 @@ $courses = $obj->GetCourses($userid);
                             <span class="detail-label">Professor:</span>
                             <span class="detail-value"><?php echo htmlspecialchars($course['professor_name']); ?></span>
                         </div>
-                        
+
                     </div>
-                    <?php if($userid != 1) : ?>
+                    <?php if ($userid != 1) : ?>
                         <div class="course-actions">
                             <a href="../courses-controllers/Add Quiz/addquiz.php?id=<?php echo $course['id']; ?>" class="assign-btn">Add Quiz</a>
                         </div>
-                    <?php endif ; ?>    
+                    <?php endif; ?>
                 </div>
             <?php endforeach; ?>
         </div>

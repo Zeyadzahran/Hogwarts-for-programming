@@ -1,12 +1,20 @@
 <?php
-session_start();
+$rootDir = dirname(dirname(__DIR__));
+// Start session if not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-if (!isset($_SESSION["id"])) {
-    header("Location: ../src/login.php?error=FailedOnUserDashboard");
+// Check if user is logged in
+if (!isset($_SESSION['id'])) {
+    header('Location: /login');
     exit();
 }
+
 $userId = $_SESSION["id"];
 $username = $_SESSION["name"];
+
+
 $charCount = strlen($username) + 8; // +8 accounts for "Welcome, "
 ?>
 
@@ -26,7 +34,6 @@ $charCount = strlen($username) + 8; // +8 accounts for "Welcome, "
             justify-content: center;
             align-items: center;
             height: calc(100vh - 100px);
-            /* Adjust based on your navbar height */
             text-align: center;
         }
 
@@ -40,7 +47,7 @@ $charCount = strlen($username) + 8; // +8 accounts for "Welcome, "
 </head>
 
 <body>
-    <?php require "../navPar.php"; ?>
+    <?php require_once $rootDir . "/user/navPar.php"; ?>
     <div class="dashboard-container centered-dashboard">
         <h1 class="welcome-message">
             <span class="animated-username" style="--char-count: <?php echo $charCount; ?>;">

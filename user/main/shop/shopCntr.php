@@ -1,5 +1,6 @@
 <?php
-require "../../../classes/dbh.classes.php";
+require_once __DIR__ . "../../../../classes/dbh.classes.php";
+
 
 class Shop extends Dbh
 {
@@ -11,7 +12,7 @@ class Shop extends Dbh
 
         if (!$stmt->execute()) {
             $stmt = null;
-            header("location: ../shop.php?error=cannot_get_items");
+            header("Location: /shop?error=cannot_get_items");
             exit();
         }
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -32,13 +33,13 @@ class Shop extends Dbh
             $query = "UPDATE owneditems SET item_count = item_count + 1 WHERE student_id = ? AND item_id = ?;";
             $stmt = $this->connect()->prepare($query);
         } else {
-           
+
             $query = "INSERT INTO owneditems (student_id, item_id, item_count) VALUES (?, ?, 1);";
             $stmt = $this->connect()->prepare($query);
         }
 
         if (!$stmt->execute([$userId, $itemId])) {
-            header("location: ../shop.php?error=failedToUpdateItem");
+            header("Location: /shop?error=failedToUpdateItem");
             exit();
         }
     }

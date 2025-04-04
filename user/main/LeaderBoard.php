@@ -1,6 +1,16 @@
 <?php
-require "../userClass.php";
-session_start();
+$rootDir = dirname(dirname(__DIR__));
+require_once $rootDir . "/user/userClass.php";
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION["id"])) {
+    header("Location: /login?error=notloggedin");
+    exit();
+}
+
 $obj = new user();
 $houses = $obj->getHouses();
 ?>
@@ -16,7 +26,7 @@ $houses = $obj->getHouses();
 </head>
 
 <body>
-    <?php require "../navPar.php"; ?>
+    <?php require_once $rootDir . "/user/navPar.php"; ?>
     <div class="main-content">
         <div class="leaderboard-container">
             <h1 class="leaderboard-title">Houses Leaderboard</h1>

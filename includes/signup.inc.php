@@ -1,26 +1,23 @@
 <?php
 
-
 if (isset($_POST["submit"])) {
     $username = $_POST["username"];
+    $email = $_POST["email"];
     $password = $_POST["password"];
     $rePassword = $_POST["rePassword"];
-    $email = $_POST["email"];
 
-    
-    require_once "../classes/signup-contr.classes.php";
-    require_once "../classes/signup.classes.php";
+    // Get the project root directory
+    $rootDir = dirname(__DIR__);
 
-    // Initialize the SignupContr object
-    $signup = new SignupContr($username, $password, $rePassword, $email);
+    require_once $rootDir . "/classes/signup.classes.php";
+    require_once $rootDir . "/classes/signup-contr.classes.php";
 
-    // Validate and register the user
+    // initialize object from class SignupContr
+    $signup = new SignupContr($username, $email, $password, $rePassword);
 
+    // validate & check for errors 
     $signup->validateUser();
 
-    header("Location: ../src/login.php");
-    exit();
-
-
+    // Going back to front page
+    header("location: /login");
 }
-?>
