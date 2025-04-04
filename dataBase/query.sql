@@ -124,9 +124,10 @@ VALUES (
 
 INSERT INTO
     House (name, points)
-VALUES ('Gryffindor', 0),
-    ('Slytherin', 0),
+VALUES 
     ('Ravenclaw', 0),
+    ('Gryffindor', 0),
+    ('Slytherin', 0),
     ('Hufflepuff', 0);
 
 
