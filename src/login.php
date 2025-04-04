@@ -9,12 +9,12 @@
 
 <body class="auth-container">
     <div class="auth-form">
-        <form action="../includes/login.inc.php" method="post">
+        <form action="/login" method="post">
             <h2>Login</h2>
-            <input type="text" name="username" placeholder="Username/Email" required>
+            <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit" name="submit">Login</button>
-            <p>Don't have an account? <a href="../src/index.php">Register here</a></p>
+            <p>Don't have an account? <a href="/">Register here</a></p>
         </form>
     </div>
 </body>

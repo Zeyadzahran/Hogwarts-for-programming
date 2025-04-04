@@ -1,9 +1,13 @@
 <?php
-require "../userClass.php";
+$rootDir = dirname(dirname(__DIR__));
+require_once $rootDir . "/user/userClass.php";
 
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 if (!isset($_SESSION["id"])) {
-    header("Location: ../../src/login.php?error=FailedOnCources");
+    header("Location: /login?error=FailedOnCources");
     exit();
 }
 
@@ -190,7 +194,7 @@ $courses = $obj->getCourses($userId);
 </head>
 
 <body>
-    <?php require "../navPar.php"; ?>
+    <?php require_once $rootDir . "/user/navPar.php"; ?>
     <div class="courses-container">
         <h1 class="courses-title">My Courses</h1>
         <div class="courses-grid">

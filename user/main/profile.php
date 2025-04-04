@@ -1,10 +1,13 @@
 <?php
-require "../userClass.php";
+$rootDir = dirname(dirname(__DIR__));
+require_once $rootDir . "/user/userClass.php";
 
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 if (!isset($_SESSION["id"])) {
-    header("Location: ../src/login.php?error=FailedOnUserProfile");
+    header("Location: /login?error=FailedOnUserProfile");
     exit();
 }
 
@@ -16,7 +19,7 @@ $userData = $getUser->getuser($userId);
 $wand = $getUser->getWand($userData["wand_id"]);
 
 if (!$userData) {
-    header("Location: ../src/login.php?error=UserNotFound");
+    header("Location: /login?error=UserNotFound");
     exit();
 }
 
@@ -38,7 +41,7 @@ $pointsPercentage = min(100, ($totalUserPoints / 100) * 100);
 </head>
 
 <body>
-    <?php require "../navPar.php"; ?>
+    <?php require_once $rootDir . "/user/navPar.php"; ?>
     <div class="profile-dashboard">
         <div class="profile-header">
             <div class="profile-avatar-container">

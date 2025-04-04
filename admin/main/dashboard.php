@@ -1,13 +1,24 @@
 <?php
-session_start();
+$rootDir = dirname(dirname(__DIR__));
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 if (!isset($_SESSION["id"])) {
-    header("Location: ../../src/login.php?error=FailedOnAdminDashboard");
+    header("Location: /login?error=notloggedin");
     exit();
 }
 
 $userId = $_SESSION["id"];
 $username = $_SESSION["name"];
+$role = $_SESSION["role"];
 $charCount = strlen($username);
+
+// Optional: role protection
+if ($role !== "Admin") {
+    header("Location: /student/dashboard");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -40,11 +51,12 @@ $charCount = strlen($username);
 </head>
 
 <body>
-    <?php require "../navPar.php"; ?>
+
+    <?php require_once $rootDir . "/admin/navPar.php"; ?>
     <div class="dashboard-container centered-dashboard">
         <h1 class="welcome-message">
-            <span class="animated-username" style="--char-count: <?php echo $charCount+8; ?>;">
-                <?php echo "Welcome,$username"; ?>
+            <span class="animated-username" style="--char-count: <?= $charCount + 8 ?>;">
+                <?= "Welcome,$username" ?>
             </span>
         </h1>
     </div>

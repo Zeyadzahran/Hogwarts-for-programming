@@ -122,7 +122,7 @@ if (isset($_GET['id'])) {
 <body>
     <div class="quiz-container">
         <h2>Add New Course</h2>
-        <form class="quiz-form" action="savecourse.php" method="POST">
+        <form class="quiz-form" action="/addcourse" method="POST">
             <input type="text" name="course_name" placeholder="Course Name" required>
             <input type="text" name="professor_name" placeholder="Professor Name" >
             <button type="submit">Add</button>

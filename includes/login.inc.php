@@ -1,24 +1,18 @@
 <?php
 
-
-if(isset($_POST["submit"]))
-{
+if (isset($_POST["submit"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
-    
-    require_once "../classes/login-contr.classes.php";
-    require_once "../classes/login.classes.php";
-    
-    // intilaize object from class signupcontr
 
-    $login = new LoginContr($username,$password);
+    // Get the project root directory
+    $rootDir = dirname(__DIR__);
 
-    // validate & chaeck for errors 
+    require_once $rootDir . "/classes/login-contr.classes.php";
+    require_once $rootDir . "/classes/login.classes.php";
+
+    // initialize object from class LoginContr
+    $login = new LoginContr($username, $password);
+
+    // validate & check for errors 
     $login->loginuser();
-
-    
 }
-    
-
-
-

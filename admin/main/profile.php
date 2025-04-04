@@ -1,11 +1,14 @@
 <?php
-require "../adminClass.php";
-require "../../user/userClass.php";
+$rootDir = dirname(dirname(__DIR__));
+require_once $rootDir . "/admin/adminClass.php";
+require_once $rootDir . "/user/userClass.php";
 
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 if (!isset($_SESSION["id"])) {
-    header("Location: ../../src/login.php?error=FailedOnUserProfile");
+    header("Location: /login?error=FailedOnUserProfile");
     exit();
 }
 
@@ -16,7 +19,7 @@ $userData = $getUser->getuser($userId);
 $wand = $getUser->getWand($userData["wand_id"]);
 
 $getadmin = new admin();
-$adminData =$getadmin->getuser($userId);
+$adminData = $getadmin->getuser($userId);
 
 if (!$adminData) {
     header("Location: ../src/login.php?error=UserNotFound");
@@ -36,19 +39,19 @@ if (!$adminData) {
 </head>
 
 <body>
-    <?php require "../navPar.php"; ?>
+    <?php require_once $rootDir . "/admin/navPar.php"; ?>
     <div class="profile-dashboard">
         <div class="profile-header">
             <div class="profile-avatar-container">
                 <div class="avatar-circle" style="background-color: <?php echo getHouseColor($adminData['house_name'] ?? ''); ?>">
                     <?php echo getInitials($adminData['name']); ?>
                 </div>
-                
+
 
             </div>
             <div class="profile-title">
                 <h1><?php echo htmlspecialchars($adminData['name']); ?></h1>
-                <br> <a href="../../src/editprofile.php" class="setadmin">Edit Profile</a> 
+                <br> <a href="../../src/editprofile.php" class="setadmin">Edit Profile</a>
             </div>
         </div>
 
@@ -63,7 +66,7 @@ if (!$adminData) {
                         <span class="info-label">Wand:</span>
                         <span class="info-value"><?php echo htmlspecialchars($adminData['wand_name'] ?? "Not Assigned"); ?></span>
                     </div>
-                   
+
                 </div>
             </div>
 
@@ -71,8 +74,8 @@ if (!$adminData) {
                 <h3>Wand Details</h3>
                 <div class="wand-visual">
                     <?php
-                        $wandWood = $wand['wood'] ?? 'Unknown';
-                        $wandCore = $wand['core'] ?? 'Unknown';
+                    $wandWood = $wand['wood'] ?? 'Unknown';
+                    $wandCore = $wand['core'] ?? 'Unknown';
                     ?>
                     <div class="wand-wood"><?php echo htmlspecialchars($wandWood); ?></div>
                     <div class="wand-core"><?php echo htmlspecialchars($wandCore); ?></div>
