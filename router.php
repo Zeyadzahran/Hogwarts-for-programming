@@ -15,8 +15,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case '/login':
             require 'includes/login.inc.php';
             exit();
+        case '/addcourse':
+            require 'admin/courses-controllers/AddCourse/savecourse.php';
+            exit();
+
+            
     }
 }
+
+//  access levels
+$routeAccess = [
+    // Public routes (no login required)
+    'public' => [
+        '/',
+        '/login',
+        '/register',
+        '/logout'
+    ],
+    // Student (user) routes
+    'student' => [
+        '/student/dashboard',
+        '/student/leaderboard',
+        '/student/profile',
+        '/courses',
+        '/assignments',
+        '/shop',
+        '/shop/buy',
+        '/inventory'
+    ],
+    // Professor (admin) routes
+    'admin' => [
+        '/professor/dashboard',
+        '/professor/leaderboard',
+        '/professor/profile',
+        '/professor/manageUsers',
+        '/professor/manageCourses'
+    ]
+];
 
 // Static routes
 $routes = [
@@ -42,11 +77,34 @@ $routes = [
     '/professor/profile' => 'admin/main/profile.php',
     '/professor/manageUsers' => 'admin/main/manageUsers.php',
     '/professor/manageCourses' => 'admin/main/manageCourses.php',
-
+    '/addcourse' => 'admin/courses-controllers/AddCourse/newcourse.php',
 ];
 
-if (array_key_exists($uri, $routes)) {
-    require $routes[$uri];
-} else {
+if (!array_key_exists($uri, $routes)) {
+    http_response_code(404);
     require 'src/404.php';
+    exit();
 }
+
+if (!in_array($uri, $routeAccess['public'])) {
+
+    if (!isset($_SESSION['id'])) {
+        header('Location: /login?error=notloggedin');
+        exit();
+    }
+
+    $userRole = $_SESSION['role'] ?? 'Student';
+
+    if (in_array($uri, $routeAccess['admin']) && $userRole != 'Admin') {
+        http_response_code(403);
+        require 'src/403.php';
+        exit();
+    }
+    if (in_array($uri, $routeAccess['student']) && $userRole != 'Student') {
+        http_response_code(403);
+        require 'src/403.php';
+        exit();
+    }
+}
+
+require $routes[$uri];

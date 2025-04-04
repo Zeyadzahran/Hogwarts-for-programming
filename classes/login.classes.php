@@ -26,11 +26,11 @@ class Login extends Dbh
             session_start();
             $_SESSION["id"] = $user["id"];
             $_SESSION["name"] = $user["name"];
-             $_SESSION["role"] = $user["role"];
+            $_SESSION["role"] = $user["role"];
             $_SESSION["wand_id"] = $user["wand_id"];
             $_SESSION["house_id"] = $user["house_id"];
 
-            
+
 
             if ($user["role"] == "Admin") {
                 // Redirect to professor dashboard

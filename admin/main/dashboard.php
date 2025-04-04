@@ -51,12 +51,12 @@ if ($role !== "Admin") {
 </head>
 
 <body>
-    
+
     <?php require_once $rootDir . "/admin/navPar.php"; ?>
     <div class="dashboard-container centered-dashboard">
         <h1 class="welcome-message">
             <span class="animated-username" style="--char-count: <?= $charCount + 8 ?>;">
-                <?= "Welcome, $username" ?>
+                <?= "Welcome,$username" ?>
             </span>
         </h1>
     </div>

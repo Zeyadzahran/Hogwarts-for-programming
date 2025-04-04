@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 if (!isset($_SESSION["id"])) {
-    header("Location: ../../src/login.php?error=FailedInMangeCoursePage");
+    header("Location: /login?error=FailedInMangeCoursePage");
     exit();
 }
 
@@ -202,7 +202,7 @@ $courses = $obj->GetCourses($userid);
                 <div class="course-card">
                     <div class="course-header">
                         <div class="course-icon">📚</div>
-                        <h3 class="course-name"> <a href="../courses-controllers/Add Course/newcourse.php">Add New Course</a> </h3>
+                        <h3 class="course-name"> <a href="/addcourse">Add New Course</a> </h3>
                     </div>
                 </div>
             <?php endif; ?>
@@ -221,7 +221,7 @@ $courses = $obj->GetCourses($userid);
                     </div>
                     <?php if ($userid != 1) : ?>
                         <div class="course-actions">
-                            <a href="../courses-controllers/Add Quiz/addquiz.php?id=<?php echo $course['id']; ?>" class="assign-btn">Add Quiz</a>
+                            <a href="../courses-controllers/AddQuiz/addquiz.php?id=<?php echo $course['id']; ?>" class="assign-btn">Add Quiz</a>
                         </div>
                     <?php endif; ?>
                 </div>
