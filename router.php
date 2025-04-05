@@ -80,7 +80,8 @@ $routes = [
     '/professor/manageUsers' => 'admin/main/manageUsers.php',
     '/professor/manageCourses' => 'admin/main/manageCourses.php',
     '/addcourse' => 'admin/courses-controllers/AddCourse/newcourse.php',
-    '/assignCourse' => 'admin/users-controllers/addCourse/addcourse.php'
+    '/assignCourse' => 'admin/users-controllers/addCourse/addcourse.php',
+    '/addcourseback' => '../../main/manageUsers.php'
 ];
 
 if (!array_key_exists($uri, $routes)) {

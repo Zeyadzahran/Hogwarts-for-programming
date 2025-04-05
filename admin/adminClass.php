@@ -40,7 +40,7 @@ class admin extends Dbh{
     public function deleteUser($id)
     {
         $user = $this->getuser($id);
-        $points = (-1 * ($this->getStudentPoints($id)["totalMark"])) - 1;
+        $points = (-1 * ($this->getStudentPoints($id)["totalMark"]));
         $this->addHousePoints($user["house_id"],$points);
         $query= "DELETE FROM User WHERE id = ?";
         $stmt = $this->connect()->prepare($query);
