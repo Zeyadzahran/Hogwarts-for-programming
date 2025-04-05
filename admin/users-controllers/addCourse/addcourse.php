@@ -1,7 +1,6 @@
 <?php
-
-require "../../adminClass.php";
-
+$rootDir = dirname(dirname(__DIR__));
+require $rootDir . "../adminClass.php";
 $userId = $_GET['id'];
 
 $obj = new admin();
@@ -72,12 +71,12 @@ $courses = $obj->getfreeCourse($userId);
                             </div>
                             <h3 class="course-name"><?= htmlspecialchars($course['course_name']) ?></h3>
                         </div>
+                            
+                        <div class="course-details">  
+                        <a href="<?php echo 'http://localhost/Hogwarts-for-programming/admin/users-controllers/addCourse/addcoursecontr.php?course_id=' . $course['course_id'] . '&userId=' . $userId; ?>" class="assign-btn">
+                            Assign Course
+                        </a>
 
-                        <div class="course-details">
-                        <a href="addcoursecontr.php?course_id=<?= $course['course_id'] ?>&userId=<?= $userId ?>" 
-                           class="assign-btn">
-                                Assign Course
-                            </a>
                         </div>
                     </div>
                 <?php endforeach; ?>
