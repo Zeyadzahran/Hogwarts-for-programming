@@ -63,15 +63,15 @@ $users = $obj->GetUsers($userId);
                         <?php endif; ?>
                     </div>
                     <div class="user-actions">
-                        <a href="/admin/users-controllers/delete?id=<?php echo $user['id']; ?>" class="delete">Delete</a>
+                        <a href="/admin/users-controllers/deleteContr.php?id=<?php echo $user['id']; ?>" class="delete">Delete</a>
                         <?php if ($userId == 1): ?>
                             <?php if ($user['role'] === "Student"): ?>
-                                <a href="/admin/users-controllers/setadmin?id=<?php echo $user['id']; ?>" class="setadmin">Set Admin</a>
+                                <a href="/admin/users-controllers/adminContr.php?id=<?php echo $user['id']; ?>" class="setadmin">Set Admin</a>
                             <?php elseif ($user['role'] === "Admin"): ?>
-                                <a href="/admin/users-controllers/addcourse?id=<?php echo $user['id']; ?>" class="setadmin">Add Course</a>
+                                <a href="/assignCourse?id=<?php echo $user['id']; ?>" class="setadmin">Add Course</a>
                             <?php endif; ?>
                         <?php elseif ($userRole === "Admin" && $user['role'] === "Student"): ?>
-                            <a href="/admin/users-controllers/setadmin?id=<?php echo $user['id']; ?>" class="setadmin">Set Admin</a>
+                            <a href="/admin/users-controllers/adminContr.php?id=<?php echo $user['id']; ?>" class="setadmin">Set Admin</a>
                         <?php endif; ?>
                     </div>
                 </div>
