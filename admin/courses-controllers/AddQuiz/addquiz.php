@@ -2,6 +2,7 @@
 if (isset($_GET['id'])) {
     $courseid = $_GET['id'];
 }
+$questionCount = 0;
 ?>
 
 <!DOCTYPE html>
@@ -121,12 +122,38 @@ if (isset($_GET['id'])) {
 
 <body>
     <div class="quiz-container">
-        <h2>Add New Quiz</h2>
-        <form class="quiz-form" action="savequiz.php?id=<?php echo $courseid ?>" method="POST">
+    <h2>Add New Quiz</h2>
+    
+        <form class="quiz-form" action="/admin/courses-controllers/AddQuiz/savequiz.php?id=<?php echo $courseid ?>" method="POST">
             <input type="text" name="quiz_name" placeholder="Quiz Name" required>
             <input type="number" name="duration" placeholder="Duration (minutes)" required>
             <input type="number" name="points" placeholder="Points" required>
-            <button type="submit">Done</button>
+            <input type="hidden" name="question_count" value="<?= $questionCount ?>">
+
+        <?php for ($i = 1; $i <= $questionCount; $i++): ?>
+        <div class="quiz-form">
+            <h4>سؤال رقم <?= $i ?></h4>
+            <label>نص السؤال:</label>
+            <input type="text" name="questions[<?= $i ?>][question]" required value="<?= $_POST['questions'][$i]['question'] ?? '' ?>">
+
+            <label>اختيار 1:</label>
+            <input type="text" name="questions[<?= $i ?>][option1]" required value="<?= $_POST['questions'][$i]['option1'] ?? '' ?>">
+
+            <label>اختيار 2:</label>
+            <input type="text" name="questions[<?= $i ?>][option2]" required value="<?= $_POST['questions'][$i]['option2'] ?? '' ?>">
+
+            <label>اختيار 3:</label>
+            <input type="text" name="questions[<?= $i ?>][option3]" required value="<?= $_POST['questions'][$i]['option3'] ?? '' ?>">
+
+            <label>اختيار 4:</label>
+            <input type="text" name="questions[<?= $i ?>][option4]" required value="<?= $_POST['questions'][$i]['option4'] ?? '' ?>">
+
+            <label>الإجابة الصحيحة (رقم من 1 إلى 4):</label>
+            <input type="number" name="questions[<?= $i ?>][correct]" min="1" max="4" required value="<?= $_POST['questions'][$i]['correct'] ?? '' ?>">
+        </div>
+        <?php endfor; ?>
+        <button type="submit" name="add_question">Add Question</button>
+        <button type="submit" name="save_quiz">Save</button>
         </form>
     </div>
 </body>

@@ -51,7 +51,8 @@ $routeAccess = [
         '/professor/leaderboard',
         '/professor/profile',
         '/professor/manageUsers',
-        '/professor/manageCourses'
+        '/professor/manageCourses',
+        '/addquiz'
     ]
 ];
 
@@ -81,7 +82,8 @@ $routes = [
     '/professor/manageCourses' => 'admin/main/manageCourses.php',
     '/addcourse' => 'admin/courses-controllers/AddCourse/newcourse.php',
     '/assignCourse' => 'admin/users-controllers/addCourse/addcourse.php',
-    '/addcourseback' => '../../main/manageUsers.php'
+    '/addcourseback' => '../../main/manageUsers.php',
+    '/addquiz' => 'admin\courses-controllers\AddQuiz\addquiz.php'
 ];
 
 if (!array_key_exists($uri, $routes)) {
