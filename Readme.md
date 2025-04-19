@@ -37,71 +37,95 @@ Users have access to:
 
 ## 📂 Project Directory Structure
 ```
-📚 HOGWARTS-FOR-PROGRAMMING/
-│── 💻 admin/
-│   ├── addquiz.php
-│   ├── adminClass.php
-│   ├── adminContr.php
-│   ├── dashboard.php
-│   ├── deleteContr.php
-│   ├── leaderBoard.php
-│   ├── manageCourses.php
-│   ├── manageUsers.php
-│   ├── savequiz.php
-│   ├── navPar.php
-│
-│── 📚 classes/
-│   ├── dbh.classes.php
-│   ├── login-contr.classes.php
-│   ├── login.classes.php
-│   ├── signup-contr.classes.php
-│   ├── signup.classes.php
-│
-│── 🗄️ database/
-│   ├── erd.jpg
-│   ├── ERD.pdf
-│   ├── query.sql
-│   ├── Schema.sql
-│
-│── 📁 includes/
-│   ├── login.inc.php
-│   ├── signup.inc.php
-│
-│── 🏠 src/
-│   ├── index.php
-│   ├── login.php
-│   ├── logout.php
-│
-│── 🌟 Styles/
-│   ├── flag.jpg
-│   ├── signup2.jpg
-│   ├── style.css
-│
-│── 👨‍🎓 user/
-│   ├── ❓quiz/
-│   │   ├── done.css
-│   │   ├── done.php
-│   │   ├── flag.jpg
-│   │   ├── quiz.php
-│   │   ├── quize.css
-│   │   ├── structureQuiz.php
-│   ├──  🛍️ shop/
-│   │   ├── img/
-│   │   ├── BuyItem.php
-│   │   ├── shop.php
-│   │   ├── shopCntr.php
-│   ├── assignCourse.php
-│   ├── courses.php
-│   ├── dashboard.php
-│   ├── inventory.php
-│   ├── LeaderBoard.php
-│   ├── ManageCourses.php
-│   ├── profile.php
-│   ├── navPar.php
-│   ├── userClass.php
-│
-│── index.php
-│── Readme.md
+hogwarts-for-programming/
+    ├── Readme.md
+    ├── index.php
+    ├── router.php
+    ├── .htaccess
+    ├── admin/
+    │   ├── adminClass.php
+    │   ├── index.php
+    │   ├── navPar.php
+    │   ├── courses-controllers/
+    │   │   ├── index.php
+    │   │   ├── AddCourse/
+    │   │   │   ├── index.php
+    │   │   │   ├── newcourse.php
+    │   │   │   └── savecourse.php
+    │   │   └── AddQuiz/
+    │   │       ├── addquestion.php
+    │   │       ├── addquiz.php
+    │   │       ├── index.php
+    │   │       ├── savequestion.php
+    │   │       └── savequiz.php
+    │   ├── main/
+    │   │   ├── dashboard.php
+    │   │   ├── index.php
+    │   │   ├── leaderBoard.php
+    │   │   ├── manageCourses.php
+    │   │   ├── manageUsers.php
+    │   │   └── profile.php
+    │   └── users-controllers/
+    │       ├── adminContr.php
+    │       ├── deleteContr.php
+    │       ├── index.php
+    │       └── addCourse/
+    │           ├── addcourse.php
+    │           ├── addcoursecontr.php
+    │           └── index.php
+    ├── classes/
+    │   ├── dbh.classes.php
+    │   ├── edit-contr.classes.php
+    │   ├── editprofile.classes.php
+    │   ├── login-contr.classes.php
+    │   ├── login.classes.php
+    │   ├── signup-contr.classes.php
+    │   └── signup.classes.php
+    ├── dataBase/
+    │   ├── query.sql
+    │   └── Schema.sql
+    ├── includes/
+    │   ├── config.php
+    │   ├── edit.inc.php
+    │   ├── functions.php
+    │   ├── login.inc.php
+    │   └── signup.inc.php
+    ├── src/
+    │   ├── 403.php
+    │   ├── 404.php
+    │   ├── editprofile.php
+    │   ├── index.php
+    │   ├── login.php
+    │   └── logout.php
+    ├── Styles/
+    │   └── style.css
+    └── user/
+        ├── assignCourse.php
+        ├── index.php
+        ├── navPar.php
+        ├── userClass.php
+        ├── main/
+        │   ├── courses.php
+        │   ├── dashboard.php
+        │   ├── index.php
+        │   ├── inventory.php
+        │   ├── LeaderBoard.php
+        │   ├── ManageCourses.php
+        │   ├── profile.php
+        │   └── shop/
+        │       ├── BuyItem.php
+        │       ├── index.php
+        │       ├── shop.php
+        │       ├── shopCntr.php
+        │       └── img/
+        └── quiz/
+            ├── done.css
+            ├── done.php
+            ├── index.php
+            ├── quiz.php
+            ├── quize.css
+            └── structureQuiz.php
+
 ```
 
 ## 📌 Prerequisites
