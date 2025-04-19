@@ -1,9 +1,11 @@
 <?php
 session_start();
 if (!isset($_SESSION["id"])) {
-    header("Location: ../src/login.php?error=FailedOnUserProfile");
+    header("Location: /login?error=FailedOnUserProfile");
     exit();
 }
+
+$rootDir = dirname(__DIR__);
 
 $id = $_SESSION["id"];
 
@@ -15,8 +17,8 @@ if (isset($_POST["submit"])) {
     $email = $_POST["email"];
 
     
-    require_once "../classes/edit-contr.classes.php";
-    require_once "../classes/editprofile.classes.php";
+    require_once $rootDir . "/classes/edit-contr.classes.php";
+    require_once $rootDir. "/classes/editprofile.classes.php";
 
     // Initialize the EditContr object
     $edit = new EditContr($id, $username, $email, $password, $newpassword, $repassword);
@@ -27,12 +29,12 @@ if (isset($_POST["submit"])) {
     $edit->validateUser();
     $user = $edit->getuser($id);
     if ($user["role"] === "Admin"){
-        header("Location: ../admin/main/profile.php");
+        header("Location: professor/profile");
         exit();
     }
     else 
     {
-        header("Location: ../user/main/profile.php");
+        header("Location: student/profile");
         exit();
     }
 }

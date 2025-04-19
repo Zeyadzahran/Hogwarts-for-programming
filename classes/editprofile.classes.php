@@ -26,7 +26,7 @@ class Edit extends Dbh{
 
         if (!$stmt->execute([$id])) {
             $stmt = null;
-            header("location: ../src/login.php?error=statementfailed");
+            header("location: /login?error=statementfailed");
             exit();
         }
 
@@ -38,7 +38,7 @@ class Edit extends Dbh{
         $stmt = $this->connect()->prepare($query);
         if (!$stmt->execute([$newpassword,$id])){
             $stmt = null;
-            header("location: ../src/editprofile.php?error=FailedUpdatePassword");
+            header("location: editprofile?error=FailedUpdatePassword");
             exit();
         }
     }
@@ -49,7 +49,7 @@ class Edit extends Dbh{
         $stmt = $this->connect()->prepare($query);
         if (!$stmt->execute([$name,$email,$id])){
             $stmt = null;
-            header("location: ../src/editprofile.php?error=FailedUpdateUser");
+            header("location: editprofile?error=FailedUpdateUser");
             exit();
         }
     }
