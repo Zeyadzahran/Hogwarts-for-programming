@@ -83,7 +83,7 @@ $courses = $obj->getfreeCourse($userId);
                         </div>
 
                         <div class="course-details">
-                            <a href="<?php echo 'http://localhost/Hogwarts-for-programming/admin/users-controllers/addCourse/addcoursecontr.php?course_id=' . $course['course_id'] . '&userId=' . $userId; ?>" class="assign-btn">
+                            <a href="<?php echo '/admin/users-controllers/addCourse/addcoursecontr.php?course_id=' . $course['course_id'] . '&userId=' . $userId; ?>" class="assign-btn">
                                 Assign Course
                             </a>
 

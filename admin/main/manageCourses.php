@@ -221,7 +221,7 @@ $courses = $obj->GetCourses($userid);
                     </div>
                     <?php if ($userid != 1) : ?>
                         <div class="course-actions">
-                            <a href="/addquiz?id=<?php echo $course['id']; ?>" class="assign-btn">Add Quiz</a>
+                            <a href="/professor/addquiz?id=<?php echo $course['id']; ?>" class="assign-btn">Add Quiz</a>
                         </div>
                     <?php endif; ?>
                 </div>

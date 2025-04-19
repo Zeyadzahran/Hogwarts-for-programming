@@ -1,16 +1,17 @@
 <?php
-if (isset($_GET['id'])) {
-    $courseid = $_GET['id'];
+if (!isset($_GET['quizid'])) {
+    die("Missing Quiz ID.");
 }
+
+$quiz_id = $_GET['quizid'];
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Quiz</title>
+    <title>Add Question</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="../../../Styles/style.css">
     <style>
         body {
@@ -111,7 +112,7 @@ if (isset($_GET['id'])) {
         .quiz-form a {
             width: 93%;
             padding: 15px;
-            background: linear-gradient(135deg,rgb(138, 26, 26),rgb(138, 26, 26));
+            background: linear-gradient(135deg, #2174ae, #24aade);
             color: white;
             border: none;
             border-radius: 8px;
@@ -124,7 +125,7 @@ if (isset($_GET['id'])) {
         }
 
         .quiz-form a:hover {
-            background: linear-gradient(135deg,rgb(99, 10, 10),rgb(99, 10, 10));
+            background: linear-gradient(135deg, #1a5a8a, #1d8fc7);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(36, 170, 222, 0.4);
         }
@@ -140,19 +141,23 @@ if (isset($_GET['id'])) {
         }
     </style>
 </head>
-
 <body>
-    <div class="quiz-container">
-    <h2>Add New Quiz</h2>
     
-        <form class="quiz-form" action="/professor/addquiz?id=<?php echo $courseid ?>" method="POST">
-            <input type="text" name="quiz_name" placeholder="Quiz Name" required>
-            <input type="number" name="duration" placeholder="Duration (minutes)" required>
-            <input type="number" name="points" placeholder="Points" required>
-        <button type="submit" name="add_question">Add Question</button>
-        <a href="/admin/main/manageCourses.php">Cancel</a>
+    <div class="quiz-container">
+        <h2>Add a Question to Quiz</h2>
+        <form method="POST" action="/professor/addquestion" class="quiz-form">
+            <input type="hidden" name="quizid" value="<?php echo $quiz_id; ?>">
+            <input type="text" name="question" placeholder="Question" required>
+            <input type="text" name="choice_a" placeholder="Choice A" required>
+            <input type="text" name="choice_b" placeholder="Choice B" required>
+            <input type="text" name="choice_c" placeholder="Choice C"required>
+            <input type="text" name="choice_d" placeholder="Choice D"required>
+            <input type="text" name="correct" placeholder="Correct Answer"required>
+            
+            <button type="submit">Save Question</button>
+            <a href="/professor/manageCourses">Finish Quiz</a>
         </form>
     </div>
+    
 </body>
-
 </html>

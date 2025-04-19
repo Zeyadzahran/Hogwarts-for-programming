@@ -4,17 +4,17 @@ require("../adminClass.php");
 
 
 if (!isset($_GET["id"])) {
-    header("Location: ../main/manageUsers.php?error=?error=FailedToDeleteUser");
+    header("Location: /professor/manageUsers?error=?error=FailedToDeleteUser");
     exit();
 }
 $userId = $_GET["id"];
 $obj = new admin();
 
     if ($obj->deleteUser($userId)) {
-        header("Location: ../main/manageUsers.php?success=UserDeleted");
+        header("Location: /professor/manageUsers?success=UserDeleted");
         exit();
     } else {
-        header("Location: ../main/manageUsers.php?errors=couldn'tDeleteTheUser");
+        header("Location: /professor/manageUsers?errors=couldn'tDeleteTheUser");
         exit();
     }
 

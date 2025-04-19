@@ -1,6 +1,7 @@
 <?php
 
-require("../../adminClass.php");
+$rootDir = dirname(dirname(__DIR__));
+require $rootDir . "../adminClass.php";
 
 if (isset($_GET['id']))
 {
@@ -15,6 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $obj = new admin();
 $obj->addquiz($quizname,$courseid,$points);
 
-header("location: ../../main/manageCourses.php?success=1");
+$quizid = $obj->getQuizId($quizname)["id"];
+
+
+
+header("location: /professor/addquestion?quizid=$quizid");
 exit();
 

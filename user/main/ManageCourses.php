@@ -95,7 +95,7 @@ $courses = $obj->getAllCourse($userId);
                             <div class="course-professor">
                                 <?= htmlspecialchars($course['professor_name']) ?>
                             </div>
-                            <a href="../assignCourse.php?course_id=<?= $course['course_id'] ?>"
+                            <a href="/user/assignCourse.php?course_id=<?= $course['course_id'] ?>"
                                 class="assign-btn">
                                 Assign Course
                             </a>

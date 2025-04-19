@@ -9,9 +9,11 @@ class admin extends Dbh{
         $stmt = $this->connect()->prepare($query);
         if (!$stmt->execute([$id])) {
             $stmt = null ;
-            header("location: ../admin/main/manageUser.php?error=failedToUpdateRole");
+            header("location: /professor/manageUsers?error=failedToUpdateRole");
             exit();
+            return false;
         }
+        return true;
     }
 
     public function addHousePoints($houseId,$points)
@@ -46,9 +48,11 @@ class admin extends Dbh{
         $stmt = $this->connect()->prepare($query);
         if (!$stmt->execute([$id])) {
             $stmt = null;
-            header("location: ../admin/main/mangeUsers.php?error=failedToDeleteUser");
+            header("location: /professor/manageUsers?error=failedToDeleteUser");
             exit();
+            return false;
         }
+        return true;
     }
 
     public function getuser($id)
@@ -78,7 +82,8 @@ class admin extends Dbh{
                         User.name, 
                         User.email, 
                         user.role,
-                        Wand.name AS wand_name
+                        Wand.name AS wand_name,
+                        House.name AS house_name
                             FROM User
                         JOIN Wand ON User.wand_id = Wand.id
                         LEFT JOIN House ON User.house_id = House.id 
@@ -243,12 +248,36 @@ class admin extends Dbh{
                     exit();
                 }
             }
-            return $stmt2->fetchAll(PDO::FETCH_ASSOC);
-
-           
+            return $stmt2->fetchAll(PDO::FETCH_ASSOC);           
         }
+    }
 
+    public function getQuizId($quizname)
+    {
+        $query= "SELECT id FROM Quiz WHERE name = ?"; 
 
+        $stmt = $this->connect()->prepare($query);
+
+        if (!$stmt->execute([$quizname])){
+            $stmt=NULL;
+            header("location: ../admin/course-controllers/AddQuiz/addquestion.php?error=failedToAddQuestion");
+            exit();
+        }
+        return $stmt->fetch(PDO::FETCH_ASSOC); 
+    }
+    public function addquestion($quiz_id,$question,$choice_a,$choice_b,$choice_c,$choice_d,$correct)
+    {
+        $query= "INSERT INTO questions (quiz_id, question_text, option1, option2, option3, option4, correct)
+                VALUES (?, ?, ?, ?, ?, ?, ?)"; 
+
+        $stmt = $this->connect()->prepare($query);
+
+        if (!$stmt->execute([$quiz_id,$question,$choice_a,$choice_b,$choice_c,$choice_d,$correct])){
+            $stmt=NULL;
+            header("location: ../admin/course-controllers/AddQuiz/addquestion.php?error=failedToAddQuestion");
+            exit();
+        }
+        return true; 
     }
     
 

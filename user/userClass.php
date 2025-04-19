@@ -230,4 +230,29 @@ class user extends Dbh{
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function getQuestions($course_id)
+    {
+        $query = "SELECT 
+                    qz.id AS quiz_id,
+                    qz.name AS quiz_name,
+                    qs.id AS question_id,
+                    qs.question_text,
+                    qs.option1,
+                    qs.option2,
+                    qs.option3,
+                    qs.option4,
+                    qs.correct
+                FROM Questions qs
+                JOIN Quiz qz ON qs.quiz_id = qz.id
+                WHERE qz.course_id = ?;";
+
+        $stmt = $this->connect()->prepare($query);
+
+        if (!$stmt->execute([$course_id])) {
+            header("location: ../coursee.php?error=statementfailed");
+            exit();
+        }
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
