@@ -50,12 +50,24 @@ CREATE TABLE Enrollment (
     
 );
 
-CREATE TABLE Quiz (
+CREATE TABLE Quiz(
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50),
+    name VARCHAR(50) NOT NULL, 
     course_id INT NOT NULL,
-    points INT,
-    FOREIGN KEY (course_id) REFERENCES Course (id)
+    points INT NOT NULL,
+    FOREIGN KEY (course_id) REFERENCES Course(id) 
+);
+
+CREATE TABLE Questions (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    quiz_id INT NOT NULL,
+    question_text VARCHAR(500) NOT NULL,
+    option1 VARCHAR(255),
+    option2 VARCHAR(255),
+    option3 VARCHAR(255),
+    option4 VARCHAR(255),
+    correct INT,
+    FOREIGN KEY (quiz_id) REFERENCES Quiz(id) ON DELETE CASCADE
 );
 
 CREATE TABLE Item (

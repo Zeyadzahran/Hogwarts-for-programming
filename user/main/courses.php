@@ -219,7 +219,7 @@ $courses = $obj->getCourses($userId);
                             if ($course['havequiz']) :
                                 $_SESSION['course_id'] = $course['course_id'];
                                 if (!$res['QuizDone']) : ?>
-                                    <a href="../quiz/quiz.php" class="quiz-btn enter">Enter Quiz</a>
+                                    <a href="/quiz?courseid=<?php echo $course["course_id"]?>" class="quiz-btn enter">Enter Quiz</a>
                                 <?php else : ?>
                                     <span class="quiz-btn no-quiz">Quiz Completed</span>
                                 <?php endif; ?>
