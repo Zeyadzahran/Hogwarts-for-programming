@@ -1,10 +1,14 @@
 <?php
-  require '../admin/adminclass.php';
-   
-  session_start();
+
+$rootDir = dirname(__DIR__);
+require $rootDir . "../admin/adminClass.php";
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
     if (!isset($_SESSION["id"])) {
-        header("Location: ../src/login.php?error=FailedOnUserProfile");
+        header("Location: /login?error=FailedOnUserProfile");
         exit();
     }
 
@@ -25,7 +29,7 @@
 
 <body class="auth-container">
     <div class="auth-form">
-        <form action="../includes/edit.inc.php" method="post">
+        <form action="/editProfile" method="post">
             <h2>Edit Profile</h2>
             <input type="text" name="username" value="<?php echo $userData["name"]; ?>" required>
             <input type="email" name="email" value="<?php echo $userData["email"];  ?>"  required>
@@ -35,9 +39,9 @@
             <button type="submit" name="submit">Save</button>
             <a href="
             <?php if($userData["role"] === "Admin") 
-                        echo "../admin/main/profile.php";
+                        echo "/professor/profile";
                   else
-                        echo "../user/main/profile.php";
+                        echo "/student/profile";
             ?>" class="cancel">Cancel</a>
         </form>
     </div>

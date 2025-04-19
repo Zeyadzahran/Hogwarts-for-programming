@@ -37,23 +37,23 @@ class EditContr extends Edit{
     
     public function validateUser(){
         if(!$this->userExists()){
-            header("location: ../src/editprofile.php ? error = user not found");
+            header("location: editProfile ? error = user_not_found");
             exit();
         }
         if($this->emptyInput()){
-            header("location: ../src/editprofile.php ? error = emptyinput");
+            header("location: editProfile ? error = emptyinput");
             exit();
         }
         if(!$this->isValiedUsername()){
-            header("location: ../src/editprofile.php ? error = username is not valid");
+            header("location: editProfile ? error = username_is_not_valid");
             exit();
         }
         if(!$this->isValiedEmail()){
-            header("location: ../src/editprofile.php ? error = email is not valid");
+            header("location: editProfile ? error = email_is_not_valid");
             exit();
         }
         if(!$this->isSamePassword()){
-            header("location: ../src/editprofile.php ? error = wrong password");
+            header("location: editProfile?error=wrong_password");
             exit();
         }
         $this->UpdatePass();

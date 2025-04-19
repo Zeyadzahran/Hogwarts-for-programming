@@ -12,6 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case '/register':
             require 'includes/signup.inc.php';
             exit();
+        case '/editProfile':
+            require 'includes/edit.inc.php';
+            exit();
         case '/login':
             require 'includes/login.inc.php';
             exit();
@@ -24,8 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case '/professor/addquiz':
             require 'admin/courses-controllers/AddQuiz/savequiz.php';
             exit();
-        case '/professor/addquestion':
-            require 'admin/courses-controllers/AddQuiz/savequestion.php';
+            case '/professor/addquestion':
+                require 'admin/courses-controllers/AddQuiz/savequestion.php';
             exit();
     }
 }
@@ -63,13 +66,14 @@ $routeAccess = [
     ]
 ];
 
-// Static routes
+//  routes
 $routes = [
     // General pages
     '/' => 'src/index.php',
     '/login' => 'src/login.php',
     '/logout' => 'src/logout.php',
     '/register' => 'src/index.php',
+    '/editProfile' => 'src/editprofile.php',
 
     // Student (user) pages
     '/student/dashboard' => 'user/main/dashboard.php',
@@ -80,7 +84,7 @@ $routes = [
     '/shop' => 'user/main/shop/shop.php',
     '/shop/buy' => 'user/main/shop/BuyItem.php',
     '/inventory' => 'user/main/inventory.php',
-    '/quiz' => 'user\quiz\structureQuiz.php',
+    '/quiz' => 'user/quiz/structureQuiz.php',
 
     // Professor (admin) pages
     '/professor/dashboard' => 'admin/main/dashboard.php',
@@ -90,9 +94,11 @@ $routes = [
     '/professor/manageCourses' => 'admin/main/manageCourses.php',
     '/addcourse' => 'admin/courses-controllers/AddCourse/newcourse.php',
     '/assignCourse' => 'admin/users-controllers/addCourse/addcourse.php',
-    '/professor/addquiz' => 'admin\courses-controllers\AddQuiz\addquiz.php',
-    '/professor/addquestion' => 'admin\courses-controllers\AddQuiz\addquestion.php'
+    '/professor/addquiz' => 'admin/courses-controllers/AddQuiz/addquiz.php',
+    '/professor/addquestion' => 'admin/courses-controllers/AddQuiz/addquestion.php'
 ];
+
+// not found
 
 if (!array_key_exists($uri, $routes)) {
     http_response_code(404);
@@ -100,6 +106,7 @@ if (!array_key_exists($uri, $routes)) {
     exit();
 }
 
+// user access pages  
 if (!in_array($uri, $routeAccess['public'])) {
 
     if (!isset($_SESSION['id'])) {

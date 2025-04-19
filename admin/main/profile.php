@@ -22,7 +22,7 @@ $getadmin = new admin();
 $adminData = $getadmin->getuser($userId);
 
 if (!$adminData) {
-    header("Location: ../src/login.php?error=UserNotFound");
+    header("Location: /login?error=UserNotFound");
     exit();
 }
 
@@ -51,7 +51,7 @@ if (!$adminData) {
             </div>
             <div class="profile-title">
                 <h1><?php echo htmlspecialchars($adminData['name']); ?></h1>
-                <br> <a href="../../src/editprofile.php" class="setadmin">Edit Profile</a>
+                <br> <a href="/editProfile" class="setadmin">Edit Profile</a>
             </div>
         </div>
 
