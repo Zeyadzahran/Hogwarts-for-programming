@@ -33,7 +33,7 @@ class admin extends Dbh{
         $stmt =$this->connect()->prepare($query);
         if (!$stmt->execute([$id])) {
             $stmt = null;
-            header("location: ../src/login.php?error=statementfailed");
+            header("location: /login?error=statementfailed");
             exit();
         }
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -68,7 +68,7 @@ class admin extends Dbh{
 
         if (!$stmt->execute([$id])) {
             $stmt = null;
-            header("location: ../src/login.php?error=statementfailed");
+            header("location: /login?error=statementfailed");
             exit();
         }
 
@@ -106,7 +106,7 @@ class admin extends Dbh{
         
         if(!$stmt->execute()){
             $stmt = null ;
-            header("location: ../admin/main/manageUsers.php?error=failedToDeleteUser");
+            header("location: /professor/manageUsers?error=failedToDeleteUser");
             exit();
         }
         return $stmt->fetchAll(PDO::FETCH_ASSOC); // return all users as associative array 
@@ -127,7 +127,7 @@ class admin extends Dbh{
 
             if (!$stmt->execute()) {
                 $stmt = null;
-                header("location: ../admin/main/manageCourses.php?error=failedToGetCourses");
+                header("location: /professor/manageCourses?error=failedToGetCourses");
                 exit();
             }
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -145,7 +145,7 @@ class admin extends Dbh{
 
             if (!$stmt->execute([$id])) {
                 $stmt = null;
-                header("location: ../admin/main/manageCourses.php?error=failedToGetCourses");
+                header("location: /professor/manageCourses?error=failedToGetCourses");
                 exit();
             }
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -161,7 +161,7 @@ class admin extends Dbh{
 
         if (!$stmt->execute()) {
             $stmt = null;
-            header("location: ../admin/main/dashboard.php?error=FailedToGetHouses");
+            header("location: /professor/dashboard?error=FailedToGetHouses");
             exit();
         }
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -177,7 +177,7 @@ class admin extends Dbh{
         
         if (!($stmt1->execute([$courseid]) && $stmt2->execute([$quizname,$courseid,$points]))) {
             $stmt = null;
-            header("location: ../admin/main/manageCourses.php?error=FailedToAddQuiz");
+            header("location: /professor/manageCourses?error=FailedToAddQuiz");
             exit();
         }
         return $stmt1->fetchAll(PDO::FETCH_ASSOC) && $stmt2->fetchAll(PDO::FETCH_ASSOC) ;
@@ -195,7 +195,7 @@ class admin extends Dbh{
     
         if (!$stmt->execute()) {
             $stmt = null;
-            header("location: ../admin/main/dashboard.php?error=statementfailed");
+            header("location: /professor/dashboard?error=statementfailed");
             exit();
         }
     
@@ -210,7 +210,7 @@ class admin extends Dbh{
         if (!$stmt->execute([$userId,$courseId])){
             $stmt=NULL;
             return false;
-            header("location: ../admin/main/dashboard.php?error=failed");
+            header("location: /professor/dashboard?error=failed");
             exit();
         }
         return true;
@@ -226,7 +226,7 @@ class admin extends Dbh{
             $stmt = $this->connect()->prepare($query1);
             if (!$stmt->execute([$coursename])){
                 $stmt=NULL;
-                header("location: ../admin/main/manageCourses.php?error=failed");
+                header("location: /professor/manageCourses?error=failed");
                 exit();
             }
             return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -235,7 +235,7 @@ class admin extends Dbh{
             $stmt1 = $this->connect()->prepare($query3);
             if (!$stmt1->execute([$professorname])){
                 $stmt1=NULL;
-                header("location: ../admin/main/manageCourses.php?error=failed");
+                header("location: /professor/manageCourses?error=failed");
                 exit();
             }
         $professor_id=$stmt1->fetch(PDO::FETCH_ASSOC)["id"];
@@ -244,7 +244,7 @@ class admin extends Dbh{
                $stmt2 = $this->connect()->prepare($query2);
                 if (!$stmt2->execute([$coursename, $professor_id])){
                     $stmt2=NULL;
-                    header("location: ../admin/main/manageCourses.php?error=failed");
+                    header("location: /professor/manageCourses?error=failed");
                     exit();
                 }
             }
@@ -260,7 +260,7 @@ class admin extends Dbh{
 
         if (!$stmt->execute([$quizname])){
             $stmt=NULL;
-            header("location: ../admin/course-controllers/AddQuiz/addquestion.php?error=failedToAddQuestion");
+            header("location: /professor/addquestion?error=failedToAddQuestion");
             exit();
         }
         return $stmt->fetch(PDO::FETCH_ASSOC); 
@@ -274,7 +274,7 @@ class admin extends Dbh{
 
         if (!$stmt->execute([$quiz_id,$question,$choice_a,$choice_b,$choice_c,$choice_d,$correct])){
             $stmt=NULL;
-            header("location: ../admin/course-controllers/AddQuiz/addquestion.php?error=failedToAddQuestion");
+            header("location: /professor/addquestion?error=failedToAddQuestion");
             exit();
         }
         return true; 

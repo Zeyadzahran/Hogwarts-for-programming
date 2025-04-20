@@ -1,3 +1,3 @@
 <?php
-    header("../main/dashboard.php");
+    header("/professor/dashboard");
     exit();

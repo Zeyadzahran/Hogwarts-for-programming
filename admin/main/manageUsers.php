@@ -55,12 +55,14 @@ $users = $obj->GetUsers($userId);
                             <span class="user-info-label">Wand</span>
                             <span class="user-info-value"><?php echo htmlspecialchars($user['wand_name']); ?></span>
                         </div>
-                        <?php if ($userId !== 1): ?>
                             <div class="user-info-item">
                                 <span class="user-info-label">House</span>
+                                <?PHP if($userRole === "Admin" && $user['role'] === "Student") : ?>
                                 <span class="user-info-value"><?php echo htmlspecialchars($user['house_name']); ?></span>
+                                <?php else :?>
+                                    <span class="user-info-value">Not Assigned</span>
+                                <?php endif; ?>
                             </div>
-                        <?php endif; ?>
                     </div>
                     <div class="user-actions">
                         <a href="/admin/users-controllers/deleteContr.php?id=<?php echo $user['id']; ?>" class="delete">Delete</a>

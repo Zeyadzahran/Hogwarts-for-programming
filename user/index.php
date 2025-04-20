@@ -1,3 +1,3 @@
 <?php
-    header("location: main/dashboard.php");
+    header("location: /student/dashboard");
     exit();
