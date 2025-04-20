@@ -29,22 +29,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $obj = new user();
 
-    $quizid = $obj->getQuizIdByCourse($_SESSION['course_id']);
+    $quizid = $obj->getQuizIdByCourse($courseid);
     $points = $obj->getQuizPoints($quizid);
     $degree = $points / count($quiz) * $_SESSION['counter'];
-    $obj->addQuizPoints($_SESSION['id'], $degree, $_SESSION['course_id']);
+    $obj->addQuizPoints($_SESSION['id'], $degree, $courseid);
     $obj->addHousePoints($_SESSION['house_id'], $degree);
 
-    $obj->setDone($_SESSION['id'], $_SESSION['course_id']);
+    $obj->setDone($_SESSION['id'], $courseid);
 
     $_SESSION['quizId'] = $quizid;
 
-    header("Location: /done");
+    header("Location: /done?id=$courseid");
     exit;
-} else if (isset($_SESSION['done'][$_SESSION['course_id']]) && $_SESSION['done'][$_SESSION['course_id']] === true) {
-    header("Location: /done");
+} else if (isset($_SESSION['done'][$courseid]) && $_SESSION['done'][$courseid] === true) {
+    header("Location: /done?id=$courseid");
     exit;
 } else {
-    header("Location: /quiz");
+    header("Location: /quiz?id=$courseid");
     exit;
 }
