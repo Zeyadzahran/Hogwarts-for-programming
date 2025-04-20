@@ -22,20 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     {
         $quiz[$question['question_text']] = $question['correct'];
     }
-    // = [
-    //     "answer1" => "False",
-    //     "answer2" => "True",
-    //     "answer3" => "True",
-    //     "answer4" => "False",
-    //     "answer5" => "True",
-    //     "answer6" => "True",
-    //     "answer7" => "rightAns",
-    //     "answer8" => "rightAns",
-    //     "answer9" => "rightAns",
-    //     "answer10" => "rightAns",
-    //     "answer11" => "rightAns",
-    //     "answer12" => "rightAns",
-    // ];
+    
 
     foreach($quiz as $key => $correct) :
         if(isset($_POST[$key]) && $_POST[$key] == $correct) ++$_SESSION['counter'];
