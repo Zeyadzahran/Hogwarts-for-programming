@@ -12,7 +12,9 @@ $obj = new user();
 //  print_r($_SESSION);
 //  echo "</pre>";
 
-$degree = $obj->getEnrollment($_SESSION['id'], $_SESSION['course_id'])['Marks'];
+$courseid = $_GET["courseid"];
+
+$degree = $obj->getEnrollment($_SESSION['id'], $courseid)['Marks'];
 
 ?>
 <!DOCTYPE html>
@@ -30,7 +32,7 @@ $degree = $obj->getEnrollment($_SESSION['id'], $_SESSION['course_id'])['Marks'];
   <div class="message-container">
     <h1>Congrats, You've Finished the Quiz!</h1>
     <a href="/courses" class="setadmin">Back To My Courses</a>
-    <h3>You got <?php echo $degree ?> Out of <?php echo $obj->getQuizPoints($obj->getQuizIdByCourse($_SESSION['course_id'])); ?></h3>
+    <h3>You got <?php echo $degree ?> Out of <?php echo $obj->getQuizPoints($obj->getQuizIdByCourse($courseid)); ?></h3>
   </div>
 </body>
 

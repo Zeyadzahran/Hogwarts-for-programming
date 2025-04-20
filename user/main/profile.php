@@ -73,7 +73,7 @@ $pointsPercentage = min(100, ($totalUserPoints / 100) * 100);
                 <p class="house-badge" style="background-color: <?php echo getHouseColor($userData['house_name'] ?? ''); ?>">
                     <?php echo htmlspecialchars($userData['house_name'] ?? "Not Assigned"); ?>
                 </p>
-                <br> <a href="../../src/editprofile.php" class="setadmin">Edit Profile</a>
+                <br> <a href="/editProfile" class="setadmin">Edit Profile</a>
             </div>
         </div>
 
