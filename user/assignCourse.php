@@ -4,7 +4,7 @@ require "userClass.php";
 
 session_start();
 if (!isset($_SESSION["id"]) or !isset($_GET['course_id'])) {
-    header("Location: ManageCourses.php?error=can'tManageCourses");
+    header("Location: /assignments?error=can'tManageCourses");
     exit();
 }
 $userId = $_SESSION['id'];
@@ -14,9 +14,9 @@ $obj = new user();
 
 $result = $obj->addNewCourse($userId,$courseId);
 if ($result) {
-    header("Location: main/ManageCourses.php?success=courseAssigned");
+    header("Location: /assignments?success=courseAssigned");
     exit();
 } else {
-    header("Location: main/ManageCourses.php?error=assignmentFailed");
+    header("Location: /assignments?error=assignmentFailed");
     exit();
 }

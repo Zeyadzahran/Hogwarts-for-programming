@@ -22,7 +22,7 @@ class user extends Dbh{
 
         if (!$stmt->execute([$id])) {
             $stmt = null;
-            header("location: ../src/login.php?error=statementfailed");
+            header("location: /login?error=statementfailed");
             exit();
         }
 
@@ -45,7 +45,7 @@ class user extends Dbh{
 
         if (!$stmt->execute([$id])) {
             $stmt = null;
-            header("location: dashboard.php?error=statementfailed");
+            header("location: /student/dashboard?error=statementfailed");
             exit();
         }
         
@@ -58,7 +58,7 @@ class user extends Dbh{
         
         if (!$stmt->execute()) {
             $stmt = null;
-            header("location: dashboard.php?error=statementfailed");
+            header("location: /student/dashboard?error=statementfailed");
             exit();
         }
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -72,7 +72,7 @@ class user extends Dbh{
         $stmt =$this->connect()->prepare($query);
         if (!$stmt->execute([$id])) {
             $stmt = null;
-            header("location: ../src/login.php?error=statementfailed");
+            header("location: /login?error=statementfailed");
             exit();
         }
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -87,7 +87,7 @@ class user extends Dbh{
         $stmt = $this->connect()->prepare($query);
         if (!$stmt->execute([$id])) {
             $stmt = null;
-            header("location: ../src/login.php?error=statementfailed");
+            header("location: /login?error=statementfailed");
             exit();
         }
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -111,7 +111,7 @@ class user extends Dbh{
 
          if (!$stmt->execute([$id])) {
             $stmt = null;
-            header("location: dashboard.php?error=statementfailed");
+            header("location: /student/dashboard?error=statementfailed");
             exit();
         }
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -124,7 +124,7 @@ class user extends Dbh{
 
         if (!$stmt->execute([$studentId, $courseId, 0])) {
             $stmt = null;
-            header("location: dashboard.php?error=statementfailed");
+            header("location: /student/dashboard?error=statementfailed");
             exit();
         }
 
@@ -165,7 +165,7 @@ class user extends Dbh{
         $stmt = $this->connect()->prepare($query);
         if(!$stmt->execute([$points,$student_id,$course_id]))
         {
-            header("location: ../coursee.php?error=statementfailed");
+            header("location: /courses?error=statementfailed");
             exit();
         }
 
@@ -176,7 +176,7 @@ class user extends Dbh{
         $query = "UPDATE house SET points = points + ? WHERE id = ? ;";
         $stmt = $this->connect()->prepare($query);
         if (!$stmt->execute([$points, $houseId])) {
-            header("location: ../coursee.php?error=statementfailed");
+            header("location: /courses?error=statementfailed");
             exit();
         }
         return true;
@@ -188,7 +188,7 @@ class user extends Dbh{
         $stmt = $this->connect()->prepare($query);
 
         if(!$stmt->execute([$student_id,$course_id])){
-            header("location: ../coursee.php?error=statementfailed");
+            header("location: /courses?error=statementfailed");
             exit();
         }
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -200,7 +200,7 @@ class user extends Dbh{
         $stmt = $this->connect()->prepare($query);
 
         if (!$stmt->execute([$student_id, $course_id])) {
-            header("location: ../coursee.php?error=statementfailed");
+            header("location: /courses?error=statementfailed");
             exit();
         }
         return true;
@@ -212,7 +212,7 @@ class user extends Dbh{
         $stmt = $this->connect()->prepare($query);
 
         if (!$stmt->execute([$id])) {
-            header("location: ../coursee.php?error=statementfailed");
+            header("location: /courses?error=statementfailed");
             exit();
         }
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -224,7 +224,7 @@ class user extends Dbh{
         $stmt = $this->connect()->prepare($query);
 
         if (!$stmt->execute([$id])) {
-            header("location: ../coursee.php?error=statementfailed");
+            header("location: /courses?error=statementfailed");
             exit();
         }
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -249,7 +249,7 @@ class user extends Dbh{
         $stmt = $this->connect()->prepare($query);
 
         if (!$stmt->execute([$course_id])) {
-            header("location: ../coursee.php?error=statementfailed");
+            header("location: /courses?error=statementfailed");
             exit();
         }
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

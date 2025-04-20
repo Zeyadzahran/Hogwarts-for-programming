@@ -150,7 +150,7 @@ if (isset($_GET['id'])) {
             <input type="number" name="duration" placeholder="Duration (minutes)" required>
             <input type="number" name="points" placeholder="Points" required>
         <button type="submit" name="add_question">Add Question</button>
-        <a href="/admin/main/manageCourses.php">Cancel</a>
+        <a href="/professor/manageCourses">Cancel</a>
         </form>
     </div>
 </body>
