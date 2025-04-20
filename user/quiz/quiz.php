@@ -17,40 +17,34 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $questions = $user->getQuestions($courseid);
 
 
-    $quiz= [];
-    foreach($questions as $question)
-    {
+    $quiz = [];
+    foreach ($questions as $question) {
         $quiz[$question['question_text']] = $question['correct'];
     }
-    
 
-    foreach($quiz as $key => $correct) :
-        if(isset($_POST[$key]) && $_POST[$key] == $correct) ++$_SESSION['counter'];
+    foreach ($quiz as $key => $correct) :
+        if (isset($_POST[$key]) && $_POST[$key] == $correct) ++$_SESSION['counter'];
     endforeach;
     // implment the logic for adding the points to db 
-    
+
     $obj = new user();
-    
+
     $quizid = $obj->getQuizIdByCourse($_SESSION['course_id']);
     $points = $obj->getQuizPoints($quizid);
     $degree = $points / count($quiz) * $_SESSION['counter'];
-    $obj->addQuizPoints($_SESSION['id'],$degree,$_SESSION['course_id']);
-    $obj->addHousePoints($_SESSION['house_id'],$degree);
+    $obj->addQuizPoints($_SESSION['id'], $degree, $_SESSION['course_id']);
+    $obj->addHousePoints($_SESSION['house_id'], $degree);
 
-    $obj->setDone($_SESSION['id'],$_SESSION['course_id']);
-    //==================================>
+    $obj->setDone($_SESSION['id'], $_SESSION['course_id']);
 
-    $_SESSION['quizId'] = $quizid; 
+    $_SESSION['quizId'] = $quizid;
 
-    header("Location: done.php");
+    header("Location: /done");
     exit;
-} else if(isset($_SESSION['done'][$_SESSION['course_id']]) && $_SESSION['done'][$_SESSION['course_id']] === true){
-    header("Location: done.php");
+} else if (isset($_SESSION['done'][$_SESSION['course_id']]) && $_SESSION['done'][$_SESSION['course_id']] === true) {
+    header("Location: /done");
     exit;
-}
-else{
-    header("Location: structureQuiz.php");
+} else {
+    header("Location: /quiz");
     exit;
 }
-
-?>
