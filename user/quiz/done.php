@@ -11,8 +11,6 @@
 
    $degree = $obj->getEnrollment($_SESSION['id'], $_SESSION['course_id'])['Marks'];
 
-  
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +25,8 @@
 <body>
 
   <div class="message-container">
-    <h1>You've Already Taken the Quiz!</h1>
-    <a href="../main/courses.php" class="setadmin">Back To My Courses</a>
+    <h1>Congrats, You've Finished the Quiz!</h1>
+    <a href="/courses" class="setadmin">Back To My Courses</a>
     <h3>You got <?php echo $degree ?> Out of <?php echo $obj->getQuizPoints($obj->getQuizIdByCourse($_SESSION['course_id'])); ?></h3>
   </div>
 </body>

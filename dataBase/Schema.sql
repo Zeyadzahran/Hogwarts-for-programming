@@ -1,3 +1,4 @@
+-- Active: 1742393829846@@127.0.0.1@3306@hogwarts
 CREATE DATABASE hogwarts;
 
 use hogwarts;

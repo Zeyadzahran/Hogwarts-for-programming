@@ -1,3 +1,3 @@
 <?php
-    header("location: structureQuiz.php");
+    header("location: /quiz");
     exit();

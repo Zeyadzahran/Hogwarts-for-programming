@@ -1,4 +1,4 @@
--- Active: 1739625100301@@127.0.0.1@3306@hogwarts
+-- Active: 1742393829846@@127.0.0.1@3306@hogwarts
 INSERT INTO
     Wand (name, core, wood)
 VALUES (
@@ -125,7 +125,7 @@ VALUES (
 INSERT INTO
     House (name, points)
 VALUES 
-    ('Ravenclaw', 0),
+    ('Ravenclaw', 100),
     ('Gryffindor', 0),
     ('Slytherin', 0),
     ('Hufflepuff', 0);
@@ -286,127 +286,104 @@ VALUES (
         'Admin',
         '123',
         11
-    ),
-    (
-        'Mohamed',
-        'mohamed@hogwarts.edu',
-        'Admin',
-        '123',
-        12
     );
-   INSERT INTO
+INSERT INTO
     Course (name, professor_id)
 VALUES ('Advanced Potion Making', 2),
     (
-        'Dark Arts and Cybersecurity',
-        2
+        'Dark Arts and Cybersecurity',2
     ),
     (
-        'Ethical Hacking with Dark Magic',
-        2
-    ),
-    ('Transfiguration', 3),
-    (
-        'Object-Oriented Spellcasting',
-        3
-    ),
-    ('Data Structures in Magic', 3),
-    ('Charms', 4),
-    (
-        'Algorithms and Enchantments',
-        4
-    ),
-    ('AI and Spell Automation', 4),
-    ('Herbology', 5),
-    (
-        'Potion Ingredients and Their Algorithms',
-        5
+        'Ethical Hacking with Dark Magic',2
     ),
     (
-        'Green Computing and Magical Sustainability',
-        5
-    ),
-    ('Advanced Potion Brewing', 6),
-    (
-        'Database Alchemy: SQL & Potions',
-        6
+        'Transfiguration', 3
     ),
     (
-        'System Security and Magical Defenses',
-        6
+        'Object-Oriented Spellcasting',3
     ),
     (
-        'Defense Against the Dark Arts',
-        7
+        'Data Structures in Magic', 3
     ),
     (
-        'Cyber Defense Against Black Hat Wizards',
-        7
+        'Charms', 4
     ),
     (
-        'Penetration Testing with Magic',
-        7
-    ),
-    ('Magical Public Speaking', 8),
-    (
-        'Frontend Enchantments: UI/UX Magic',
-        8
+        'Algorithms and Enchantments',4
     ),
     (
-        'Introduction to Wizarding Journalism',
-        8
+        'AI and Spell Automation', 4
     ),
     (
-        'Cryptography and Ancient Runes',
-        9
+        'Herbology', 5
     ),
     (
-        'Machine Learning for Spell Prediction',
-        9
+        'Potion Ingredients and Their Algorithms',5
     ),
     (
-        'Game Development with Magic',
-        9
+        'Green Computing and Magical Sustainability',5
     ),
     (
-        'Network Security and Protective Spells',
-        10
+        'Advanced Potion Brewing', 6
     ),
     (
-        'Full Stack Magic: Web Development',
-        10
+        'Database Alchemy: SQL & Potions',6
     ),
     (
-        'Defensive Coding and Magical Debugging',
-        10
+        'System Security and Magical Defenses',6
     ),
     (
-        'Cybersecurity for Wizards',
-        11
+        'Defense Against the Dark Arts',7
     ),
     (
-        'Deep Learning for Magical AI',
-        11
+        'Cyber Defense Against Black Hat Wizards',7
     ),
     (
-        'Hacking Spells and Countermeasures',
-        11
+        'Penetration Testing with Magic',7
     ),
     (
-        'Blockchain and Magical Smart Contracts',
-        12
+        'Magical Public Speaking', 8
     ),
     (
-        'Operating Systems in the Wizarding World',
-        12
+        'Frontend Enchantments: UI/UX Magic',8
     ),
     (
-        'Cloud Computing and Floating Data Charms',
-        12
+        'Introduction to Wizarding Journalism',8
+    ),
+    (
+        'Cryptography and Ancient Runes',9
+    ),
+    (
+        'Machine Learning for Spell Prediction',9
+    ),
+    (
+        'Game Development with Magic',9
+    ),
+    (
+        'Network Security and Protective Spells',10
+    ),
+    (
+        'Full Stack Magic: Web Development',10
+    ),
+    (
+        'Defensive Coding and Magical Debugging',10
+    ),
+    (
+        'Cybersecurity for Wizards',11
+    ),
+    (
+        'Deep Learning for Magical AI',11
+    ),
+    (
+        'Hacking Spells and Countermeasures',11
+    ),
+    (
+        'Blockchain and Magical Smart Contracts',12
+    ),
+    (
+        'Operating Systems in the Wizarding World',12
+    ),
+    (
+        'Cloud Computing and Floating Data Charms',12
     );
 
-
-INSERT INTO Course (name)
-VALUES 
-    ('AL'),
-    ('Operating System');

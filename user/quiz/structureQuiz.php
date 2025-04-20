@@ -13,7 +13,7 @@
   }
    require_once realpath(__DIR__ . '/../userClass.php');
    if(isset($_SESSION['done']) && $_SESSION['done'] === true){
-    header("Location: done.php");
+    header("Location: /done");
     exit; 
 }
     if (isset($_GET["courseid"]))
@@ -24,7 +24,7 @@
     $questions = $user->getQuestions($courseid);
 ?>
   <h1>Quiz Page</h1> 
-  <form action="/user/quiz/quiz.php?courseid=<?php echo $courseid ?>" method="POST" class="quiz-container">
+  <form action="/quiz?courseid=<?php echo $courseid ?>" method="POST" class="quiz-container">
 
   <?php
       $i = 1;

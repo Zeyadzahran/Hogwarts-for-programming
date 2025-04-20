@@ -27,8 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case '/professor/addquiz':
             require 'admin/courses-controllers/AddQuiz/savequiz.php';
             exit();
-            case '/professor/addquestion':
-                require 'admin/courses-controllers/AddQuiz/savequestion.php';
+        case '/professor/addquestion':
+            require 'admin/courses-controllers/AddQuiz/savequestion.php';
+        exit();
+        case '/quiz':
+            require 'user/quiz/quiz.php';
             exit();
     }
 }
@@ -52,7 +55,8 @@ $routeAccess = [
         '/shop',
         '/shop/buy',
         '/inventory',
-        '/quiz'
+        '/quiz',
+        '/done'
     ],
     // Professor (admin) routes
     'admin' => [
@@ -85,6 +89,7 @@ $routes = [
     '/shop/buy' => 'user/main/shop/BuyItem.php',
     '/inventory' => 'user/main/inventory.php',
     '/quiz' => 'user/quiz/structureQuiz.php',
+    '/done' => 'user/quiz/done.php',
 
     // Professor (admin) pages
     '/professor/dashboard' => 'admin/main/dashboard.php',
