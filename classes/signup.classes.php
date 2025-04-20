@@ -24,7 +24,7 @@ class Signup extends Dbh
         $house_id = rand(1, 4);
         $wand_id = rand(1, 24);
 
-        $query = 'insert into user(name,email,password,house_id,wand_id) values(?,?,?,?,?);';
+        $query = 'insert into user(name,email,password,house_id,wand_id)values(?,?,?,?,?);';
 
         $stmt = $this->connect()->prepare($query);
         if (!$stmt->execute([$name, $email, $password, $house_id, $wand_id])) { // remmember to insert the house and wand data ;

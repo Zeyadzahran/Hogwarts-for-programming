@@ -39,12 +39,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $_SESSION['quizId'] = $quizid;
 
-    header("Location: /done?id=$courseid");
+    header("Location: /done?courseid=$courseid");
     exit;
 } else if (isset($_SESSION['done'][$courseid]) && $_SESSION['done'][$courseid] === true) {
-    header("Location: /done?id=$courseid");
+    header("Location: /done?courseid=$courseid");
     exit;
 } else {
-    header("Location: /quiz?id=$courseid");
+    header("Location: /quiz?courseid=$courseid");
     exit;
 }

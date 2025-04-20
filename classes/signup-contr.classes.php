@@ -22,9 +22,6 @@ class SignupContr extends Signup
     }
 
 
-    // actully we don't need most of this cause we handle it with html
-    //  but i just want to give this class any fucking job 
-
     public function validateUser()
     {
         if ($this->emptyInput()) {

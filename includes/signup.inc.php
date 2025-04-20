@@ -18,6 +18,6 @@ if (isset($_POST["submit"])) {
     // validate & check for errors 
     $signup->validateUser();
 
-    // Going back to front page
+    // Going back to login page
     header("location: /login");
 }

@@ -56,11 +56,9 @@ $users = $obj->GetUsers($userId);
                             <span class="user-info-value"><?php echo htmlspecialchars($user['wand_name']); ?></span>
                         </div>
                             <div class="user-info-item">
-                                <span class="user-info-label">House</span>
                                 <?PHP if($userRole === "Admin" && $user['role'] === "Student") : ?>
+                                    <span class="user-info-label">House</span>
                                 <span class="user-info-value"><?php echo htmlspecialchars($user['house_name']); ?></span>
-                                <?php else :?>
-                                    <span class="user-info-value">Not Assigned</span>
                                 <?php endif; ?>
                             </div>
                     </div>
