@@ -37,7 +37,8 @@ Users have access to:
 
 ## 📂 Project Directory Structure
 ```
-hogwarts-for-programming/
+Directory structure:
+└── zeyadzahran-hogwarts-for-programming/
     ├── Readme.md
     ├── index.php
     ├── router.php
@@ -82,12 +83,11 @@ hogwarts-for-programming/
     │   ├── signup-contr.classes.php
     │   └── signup.classes.php
     ├── dataBase/
+    │   ├── erd.PNG
     │   ├── query.sql
     │   └── Schema.sql
     ├── includes/
-    │   ├── config.php
     │   ├── edit.inc.php
-    │   ├── functions.php
     │   ├── login.inc.php
     │   └── signup.inc.php
     ├── src/
@@ -125,6 +125,7 @@ hogwarts-for-programming/
             ├── quiz.php
             ├── quize.css
             └── structureQuiz.php
+
 
 ```
 
