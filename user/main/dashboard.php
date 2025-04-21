@@ -15,7 +15,7 @@ $userId = $_SESSION["id"];
 $username = $_SESSION["name"];
 
 
-$charCount = strlen($username) + 8; // +8 accounts for "Welcome, "
+$charCount = strlen($username) + 8; 
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +27,6 @@ $charCount = strlen($username) + 8; // +8 accounts for "Welcome, "
     <link rel="stylesheet" href="../../Styles/style.css">
     <title>Dashboard</title>
     <style>
-        /* Add these styles to your existing CSS */
         .centered-dashboard {
             display: flex;
             flex-direction: column;

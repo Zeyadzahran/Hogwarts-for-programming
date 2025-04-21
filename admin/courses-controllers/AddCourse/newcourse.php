@@ -1,9 +1,3 @@
-<?php
-if (isset($_GET['id'])) {
-    $courseid = $_GET['id'];
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
