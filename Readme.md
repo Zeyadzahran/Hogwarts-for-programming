@@ -4,36 +4,86 @@
 Welcome to Hogwarts Magic School! This project is a magical platform where users can experience the world of wizardry, enroll in courses, take quizzes, and engage in exciting activities.
 
 ## 🧐 Features
-### 🧙‍♂️ Admin Panel
-Admins have the following powers:
-- View all users.
-- Promote professors to admin.
-- Delete any user.
+### Register
 
-#### Grand Admin can:
-- View all available courses.
-- See which professors are teaching each course.
+![Register](Styles/register.PNG)
 
-#### Professor Admin can:
-- View only the courses they teach.
-- Add quizzes to their courses.
+### login
+
+![login](Styles/login.PNG)
 
 ### 🎩 User Features
 Users have access to:
 - **Profile Page** 📜
   - View their name, email, house, and wand.
+
+  ![profile](Styles/editprofile.PNG)
+
 - **Course Enrollment** 🏭
   - Enroll in any available course.
+
+  ![assignCourse](Styles/assignCourses.PNG)
+
   - Take quizzes and receive grades.
+  ![Quiz](quiz.jpg)
+
 - **Shop** 🛒
   - Purchase magical items.
+
+  ![shop](Styles/shop.PNG)
+
 - **Inventory** 🎒
   - Items appear in the Inventory Page.
+
+  ![Inventory](Styles/inventory.PNG)
+
 - **🏆 Houses Leaderboard**
   - View the ranking of houses based on total points.
+
+  ![leaderBoard](Styles/leaderboard.PNG)
+
 - **📊 House Points System**
   - Each house's total points are calculated from the sum of all students' grades within that house.
   - The leaderboard appears on both Admin and User dashboards.
+
+### 🧙‍♂️ Admin Panel
+Admins have the following powers:
+- View all Students.
+- Promote professors to admin.
+- Delete any user.
+
+![userData](Styles/manageusers.PNG)
+
+#### Grand Admin can:
+- View all users Students or professors
+
+![AllUsers](Styles/usersdataDemb.PNG)
+
+- add to a specific professor a course
+
+![NotAssignedCourses](Styles/notassigned.PNG)
+
+- View all available courses.
+- See which professors are teaching each course.
+
+![AllCourse](Styles/allcoursesDemb.PNG)
+
+- add new course to any professor
+
+![AddNewCourse](Styles/addnewcourseDemb.PNG)
+
+
+#### Professor Admin can:
+- View only the courses they teach.
+
+![Courses](Styles/managecourses.PNG)
+
+- Add quizzes and its questiones to their courses.
+
+![AddQuiz](Styles/addnewquiz.PNG)
+
+![Question](Styles/question.PNG)
+
 
 ## 📂 Project Directory Structure
 ```
