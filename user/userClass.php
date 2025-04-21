@@ -134,13 +134,10 @@ class user extends Dbh{
 
     public function getQuizIdByCourse($course_id)
     {
-        $query = "SELECT id FROM Quiz WHERE course_id = :course_id";
+        $query = "SELECT id FROM Quiz WHERE course_id = ?";
         $stmt = $this->connect()->prepare($query);
-        $stmt->bindParam(':course_id', $course_id, PDO::PARAM_INT);
-        $stmt->execute();
-
+        $stmt->execute([$course_id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
-    
     }
     
     public function getQuizPoints($quiz_id)

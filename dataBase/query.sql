@@ -125,10 +125,10 @@ VALUES (
 INSERT INTO
     House (name, points)
 VALUES 
-    ('Ravenclaw', 0),
-    ('Gryffindor', 0),
-    ('Slytherin', 0),
-    ('Hufflepuff', 0);
+    ('Ravenclaw', 500),
+    ('Gryffindor', 100),
+    ('Slytherin', 50),
+    ('Hufflepuff', 20);
 
 
 
@@ -185,18 +185,18 @@ VALUES (
         'img/Flaming Arcane Wand.png'
     ),
     (
-    'Starlit Sorcerer’s Staff',
-    'A tall, elegant staff of darkwood with a floating crystal orb radiating cosmic energy.',
-    'img/Starlit_Sorcerers_Staff.png'
+        'Starlit Sorcerer’s Staff',
+        'A tall, elegant staff of darkwood with a floating crystal orb radiating cosmic energy.',
+        'img/Starlit_Sorcerers_Staff.png'
     ),(
-    'Shadowveil Cloak',
-    'A flowing black cloak infused with shadow magic, allowing the wearer to blend into darkness.',
-    'img/Shadowveil_Cloak.png'
+        'Shadowveil Cloak',
+        'A flowing black cloak infused with shadow magic, allowing the wearer to blend into darkness.',
+        'img/Shadowveil_Cloak.png'
     ),
     (
-    'Runebound Grimoire',
-    'An ancient tome filled with powerful incantations, its pages shimmer with arcane symbols.',
-    'img/Runebound_Grimoire.png'
+        'Runebound Grimoire',
+        'An ancient tome filled with powerful incantations, its pages shimmer with arcane symbols.',
+        'img/Runebound_Grimoire.png'
     );
 
 
@@ -210,203 +210,212 @@ VALUES (
         password,
         wand_id
     )
-VALUES (
-        'Albus Dumbledore',
-        'dumbledore@hogwarts.edu',
-        'Admin',
-        '123',
-        1
-    ),
-    (
-        'Severus Snape',
-        'snape@hogwarts.edu',
-        'Admin',
-        '123',
-        2
-    ),
-    (
-        'Minerva McGonagall',
-        'mcgonagall@hogwarts.edu',
-        'Admin',
-        '123',
-        3
-    ),
-    (
-        'Filius Flitwick',
-        'flitwick@hogwarts.edu',
-        'Admin',
-        '123',
-        4
-    ),
-    (
-        'Pomona Sprout',
-        'sprout@hogwarts.edu',
-        'Admin',
-        '123',
-        5
-    ),
-    (
-        'Horace Slughorn',
-        'slughorn@hogwarts.edu',
-        'Admin',
-        '123',
-        6
-    ),
-    (
-        'Remus Lupin',
-        'lupin@hogwarts.edu',
-        'Admin',
-        '123',
-        7
-    ),
-    (
-        'Gilderoy Lockhart',
-        'lockhart@hogwarts.edu',
-        'Admin',
-        '123',
-        8
-    ),
-    (
-        'Zeyad',
-        'zeyad@hogwarts.edu',
-        'Admin',
-        '123',
-        9
-    ),
-    (
-        'Tahany',
-        'tahany@hogwarts.edu',
-        'Admin',
-        '123',
-        10
-    ),
-    (
-        'Shams',
-        'shams@hogwarts.edu',
-        'Admin',
-        '123',
-        11
-    ),
-    (
-        'Mohamed',
-        'mohamed@hogwarts.edu',
-        'Admin',
-        '123',
-        12
-    );
+    VALUES (
+            'Albus Dumbledore',
+            'dumbledore@hogwarts.edu',
+            'Admin',
+            '123456',
+            1
+        ),
+        (
+            'Severus Snape',
+            'snape@hogwarts.edu',
+            'Admin',
+            '123456',
+            2
+        ),
+        (
+            'Minerva McGonagall',
+            'mcgonagall@hogwarts.edu',
+            'Admin',
+            '123456',
+            3
+        ),
+        (
+            'Filius Flitwick',
+            'flitwick@hogwarts.edu',
+            'Admin',
+            '123456',
+            4
+        ),
+        (
+            'Pomona Sprout',
+            'sprout@hogwarts.edu',
+            'Admin',
+            '123456',
+            5
+        ),
+        (
+            'Horace Slughorn',
+            'slughorn@hogwarts.edu',
+            'Admin',
+            '123456',
+            6
+        ),
+        (
+            'Remus Lupin',
+            'lupin@hogwarts.edu',
+            'Admin',
+            '123456',
+            7
+        ),
+        (
+            'Gilderoy Lockhart',
+            'lockhart@hogwarts.edu',
+            'Admin',
+            '123456',
+            8
+        ),
+        (
+            'Zeyad',
+            'zeyad@hogwarts.edu',
+            'Admin',
+            '123456',
+            9
+        ),
+        (
+            'Tahany',
+            'tahany@hogwarts.edu',
+            'Admin',
+            '123456',
+            10
+        ),
+        (
+            'Shams',
+            'shams@hogwarts.edu',
+            'Admin',
+            '123456',
+            11
+        );
    INSERT INTO
     Course (name, professor_id)
-VALUES ('Advanced Potion Making', 2),
-    (
-        'Dark Arts and Cybersecurity',
-        2
-    ),
-    (
-        'Ethical Hacking with Dark Magic',
-        2
-    ),
-    ('Transfiguration', 3),
-    (
-        'Object-Oriented Spellcasting',
-        3
-    ),
-    ('Data Structures in Magic', 3),
-    ('Charms', 4),
-    (
-        'Algorithms and Enchantments',
-        4
-    ),
-    ('AI and Spell Automation', 4),
-    ('Herbology', 5),
-    (
-        'Potion Ingredients and Their Algorithms',
-        5
-    ),
-    (
-        'Green Computing and Magical Sustainability',
-        5
-    ),
-    ('Advanced Potion Brewing', 6),
-    (
-        'Database Alchemy: SQL & Potions',
-        6
-    ),
-    (
-        'System Security and Magical Defenses',
-        6
-    ),
-    (
-        'Defense Against the Dark Arts',
-        7
-    ),
-    (
-        'Cyber Defense Against Black Hat Wizards',
-        7
-    ),
-    (
-        'Penetration Testing with Magic',
-        7
-    ),
-    ('Magical Public Speaking', 8),
-    (
-        'Frontend Enchantments: UI/UX Magic',
-        8
-    ),
-    (
-        'Introduction to Wizarding Journalism',
-        8
-    ),
-    (
-        'Cryptography and Ancient Runes',
-        9
-    ),
-    (
-        'Machine Learning for Spell Prediction',
-        9
-    ),
-    (
-        'Game Development with Magic',
-        9
-    ),
-    (
-        'Network Security and Protective Spells',
-        10
-    ),
-    (
-        'Full Stack Magic: Web Development',
-        10
-    ),
-    (
-        'Defensive Coding and Magical Debugging',
-        10
-    ),
-    (
-        'Cybersecurity for Wizards',
-        11
-    ),
-    (
-        'Deep Learning for Magical AI',
-        11
-    ),
-    (
-        'Hacking Spells and Countermeasures',
-        11
-    ),
-    (
-        'Blockchain and Magical Smart Contracts',
-        12
-    ),
-    (
-        'Operating Systems in the Wizarding World',
-        12
-    ),
-    (
-        'Cloud Computing and Floating Data Charms',
-        12
-    );
+    VALUES ('Advanced Potion Making', 2),
+        (
+            'Dark Arts and Cybersecurity',
+            2
+        ),
+        (
+            'Ethical Hacking with Dark Magic',
+            2
+        ),
+        (
+            'Transfiguration', 
+            3
+        ),
+        (
+            'Object-Oriented Spellcasting',
+            3
+        ),
+        (
+            'Data Structures in Magic',
+            3
+        ),
+        (
+            'Charms', 
+            4
+        ),
+        (
+            'Algorithms and Enchantments',
+            4
+        ),
+        (
+            'AI and Spell Automation', 
+            4
+        ),
+        (
+            'Herbology',
+            5
+        ),
+        (
+            'Potion Ingredients and Their Algorithms',
+            5
+        ),
+        (
+            'Green Computing and Magical Sustainability',
+            5
+        ),
+        (
+            'Advanced Potion Brewing', 
+            6
+        ),
+        (
+            'Database Alchemy: SQL & Potions',
+            6
+        ),
+        (
+            'System Security and Magical Defenses',
+            6
+        ),
+        (
+            'Defense Against the Dark Arts',
+            7
+        ),
+        (
+            'Cyber Defense Against Black Hat Wizards',
+            7
+        ),
+        (
+            'Penetration Testing with Magic',
+            7
+        ),
+        (
+            'Magical Public Speaking', 
+            8
+        ),
+        (
+            'Frontend Enchantments: UI/UX Magic',
+            8
+        ),
+        (
+            'Introduction to Wizarding Journalism',
+            8
+        ),
+        (
+            'Cryptography and Ancient Runes',
+            9
+        ),
+        (
+            'Machine Learning for Spell Prediction',
+            9
+        ),
+        (
+            'Game Development with Magic',
+            9
+        ),
+        (
+            'Network Security and Protective Spells',
+            10
+        ),
+        (
+            'Full Stack Magic: Web Development',
+            10
+        ),
+        (
+            'Defensive Coding and Magical Debugging',
+            10
+        ),
+        (
+            'Cybersecurity for Wizards',
+            11
+        ),
+        (
+            'Deep Learning for Magical AI',
+            11
+        ),
+        (
+            'Hacking Spells and Countermeasures',
+            11
+        ),
+        (
+            'Blockchain and Magical Smart Contracts',
+            12
+        ),
+        (
+            'Operating Systems in the Wizarding World',
+            12
+        ),
+        (
+            'Cloud Computing and Floating Data Charms',
+            12
+        );
 
-
-INSERT INTO Course (name)
-VALUES 
-    ('AL'),
-    ('Operating System');

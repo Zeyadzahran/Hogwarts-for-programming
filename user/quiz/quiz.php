@@ -29,8 +29,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $obj = new user();
 
-    $quizid = $obj->getQuizIdByCourse($courseid);
+    $quizData = $obj->getQuizIdByCourse($courseid);
+    $quizid = $quizData['id']; 
     $points = $obj->getQuizPoints($quizid);
+
+    // echo $quizid["id"];
+    // echo  $points;
+    // exit;
     $degree = $points / count($quiz) * $_SESSION['counter'];
     $obj->addQuizPoints($_SESSION['id'], $degree, $courseid);
     $obj->addHousePoints($_SESSION['house_id'], $degree);

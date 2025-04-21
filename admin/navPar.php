@@ -1,5 +1,5 @@
 <?php
-$current_uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+    $current_uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 ?>
 
 <link rel="stylesheet" href="../Styles/style.css">
