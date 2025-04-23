@@ -1,5 +1,8 @@
 # 🏰 Hogwarts Magic School Project
 
+## Live Demo 
+https://zyad.almiraj.xyz/
+
 ## ✨ Overview
 Welcome to Hogwarts Magic School! This project is a magical platform where users can experience the world of wizardry, enroll in courses, take quizzes, and engage in exciting activities.
 
